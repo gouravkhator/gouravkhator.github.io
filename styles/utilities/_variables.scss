@@ -1,0 +1,29 @@
+/*
+Usages:
+
+primary bg color for page colors.
+
+secondary bg colors for nav colors and can be used anywhere (bg1 for upper part of nav and bg2 for lower part to make the best gradient).
+
+primary font color for font color on pages.
+
+secondary font color for nav font colors and other areas.
+
+font size for the root element.
+
+outward padding for th padding used in nav and section elements to give exact same padding.
+*/
+$primary_bg_color: whitesmoke;
+
+// old secondary colors
+// $secondary_bg1_color: #DA1C1E;
+// $secondary_bg2_color: #E72567;
+
+$secondary_bg1_color: #7e0a0c;
+$secondary_bg2_color: rgb(255, 151, 151);
+
+$primary_font_color: #000;
+$secondary_font_color: #FAFAFA;
+$font-size: 62.5%;
+
+$outward-padding: 4rem;

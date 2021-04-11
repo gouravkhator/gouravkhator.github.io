@@ -1,0 +1,45 @@
+$secondary_font1_color: rgb(59, 4, 4);
+$secondary_font2_color: rgb(129, 62, 62);
+
+section#home{
+    max-height: 100vh;
+    padding: $outward-padding + 1rem;
+    display: grid;
+    grid-template-areas: 'title image' 'description description';
+
+    article#title, article#description{
+        padding: 0 2rem;
+    }
+
+    article#title{
+        grid-area: title;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        font-size: 4.5rem;
+        font-weight: 500;
+
+        span{
+            background: linear-gradient(to bottom, $secondary_font1_color, $secondary_font2_color);
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            // -webkit-background-clip: text;
+        }
+    }
+
+    article#image-wrapper{
+        grid-area: image;
+    }
+
+    article#description{
+        grid-area: description;
+    }
+
+    article#image-wrapper img{
+        $width: 35rem;
+        // $clippedSize: calc(0.4*$width);
+        width: $width;
+        clip-path: circle(at 55% 50%);
+    }
+}

@@ -1,0 +1,37 @@
+@import "./utilities/variables";
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: $font-size;
+    // this is set in html element or root element so that we can use rem which works relative to the root element only
+    //in em, the font-size works relative to its parent element
+}
+
+body{
+    background-color: $primary_bg_color;
+    color: $primary_font_color;
+
+    display: grid;
+    grid-template: 1fr auto / auto 1fr;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+   list-style: none;
+}
+
+header{
+    height: 100vh;
+}
+
+@import "./nav";
+@import "./home";

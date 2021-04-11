@@ -1,0 +1,123 @@
+/*
+Usages:
+
+primary bg color for page colors.
+
+secondary bg colors for nav colors and can be used anywhere (bg1 for upper part of nav and bg2 for lower part to make the best gradient).
+
+primary font color for font color on pages.
+
+secondary font color for nav font colors and other areas.
+
+font size for the root element.
+
+outward padding for th padding used in nav and section elements to give exact same padding.
+*/
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: whitesmoke;
+  color: #000;
+  display: grid;
+  grid-template: 1fr auto/auto 1fr;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  height: 100vh;
+}
+
+nav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  background: linear-gradient(to bottom, #7e0a0c, #ff9797);
+  padding: 4rem;
+}
+nav a {
+  color: #FAFAFA;
+}
+nav img {
+  width: 45px;
+  fill: aliceblue;
+}
+nav ul.nav-sections {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+}
+nav ul.nav-sections li {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 12px 0;
+  width: 100%;
+  padding: 5px 0;
+  letter-spacing: 3px;
+}
+nav ul.nav-sections li a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+nav ul.nav-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+}
+
+section#home {
+  max-height: 100vh;
+  padding: 5rem;
+  display: grid;
+  grid-template-areas: "title image" "description description";
+}
+section#home article#title, section#home article#description {
+  padding: 0 2rem;
+}
+section#home article#title {
+  grid-area: title;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 4.5rem;
+  font-weight: 500;
+}
+section#home article#title span {
+  background: linear-gradient(to bottom, #3b0404, #813e3e);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+section#home article#image-wrapper {
+  grid-area: image;
+}
+section#home article#description {
+  grid-area: description;
+}
+section#home article#image-wrapper img {
+  width: 35rem;
+  -webkit-clip-path: circle(at 55% 50%);
+          clip-path: circle(at 55% 50%);
+}/*# sourceMappingURL=main.css.map */
