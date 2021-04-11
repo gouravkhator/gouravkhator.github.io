@@ -8,7 +8,7 @@
 
 html{
     font-family: 'M PLUS Rounded 1c', sans-serif;
-    font-size: $font-size;
+    font-size: $font_size;
     // this is set in html element or root element so that we can use rem which works relative to the root element only
     //in em, the font-size works relative to its parent element
 }
@@ -18,7 +18,6 @@ body{
     color: $primary_font_color;
 
     display: grid;
-    grid-template: 1fr auto / auto 1fr;
 }
 
 a{
@@ -31,6 +30,13 @@ ul{
 
 header{
     height: 100vh;
+}
+
+main{
+    position: absolute;
+    left: $nav_width;
+    height: 100vh;
+    min-width: 75vw; // so that main element doesn't collapse
 }
 
 @import "./nav";

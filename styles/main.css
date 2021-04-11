@@ -9,9 +9,13 @@ primary font color for font color on pages.
 
 secondary font color for nav font colors and other areas.
 
+title font1 color and title font2 color is for home page title colors.
+
 font size for the root element.
 
-outward padding for th padding used in nav and section elements to give exact same padding.
+inner padding for the padding used in nav and section elements to give exact same padding.
+
+nav width is the width taken by the navbar on left side.
 */
 *, *::before, *::after {
   margin: 0;
@@ -28,7 +32,6 @@ body {
   background-color: whitesmoke;
   color: #000;
   display: grid;
-  grid-template: 1fr auto/auto 1fr;
 }
 
 a {
@@ -43,14 +46,27 @@ header {
   height: 100vh;
 }
 
+main {
+  position: absolute;
+  left: min(20vw, 250px);
+  height: 100vh;
+  min-width: 75vw;
+}
+
 nav {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
   background: linear-gradient(to bottom, #7e0a0c, #ff9797);
+  width: min(20vw, 250px);
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
   padding: 4rem;
 }
 nav a {
@@ -88,21 +104,23 @@ nav ul.nav-links {
 
 section#home {
   max-height: 100vh;
-  padding: 5rem;
+  padding: 5rem 7rem;
   display: grid;
   grid-template-areas: "title image" "description description";
 }
 section#home article#title, section#home article#description {
-  padding: 0 2rem;
-}
-section#home article#title {
-  grid-area: title;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+section#home article#title {
+  grid-area: title;
   gap: 2rem;
-  font-size: 4.5rem;
+  font-size: 6rem;
   font-weight: 500;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
 }
 section#home article#title span {
   background: linear-gradient(to bottom, #3b0404, #813e3e);
@@ -110,11 +128,25 @@ section#home article#title span {
   -webkit-background-clip: text;
           background-clip: text;
 }
-section#home article#image-wrapper {
-  grid-area: image;
-}
 section#home article#description {
   grid-area: description;
+  gap: 0.5rem;
+  font-size: 3rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-style: italic;
+  color: #575656;
+}
+section#home article#image-wrapper {
+  grid-area: image;
+  display: flex;
+  align-items: flex-start;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  filter: drop-shadow(-1px 15px 10px #ff9797) drop-shadow(-12px 2px 7px #7e0a0c);
 }
 section#home article#image-wrapper img {
   width: 35rem;

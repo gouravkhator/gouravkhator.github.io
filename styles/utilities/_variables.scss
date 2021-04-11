@@ -9,10 +9,15 @@ primary font color for font color on pages.
 
 secondary font color for nav font colors and other areas.
 
+title font1 color and title font2 color is for home page title colors.
+
 font size for the root element.
 
-outward padding for th padding used in nav and section elements to give exact same padding.
+inner padding for the padding used in nav and section elements to give exact same padding.
+
+nav width is the width taken by the navbar on left side.
 */
+
 $primary_bg_color: whitesmoke;
 
 // old secondary colors
@@ -24,6 +29,11 @@ $secondary_bg2_color: rgb(255, 151, 151);
 
 $primary_font_color: #000;
 $secondary_font_color: #FAFAFA;
-$font-size: 62.5%;
 
-$outward-padding: 4rem;
+$title_font1_color: rgb(59, 4, 4);
+$title_font2_color: rgb(129, 62, 62);
+
+$font_size: 62.5%;
+
+$inner_padding: 4rem;
+$nav_width: min(20vw, 250px);
