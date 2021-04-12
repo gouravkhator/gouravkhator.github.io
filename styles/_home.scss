@@ -1,18 +1,23 @@
 section#home{
     max-height: 100vh;
-    padding: $inner_padding + 1rem  $inner_padding + 3rem;
+    height: 100vh;
     display: grid;
+    grid-template-rows: max-content; // so that rows don't expand much
     grid-template-areas: 'title image' 'description description';
 
+    // title is placed in center of that grid cell
+    // description is placed in flex-start of that grid cell
+    // image wrapper is placed in center of that grid cell
+    
     article#title, article#description{
         display: flex;
         flex-direction: column;
-        justify-content: center;
     }
 
     article#title{
         grid-area: title;
         gap: 2rem;
+        justify-content: center;
         font-size: 6rem;
         font-weight: 500;
         max-width: max-content;
@@ -39,14 +44,28 @@ section#home{
         align-items: flex-start;
         min-width: fit-content;
         max-width: max-content;
-        filter: drop-shadow(-1px 15px 10px $secondary_bg2_color) drop-shadow(-12px 2px 7px $secondary_bg1_color);
+
+        filter: drop-shadow(12px -2px 10px $secondary_bg2_color) drop-shadow(-12px 3px 10px $secondary_bg1_color) drop-shadow(0px 7px 3px $secondary_bg1_color);
         // adding drop shadow on image wrapper helps to have shadow on clipped image
+
+        &:hover, &:focus {
+            animation: imageRollup 1.2s ease-in-out 0s infinite alternate;
+        }
+
+        img{
+            $image_width: 35rem;
+            // $clippedSize: calc(0.4*$width);
+            width: $image_width;
+            clip-path: circle(at 55% 50%);
+        }
     }
 
-    article#image-wrapper img{
-        $image_width: 35rem;
-        // $clippedSize: calc(0.4*$width);
-        width: $image_width;
-        clip-path: circle(at 55% 50%);
+    @keyframes imageRollup {
+        from{
+            transform: rotateY(0deg) scale(1, 1);
+        }
+        to{
+            transform: rotateY(65deg) scale(1.2, 1.1);
+        }        
     }
 }

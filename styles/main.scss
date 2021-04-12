@@ -29,15 +29,28 @@ ul{
 }
 
 header{
+    position: fixed;
     height: 100vh;
+    min-height: 100vh;
+    z-index: 100;
 }
 
 main{
     position: absolute;
     left: $nav_width;
-    height: 100vh;
+    top: 0;
+    min-height: 200vh;
     min-width: 75vw; // so that main element doesn't collapse
+
+    // padding inside main
+    padding: $inner_padding + 10px  $inner_padding + 30px;
+
+    section{
+        // padding in each section to avoid sticking with each other
+        padding: 30px 0;
+    }
 }
 
 @import "./nav";
 @import "./home";
+@import "./projects";

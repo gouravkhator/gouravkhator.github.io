@@ -3,7 +3,7 @@ Usages:
 
 primary bg color for page colors.
 
-secondary bg colors for nav colors and can be used anywhere (bg1 for upper part of nav and bg2 for lower part to make the best gradient).
+secondary bg colors for nav colors and can be used anywhere (bg1 for dark colors like for upper part of nav and bg2 for light colors like for lower part to make the best gradient). Its also used for buttons and different shadows.
 
 primary font color for font color on pages.
 
@@ -20,20 +20,26 @@ nav width is the width taken by the navbar on left side.
 
 $primary_bg_color: whitesmoke;
 
-// old secondary colors
-// $secondary_bg1_color: #DA1C1E;
-// $secondary_bg2_color: #E72567;
+// purplish backgrounds
+$secondary_bg1_color: #802657;
+$secondary_bg2_color: #b9627f;
 
-$secondary_bg1_color: #7e0a0c;
-$secondary_bg2_color: rgb(255, 151, 151);
+// minimal brownish
+// $secondary_bg1_color: #7e0a0c;
+// $secondary_bg2_color: rgb(255, 151, 151);
 
 $primary_font_color: #000;
 $secondary_font_color: #FAFAFA;
 
-$title_font1_color: rgb(59, 4, 4);
+// purplish titles
+$title_font1_color: rgb(59, 4, 25);
 $title_font2_color: rgb(129, 62, 62);
+
+// minimal brownish
+// $title_font1_color: rgb(59, 4, 4);
+// $title_font2_color: rgb(129, 62, 62);
 
 $font_size: 62.5%;
 
-$inner_padding: 4rem;
+$inner_padding: 40px;
 $nav_width: min(20vw, 250px);

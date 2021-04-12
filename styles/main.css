@@ -3,7 +3,7 @@ Usages:
 
 primary bg color for page colors.
 
-secondary bg colors for nav colors and can be used anywhere (bg1 for upper part of nav and bg2 for lower part to make the best gradient).
+secondary bg colors for nav colors and can be used anywhere (bg1 for dark colors like for upper part of nav and bg2 for light colors like for lower part to make the best gradient). Its also used for buttons and different shadows.
 
 primary font color for font color on pages.
 
@@ -43,14 +43,22 @@ ul {
 }
 
 header {
+  position: fixed;
   height: 100vh;
+  min-height: 100vh;
+  z-index: 100;
 }
 
 main {
   position: absolute;
   left: min(20vw, 250px);
-  height: 100vh;
+  top: 0;
+  min-height: 200vh;
   min-width: 75vw;
+  padding: 50px 70px;
+}
+main section {
+  padding: 30px 0;
 }
 
 nav {
@@ -58,16 +66,13 @@ nav {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  background: linear-gradient(to bottom, #7e0a0c, #ff9797);
+  background: linear-gradient(to bottom, #802657, #b9627f);
   width: min(20vw, 250px);
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
   height: inherit;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 4rem;
+  padding: 40px;
 }
 nav a {
   color: #FAFAFA;
@@ -104,18 +109,20 @@ nav ul.nav-links {
 
 section#home {
   max-height: 100vh;
-  padding: 5rem 7rem;
+  height: 100vh;
   display: grid;
+  grid-template-rows: -webkit-max-content;
+  grid-template-rows: max-content;
   grid-template-areas: "title image" "description description";
 }
 section#home article#title, section#home article#description {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 section#home article#title {
   grid-area: title;
   gap: 2rem;
+  justify-content: center;
   font-size: 6rem;
   font-weight: 500;
   max-width: -webkit-max-content;
@@ -123,7 +130,7 @@ section#home article#title {
   max-width: max-content;
 }
 section#home article#title span {
-  background: linear-gradient(to bottom, #3b0404, #813e3e);
+  background: linear-gradient(to bottom, #3b0419, #813e3e);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
           background-clip: text;
@@ -146,10 +153,83 @@ section#home article#image-wrapper {
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
-  filter: drop-shadow(-1px 15px 10px #ff9797) drop-shadow(-12px 2px 7px #7e0a0c);
+  filter: drop-shadow(12px -2px 10px #b9627f) drop-shadow(-12px 3px 10px #802657) drop-shadow(0px 7px 3px #802657);
+}
+section#home article#image-wrapper:hover, section#home article#image-wrapper:focus {
+  -webkit-animation: imageRollup 1.2s ease-in-out 0s infinite alternate;
+          animation: imageRollup 1.2s ease-in-out 0s infinite alternate;
 }
 section#home article#image-wrapper img {
   width: 35rem;
   -webkit-clip-path: circle(at 55% 50%);
           clip-path: circle(at 55% 50%);
+}
+@-webkit-keyframes imageRollup {
+  from {
+    transform: rotateY(0deg) scale(1, 1);
+  }
+  to {
+    transform: rotateY(65deg) scale(1.2, 1.1);
+  }
+}
+@keyframes imageRollup {
+  from {
+    transform: rotateY(0deg) scale(1, 1);
+  }
+  to {
+    transform: rotateY(65deg) scale(1.2, 1.1);
+  }
+}
+
+section#projects {
+  min-height: 100vh;
+}
+section#projects #projects-heading {
+  font-size: 4rem;
+}
+section#projects article#project-section {
+  display: grid;
+  grid-template-areas: "title image" "description image" "links image";
+  gap: 15px;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  border: 2px solid #802657;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 2px 7px 7px #802657;
+}
+section#projects article#project-section:nth-child(2n+1) {
+  grid-template-areas: "image title" "image description" "image links";
+}
+section#projects #project-title {
+  grid-area: title;
+  color: #3b0419;
+}
+section#projects #project-description {
+  grid-area: description;
+  width: clamp(30ch, 75vw, 80ch);
+  color: #575656;
+}
+section#projects #project-links {
+  grid-area: links;
+  display: flex;
+  gap: 25px;
+}
+section#projects #project-links a {
+  display: block;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-weight: 600;
+  background: #802657;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 30px;
+  transition: all 0.2s ease-in;
+}
+section#projects #project-links a:hover, section#projects #project-links a:focus {
+  background: #df93bc;
+  color: black;
+}
+section#projects #project-img-wrapper {
+  grid-area: image;
+  position: relative;
 }/*# sourceMappingURL=main.css.map */
