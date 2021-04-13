@@ -6,7 +6,9 @@ $button-font-color-hovered: darken($secondary-bg1-color, $amount: 50);
 $outer-border-project: 10px;
 
 section#projects{
-    min-height: 100vh;
+    // previously I wanted both sections on different pages, so height was 100vh
+    // min-height: 100vh;
+    // height: 100vh;
 
     #projects-heading{
         font-size: 4rem;
@@ -22,7 +24,12 @@ section#projects{
         border: 2px solid $secondary-bg1-color;
         border-radius: 10px;
         padding: 15px;
-        box-shadow: 2px 7px 7px $secondary-bg1-color;
+        box-shadow: 2px 7px 7px $secondary-bg1-color, 2px 10px 7px grey;
+        transition: all 0.5s ease-out;
+
+        &:hover, &:focus{
+            transform: translateY(10px);
+        }
     }
 
     article#project-section:nth-child(2n+1){
@@ -36,7 +43,9 @@ section#projects{
 
     #project-description{
         grid-area: description;
-        width: clamp(30ch, 75vw, 80ch);
+
+        width: clamp(30ch, auto, 90ch);
+        // minimum 30 characters and max: 90 characters and preferred width is auto
         color: rgb(87, 86, 86);
     }
 
@@ -47,7 +56,6 @@ section#projects{
     }
 
     #project-links a{
-        display: block;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-weight: 600;
         background: $button-bg-color;
@@ -55,6 +63,7 @@ section#projects{
         padding: 10px 15px;
         border-radius: 30px;
         transition: all 0.2s ease-in;
+        text-align: center;
 
         &:hover, &:focus{
             background: $button-bg-hovered;
@@ -64,6 +73,19 @@ section#projects{
 
     #project-img-wrapper{
         grid-area: image;
-        position: relative;
     }
 }
+
+@media(max-width: 700px){
+    section#projects{
+        #project-links{
+            gap: 15px;
+        }
+    }
+
+    #project-img-wrapper img{
+        width: 200px;
+        height: 133px;
+    }
+}
+

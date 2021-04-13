@@ -11,12 +11,12 @@ html, body{
     font-size: $font_size;
     width: 100%;
     height: 100%;
+
     // this is set in html element or root element so that we can use rem which works relative to the root element only
     //in em, the font-size works relative to its parent element
 }
 
 body{
-    // background-color: $primary_bg_color; // old background
     background: radial-gradient(rgba(209, 229, 240, 0.781), rgb(129, 179, 233, 0.8));
     color: $primary_font_color;
 
@@ -36,9 +36,12 @@ header{
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
     z-index: 100;
-    max-width: $nav_width; // take up whole nav width
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    width: $nav_width; // to make that width perfect
+    max-width: $nav_width; // to not overflow from taking more width
 }
 
 main{
@@ -46,20 +49,21 @@ main{
     left: $nav_width;
     top: 0;
 
-    // min-height: 180vh; // slightly less than 200vh so that it doesn't use white spacing after that
-    // min-width: fit-content; // old so that it would fit its child fully
-    
-    width: 80%;
-    max-width: 100%; // so that it doesn't overflow of its parent
+    // 95vw so that it leaves space for padding and margin
+    // and subtract nav_width as its for header
+    // here as $nav_width will not get compiled inside calc function so using literals
+    $main-section-width: #{'calc(95vw - #{$nav_width})'};
+
+    width: $main-section-width;
+    max-width: $main-section-width;
 
     // padding inside main
     padding: $inner_padding + 10px;
 
+    // for each section, width: auto and its not needed to be specified
     section{
         // padding in each section to avoid sticking with each other
         padding: 30px 0;
-        max-width: 100%; // to not overflow from its parent
-        width: 100%;
     }
 }
 
@@ -68,17 +72,32 @@ main{
 @import "./projects";
 
 @media(max-width: 1200px){
+    html{
+        font-size: 56%;
+        // this font-size change affects every places where I used rem/em units
+    }
+
+    header{
+        display: none;
+        transform: translateX(-100%);
+        pointer-events: none;
+        z-index: -1;
+    }
+
     main{
         left: 0;
+        $main-section-width: 95vw;
+        width: $main-section-width;
+        max-width: $main-section-width;
     }
 }
 
-
-@media(max-width: 800px){
-    main { 
-        width: 100%;
-        section{
-            width: 100%;
-        }
+@media(max-width:400px){
+    main{
+        // in max width of 400px, take full screen and decrease padding to 30px
+        $main-section-width: 100vw;
+        width: $main-section-width;
+        max-width: $main-section-width;
+        padding: 30px;
     }
 }

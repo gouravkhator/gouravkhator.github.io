@@ -50,10 +50,3 @@ nav{
         gap: 3.5rem;
     }
 }
-
-@media(max-width: 1200px){
-    nav{
-        visibility: hidden;
-        transform: translateX(-100%);
-    }
-}
