@@ -23,13 +23,15 @@ nav width is the width taken by the navbar on left side.
   box-sizing: border-box;
 }
 
-html {
+html, body {
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-size: 62.5%;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-  background-color: whitesmoke;
+  background: radial-gradient(rgba(209, 229, 240, 0.781), rgba(129, 179, 233, 0.8));
   color: #000;
   display: grid;
 }
@@ -44,21 +46,25 @@ ul {
 
 header {
   position: fixed;
+  top: 0;
+  left: 0;
   height: 100vh;
-  min-height: 100vh;
   z-index: 100;
+  max-width: min(20vw, 200px);
 }
 
 main {
   position: absolute;
-  left: min(20vw, 250px);
+  left: min(20vw, 200px);
   top: 0;
-  min-height: 200vh;
-  min-width: 75vw;
-  padding: 50px 70px;
+  width: 80%;
+  max-width: 100%;
+  padding: 50px;
 }
 main section {
   padding: 30px 0;
+  max-width: 100%;
+  width: 100%;
 }
 
 nav {
@@ -67,11 +73,8 @@ nav {
   justify-content: flex-start;
   align-items: stretch;
   background: linear-gradient(to bottom, #802657, #b9627f);
-  width: min(20vw, 250px);
-  min-width: -webkit-max-content;
-  min-width: -moz-max-content;
-  min-width: max-content;
   height: inherit;
+  min-width: inherit;
   padding: 40px;
 }
 nav a {
@@ -107,6 +110,12 @@ nav ul.nav-links {
   gap: 3.5rem;
 }
 
+@media (max-width: 1200px) {
+  nav {
+    visibility: hidden;
+    transform: translateX(-100%);
+  }
+}
 section#home {
   max-height: 100vh;
   height: 100vh;
@@ -147,9 +156,6 @@ section#home article#image-wrapper {
   grid-area: image;
   display: flex;
   align-items: flex-start;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
@@ -163,13 +169,14 @@ section#home article#image-wrapper img {
   width: 35rem;
   -webkit-clip-path: circle(at 55% 50%);
           clip-path: circle(at 55% 50%);
+  cursor: pointer;
 }
 @-webkit-keyframes imageRollup {
   from {
     transform: rotateY(0deg) scale(1, 1);
   }
   to {
-    transform: rotateY(65deg) scale(1.2, 1.1);
+    transform: rotateY(45deg) scale(1.2, 1.1);
   }
 }
 @keyframes imageRollup {
@@ -177,10 +184,19 @@ section#home article#image-wrapper img {
     transform: rotateY(0deg) scale(1, 1);
   }
   to {
-    transform: rotateY(65deg) scale(1.2, 1.1);
+    transform: rotateY(45deg) scale(1.2, 1.1);
   }
 }
 
+@media (max-width: 1200px) {
+  section#home article#title {
+    gap: 1rem;
+    font-size: 5rem;
+  }
+  section#home article#description {
+    font-size: 2.8rem;
+  }
+}
 section#projects {
   min-height: 100vh;
 }
@@ -232,4 +248,18 @@ section#projects #project-links a:hover, section#projects #project-links a:focus
 section#projects #project-img-wrapper {
   grid-area: image;
   position: relative;
+}
+
+@media (max-width: 1200px) {
+  main {
+    left: 0;
+  }
+}
+@media (max-width: 800px) {
+  main {
+    width: 100%;
+  }
+  main section {
+    width: 100%;
+  }
 }/*# sourceMappingURL=main.css.map */

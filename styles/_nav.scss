@@ -5,9 +5,10 @@ nav{
     align-items: stretch;
     background: linear-gradient(to bottom, $secondary_bg1_color, $secondary_bg2_color);
 
-    width: $nav_width;
-    min-width: max-content;
+    // width: $nav_width;
+    // min-width: max-content; //edited as 
     height: inherit;
+    min-width: inherit; // take up what's header element takes
 
     padding: $inner_padding;
 
@@ -47,5 +48,12 @@ nav{
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 3.5rem;
+    }
+}
+
+@media(max-width: 1200px){
+    nav{
+        visibility: hidden;
+        transform: translateX(-100%);
     }
 }

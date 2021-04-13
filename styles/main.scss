@@ -6,18 +6,22 @@
     box-sizing: border-box;
 }
 
-html{
+html, body{
     font-family: 'M PLUS Rounded 1c', sans-serif;
     font-size: $font_size;
+    width: 100%;
+    height: 100%;
     // this is set in html element or root element so that we can use rem which works relative to the root element only
     //in em, the font-size works relative to its parent element
 }
 
 body{
-    background-color: $primary_bg_color;
+    // background-color: $primary_bg_color; // old background
+    background: radial-gradient(rgba(209, 229, 240, 0.781), rgb(129, 179, 233, 0.8));
     color: $primary_font_color;
 
     display: grid;
+    // overflow-x: hidden;
 }
 
 a{
@@ -30,27 +34,51 @@ ul{
 
 header{
     position: fixed;
+    top: 0;
+    left: 0;
     height: 100vh;
-    min-height: 100vh;
     z-index: 100;
+    max-width: $nav_width; // take up whole nav width
 }
 
 main{
     position: absolute;
     left: $nav_width;
     top: 0;
-    min-height: 200vh;
-    min-width: 75vw; // so that main element doesn't collapse
+
+    // min-height: 180vh; // slightly less than 200vh so that it doesn't use white spacing after that
+    // min-width: fit-content; // old so that it would fit its child fully
+    
+    width: 80%;
+    max-width: 100%; // so that it doesn't overflow of its parent
 
     // padding inside main
-    padding: $inner_padding + 10px  $inner_padding + 30px;
+    padding: $inner_padding + 10px;
 
     section{
         // padding in each section to avoid sticking with each other
         padding: 30px 0;
+        max-width: 100%; // to not overflow from its parent
+        width: 100%;
     }
 }
 
 @import "./nav";
 @import "./home";
 @import "./projects";
+
+@media(max-width: 1200px){
+    main{
+        left: 0;
+    }
+}
+
+
+@media(max-width: 800px){
+    main { 
+        width: 100%;
+        section{
+            width: 100%;
+        }
+    }
+}
