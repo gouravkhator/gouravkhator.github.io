@@ -9,7 +9,7 @@ primary font color for font color on pages.
 
 secondary font color for nav font colors and other areas.
 
-title font1 color and title font2 color is for home page title colors.
+title font1 color and title font2 color is for home page and projects page title and subtitle colors.
 
 font size for the root element.
 
@@ -61,8 +61,9 @@ main {
   position: absolute;
   left: 220px;
   top: 0;
-  width: calc(95vw - 220px);
-  max-width: calc(95vw - 220px);
+  --main-section-width: calc(95vw - 220px);
+  width: var(--main-section-width);
+  max-width: var(--main-section-width);
   padding: 50px;
 }
 main section {
@@ -70,7 +71,7 @@ main section {
 }
 
 .hamburger {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   z-index: 10;
@@ -132,6 +133,12 @@ nav ul.nav-sections li a {
   height: 100%;
   text-align: center;
 }
+nav ul.nav-sections li:hover, nav ul.nav-sections li:focus {
+  background: linear-gradient(to right, #8888ff, #eec6ee);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+}
 nav ul.nav-links {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -179,14 +186,15 @@ section#home article#image-wrapper {
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
-  filter: drop-shadow(12px -2px 10px #b9627f) drop-shadow(-12px 3px 10px #802657) drop-shadow(0px 7px 3px #802657);
+  filter: drop-shadow(12px -2px 10px #b9627f) drop-shadow(-12px 3px 10px #802657) drop-shadow(0px -3px 3px #b9627f);
 }
 section#home article#image-wrapper:hover, section#home article#image-wrapper:focus {
   -webkit-animation: imageRollup 1.2s ease-in-out 0s infinite alternate;
           animation: imageRollup 1.2s ease-in-out 0s infinite alternate;
 }
 section#home article#image-wrapper img {
-  width: 35rem;
+  --home-img-width: 35rem;
+  width: var(--home-img-width);
   -webkit-clip-path: circle(at 55% 50%);
           clip-path: circle(at 55% 50%);
   cursor: pointer;
@@ -234,7 +242,7 @@ section#home article#image-wrapper img {
     gap: 25px;
   }
   section#home article#image-wrapper img {
-    width: 30rem;
+    --home-img-width: 30rem;
   }
 }
 @media (max-width: 600px) {
@@ -286,26 +294,81 @@ section#projects #project-links {
   gap: 25px;
 }
 section#projects #project-links a {
+  --project-link-border-radius: 30px;
+  position: relative;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-weight: 600;
-  background: #802657;
-  color: #fff;
+  background: none;
+  color: darkblue;
   padding: 10px 15px;
-  border-radius: 30px;
-  transition: all 0.2s ease-in;
+  border-bottom: 5px solid #333;
+  border-radius: var(--project-link-border-radius);
   text-align: center;
+  position: relative;
 }
-section#projects #project-links a:hover, section#projects #project-links a:focus {
-  background: #df93bc;
-  color: black;
+section#projects #project-links a::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(to bottom, #591a3c, #d36ca4);
+  transform-origin: top;
+  transition: height 0.25s ease;
+  z-index: -1;
+}
+section#projects #project-links a:hover::after {
+  height: 100%;
+}
+section#projects #project-links a:hover {
+  color: white;
+}
+section#projects #project-links a::after {
+  border-radius: var(--project-link-border-radius);
 }
 section#projects #project-img-wrapper {
   grid-area: image;
+}
+section#projects #more-projects-wrapper {
+  display: block;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+section#projects a#more-projects-link {
+  margin-top: 15px;
+  font-size: 2.5rem;
+  padding: 20px;
+  color: black;
+  border: 5px solid #b9627f;
+  border-radius: 6px;
+  background: none;
+  box-shadow: 2px 7px 10px #333;
+  position: relative;
+}
+section#projects a#more-projects-link::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(to right, #fbca7b, #ffa7e5);
+  transform-origin: left;
+  transition: width 0.25s ease;
+  z-index: -1;
+}
+section#projects a#more-projects-link:hover::after {
+  width: 100%;
 }
 
 @media (max-width: 700px) {
   section#projects #project-links {
     gap: 15px;
+  }
+  section#projects #project-links a {
+    --project-link-border-radius: 15px;
   }
 
   #project-img-wrapper img {
@@ -383,14 +446,12 @@ section#projects #project-img-wrapper {
 
   main {
     left: 0;
-    width: 95vw;
-    max-width: 95vw;
+    --main-section-width: 95vw;
   }
 }
 @media (max-width: 400px) {
   main {
-    width: 100vw;
-    max-width: 100vw;
+    --main-section-width: 100vw;
     padding: 30px;
   }
 }/*# sourceMappingURL=main.css.map */

@@ -1,9 +1,7 @@
-$button-font-color: #fff;
-$button-bg-color: $secondary-bg1-color;
-$button-bg-hovered: lighten($color: $secondary-bg1-color, $amount: 40);
-$button-font-color-hovered: darken($secondary-bg1-color, $amount: 50);
+$project-link-bg1-color: darken($secondary-bg1-color, $amount: 10);
+$project-link-bg2-color: lighten($secondary-bg1-color, $amount: 30);
 
-$outer-border-project: 10px;
+$more-projects-btn-color: darken($title-font1-color, $amount: 30);
 
 section#projects{
     // previously I wanted both sections on different pages, so height was 100vh
@@ -38,7 +36,7 @@ section#projects{
 
     #project-title{
         grid-area: title;
-        color: $title-font1-color;
+        color: $title_font1_color;
     }
 
     #project-description{
@@ -56,23 +54,55 @@ section#projects{
     }
 
     #project-links a{
+        // css variables are used here as css variables are reference oriented, so if I change it for smaller screens, it would affect the usage also
+        --project-link-border-radius: 30px;
+
+        position: relative;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-weight: 600;
-        background: $button-bg-color;
-        color: $button-font-color;
+        background: none;
+        color: darkblue;
         padding: 10px 15px;
-        border-radius: 30px;
-        transition: all 0.2s ease-in;
+        border-bottom: 5px solid #333;
+        border-radius: var(--project-link-border-radius);
         text-align: center;
 
-        &:hover, &:focus{
-            background: $button-bg-hovered;
-            color: $button-font-color-hovered;
+        // mixin used here
+        @include buttonTransparentTTB(linear-gradient(to bottom, $project-link-bg1-color, $project-link-bg2-color));
+
+        &:hover{
+            color: white;
+        }
+
+        &::after{
+            border-radius: var(--project-link-border-radius);
         }
     }
 
     #project-img-wrapper{
         grid-area: image;
+    }
+
+    #more-projects-wrapper{
+        display: block;
+        width: 100%;
+        display: grid;
+        place-items: center;
+    }
+
+    a#more-projects-link{
+        margin-top: 15px;
+        font-size: 2.5rem;
+        padding: 20px;
+        color: $more-projects-btn-color;
+        border: 5px solid $secondary-bg2-color;
+        border-radius: 6px;
+
+        background: none;
+        box-shadow: 2px 7px 10px #333;
+
+        // mixin used here
+        @include buttonTransparentLTR(linear-gradient(to right, rgb(251, 202, 123),rgb(255, 167, 229)));
     }
 }
 
@@ -80,6 +110,10 @@ section#projects{
     section#projects{
         #project-links{
             gap: 15px;
+        }
+
+        #project-links a{
+            --project-link-border-radius: 15px;
         }
     }
 

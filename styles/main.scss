@@ -1,4 +1,5 @@
 @import "./utilities/variables";
+@import "./utilities/mixins";
 
 *, *::before, *::after{
     margin: 0;
@@ -54,10 +55,10 @@ main{
     // 95vw so that it leaves space for padding and margin
     // and subtract nav_width as its for header
     // here as $nav_width will not get compiled inside calc function so using literals
-    $main-section-width: #{'calc(95vw - #{$nav_width})'};
+    --main-section-width: #{'calc(95vw - #{$nav_width})'};
 
-    width: $main-section-width;
-    max-width: $main-section-width;
+    width: var(--main-section-width);
+    max-width: var(--main-section-width);
 
     // padding inside main
     padding: $inner_padding + 10px;
@@ -119,18 +120,14 @@ main{
 
     main{
         left: 0;
-        $main-section-width: 95vw;
-        width: $main-section-width;
-        max-width: $main-section-width;
+        --main-section-width: 95vw;
     }
 }
 
 @media(max-width:400px){
     main{
         // in max width of 400px, take full screen and decrease padding to 30px
-        $main-section-width: 100vw;
-        width: $main-section-width;
-        max-width: $main-section-width;
+        --main-section-width: 100vw;
         padding: 30px;
     }
 }

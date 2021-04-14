@@ -45,7 +45,7 @@ section#home{
         align-items: flex-start;
         max-width: max-content; // so that the wrapper takes all the content inside it
 
-        filter: drop-shadow(12px -2px 10px $secondary_bg2_color) drop-shadow(-12px 3px 10px $secondary_bg1_color) drop-shadow(0px 7px 3px $secondary_bg1_color);
+        filter: drop-shadow(12px -2px 10px $secondary_bg2_color) drop-shadow(-12px 3px 10px $secondary_bg1_color) drop-shadow(0px -3px 3px $secondary_bg2_color);
         // adding drop shadow on image wrapper helps to have shadow on clipped image
 
         &:hover, &:focus {
@@ -53,9 +53,9 @@ section#home{
         }
         
         img{
-            $image_width: 35rem;
+            --home-img-width: 35rem;
             // $clippedSize: calc(0.4*$width);
-            width: $image_width;
+            width: var(--home-img-width);
             clip-path: circle(at 55% 50%);
             cursor: pointer;
         }
@@ -93,7 +93,7 @@ section#home{
     section#home{
         gap: 25px;
         article#image-wrapper img{
-            width: 30rem;
+            --home-img-width: 30rem;
         }
     }
 }
