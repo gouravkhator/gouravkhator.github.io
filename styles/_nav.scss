@@ -12,7 +12,6 @@ $hamburger-padding: 10px;
     padding: $hamburger-padding;
     margin: 15px;
     cursor: pointer;
-    pointer-events: all;
     clip-path: circle(20px at 60% 55%);
 
     .hamburger-line{
@@ -72,12 +71,5 @@ nav{
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 3.5rem;
-    }
-}
-
-@media(min-width:1200px){
-    .hamburger{
-        display: none;
-        pointer-events: none;
     }
 }

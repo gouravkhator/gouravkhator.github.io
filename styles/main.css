@@ -84,7 +84,6 @@ main section {
   padding: 10px;
   margin: 15px;
   cursor: pointer;
-  pointer-events: all;
   -webkit-clip-path: circle(20px at 60% 55%);
           clip-path: circle(20px at 60% 55%);
 }
@@ -139,12 +138,6 @@ nav ul.nav-links {
   gap: 3.5rem;
 }
 
-@media (min-width: 1200px) {
-  .hamburger {
-    display: none;
-    pointer-events: none;
-  }
-}
 section#home {
   display: grid;
   grid-template-rows: -webkit-max-content;
