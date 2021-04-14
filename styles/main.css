@@ -25,9 +25,10 @@ nav width is the width taken by the navbar on left side.
 
 html, body {
   font-family: "M PLUS Rounded 1c", sans-serif;
-  font-size: 62.5%;
+  scroll-behavior: smooth;
   width: 100%;
   height: 100%;
+  font-size: 62.5%;
 }
 
 body {
@@ -48,7 +49,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 50;
   height: 100vh;
   min-height: 100vh;
   max-height: 100vh;
@@ -66,6 +67,33 @@ main {
 }
 main section {
   padding: 30px 0;
+}
+
+.hamburger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  width: 60px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  padding: 10px;
+  margin: 15px;
+  cursor: pointer;
+  pointer-events: all;
+  -webkit-clip-path: circle(20px at 60% 55%);
+          clip-path: circle(20px at 60% 55%);
+}
+.hamburger .hamburger-line {
+  display: block;
+  margin-bottom: 5px;
+  background: radial-gradient(#802657, #b9627f);
+  width: calc(60px - 20px);
+  height: 5.5px;
 }
 
 nav {
@@ -111,6 +139,12 @@ nav ul.nav-links {
   gap: 3.5rem;
 }
 
+@media (min-width: 1200px) {
+  .hamburger {
+    display: none;
+    pointer-events: none;
+  }
+}
 section#home {
   display: grid;
   grid-template-rows: -webkit-max-content;
@@ -163,6 +197,22 @@ section#home article#image-wrapper img {
   -webkit-clip-path: circle(at 55% 50%);
           clip-path: circle(at 55% 50%);
   cursor: pointer;
+}
+@-webkit-keyframes imageAppear {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes imageAppear {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
 }
 @-webkit-keyframes imageRollup {
   from {
@@ -268,6 +318,62 @@ section#projects #project-img-wrapper {
   #project-img-wrapper img {
     width: 200px;
     height: 133px;
+  }
+}
+@-webkit-keyframes headerAppear {
+  from {
+    display: none;
+    transform: translateX(-100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  to {
+    display: initial;
+    transform: translateX(0%);
+    pointer-events: all;
+    z-index: 50;
+  }
+}
+@keyframes headerAppear {
+  from {
+    display: none;
+    transform: translateX(-100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  to {
+    display: initial;
+    transform: translateX(0%);
+    pointer-events: all;
+    z-index: 50;
+  }
+}
+@-webkit-keyframes headerDisappear {
+  from {
+    display: initial;
+    transform: translateX(0%);
+    pointer-events: all;
+    z-index: 50;
+  }
+  to {
+    transform: translateX(-100%);
+    pointer-events: none;
+    z-index: -1;
+    display: none;
+  }
+}
+@keyframes headerDisappear {
+  from {
+    display: initial;
+    transform: translateX(0%);
+    pointer-events: all;
+    z-index: 50;
+  }
+  to {
+    transform: translateX(-100%);
+    pointer-events: none;
+    z-index: -1;
+    display: none;
   }
 }
 @media (max-width: 1200px) {

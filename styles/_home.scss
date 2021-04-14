@@ -45,8 +45,6 @@ section#home{
         align-items: flex-start;
         max-width: max-content; // so that the wrapper takes all the content inside it
 
-
-        
         filter: drop-shadow(12px -2px 10px $secondary_bg2_color) drop-shadow(-12px 3px 10px $secondary_bg1_color) drop-shadow(0px 7px 3px $secondary_bg1_color);
         // adding drop shadow on image wrapper helps to have shadow on clipped image
 
@@ -60,6 +58,16 @@ section#home{
             width: $image_width;
             clip-path: circle(at 55% 50%);
             cursor: pointer;
+        }
+    }
+
+    // handled in javascript, to only appear once the page reloads
+    @keyframes imageAppear {
+        from{
+            transform: translateY(-100%);
+        }
+        to{
+            transform: translateY(0%);
         }
     }
 

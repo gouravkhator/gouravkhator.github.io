@@ -8,10 +8,12 @@
 
 html, body{
     font-family: 'M PLUS Rounded 1c', sans-serif;
-    font-size: $font_size;
+
+    scroll-behavior: smooth; // so that on traversing to any section via links, we can get smooth automatic traversal
     width: 100%;
     height: 100%;
-
+    
+    font-size: $font_size;
     // this is set in html element or root element so that we can use rem which works relative to the root element only
     //in em, the font-size works relative to its parent element
 }
@@ -36,7 +38,7 @@ header{
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 50;
     height: 100vh;
     min-height: 100vh;
     max-height: 100vh;
@@ -71,12 +73,43 @@ main{
 @import "./home";
 @import "./projects";
 
+@keyframes headerAppear{
+    from{
+        display: none;
+        transform: translateX(-100%);
+        pointer-events: none;
+        z-index: -1;
+    }
+    to{
+        display: initial;
+        transform: translateX(0%);
+        pointer-events: all;
+        z-index: 50;
+    }
+}
+
+@keyframes headerDisappear{
+    from{
+        display: initial;
+        transform: translateX(0%);
+        pointer-events: all;
+        z-index: 50;
+    }
+    to{
+        transform: translateX(-100%);
+        pointer-events: none;
+        z-index: -1;
+        display: none;
+    }
+}
+
 @media(max-width: 1200px){
     html{
         font-size: 56%;
         // this font-size change affects every places where I used rem/em units
     }
 
+    // initially hide the header and on hamburger click, unhide this header via headerAppear animation and hide via headerDisappear animation
     header{
         display: none;
         transform: translateX(-100%);
