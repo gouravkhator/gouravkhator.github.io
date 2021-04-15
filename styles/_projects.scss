@@ -8,10 +8,6 @@ section#projects{
     // min-height: 100vh;
     // height: 100vh;
 
-    #projects-heading{
-        font-size: 4rem;
-    }
-
     article#project-section{
         display: grid;
         grid-template-areas: 'title image' 'description image' 'links image';

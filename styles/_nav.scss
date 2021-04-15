@@ -3,8 +3,8 @@ $hamburger-padding: 10px;
 
 .hamburger{
     position: fixed;
-    top: 0;
-    right: 0;
+    top: 5%;
+    right: 10%;
     z-index: 10;
     width: $hamburger-width;
     height: fit-content;
@@ -81,3 +81,11 @@ nav{
         gap: 3.5rem;
     }
 }
+
+// on max-width: 600px or max-height: 600px
+// @media(max-width: 500px), (max-height:600px){
+//     .hamburger{
+//         top: 5%;
+//         right: 10%;
+//     }
+// }

@@ -1,0 +1,19 @@
+section#skills{
+    ul{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 30px;
+        margin: 25px;
+    }
+
+    li{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    li img{
+        width: 150px;
+        height: auto;
+        cursor: pointer;
+    }
+}

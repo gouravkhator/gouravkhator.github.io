@@ -89,7 +89,7 @@ section#home{
     }
 }
 
-@media(max-width: 700px){
+@media(max-width: 700px), (max-height: 600px){
     section#home{
         gap: 25px;
         article#image-wrapper img{

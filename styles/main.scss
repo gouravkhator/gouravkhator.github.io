@@ -24,7 +24,7 @@ body{
     color: $primary_font_color;
 
     display: grid;
-    // overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 a{
@@ -39,10 +39,11 @@ header{
     position: fixed;
     top: 0;
     left: 0;
+    bottom: 0;
     z-index: 50;
-    height: 100vh;
-    min-height: 100vh;
-    max-height: 100vh;
+    height: inherit; 
+    // height 100vh just makes that 100vh but as we scroll, if some part of header scrolls up, then we see white gaps below. So, do height inherit to inherit the parent element
+
     width: $nav_width; // to make that width perfect
     max-width: $nav_width; // to not overflow from taking more width
 }
@@ -51,6 +52,7 @@ main{
     position: absolute;
     left: $nav_width;
     top: 0;
+    right: 0;
 
     // 95vw so that it leaves space for padding and margin
     // and subtract nav_width as its for header
@@ -67,11 +69,16 @@ main{
     section{
         // padding in each section to avoid sticking with each other
         padding: 30px 0;
+
+        .sub-heading{
+            font-size: 4rem;
+        }
     }
 }
 
 @import "./nav";
 @import "./home";
+@import "./skills";
 @import "./projects";
 
 @keyframes headerAppear{
@@ -120,14 +127,13 @@ main{
 
     main{
         left: 0;
-        --main-section-width: 95vw;
+        --main-section-width: calc(95vw - 25px);
     }
 }
 
-@media(max-width:400px){
+@media(max-width:400px), (max-height:500px){
     main{
-        // in max width of 400px, take full screen and decrease padding to 30px
-        --main-section-width: 100vw;
-        padding: 30px;
+        // in max width of 400px, decrease padding to 25px
+        padding: 25px;
     }
 }
