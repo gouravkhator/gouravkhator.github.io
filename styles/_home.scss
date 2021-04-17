@@ -106,6 +106,14 @@ section#home{
             font-size: 4.5rem;
         }
 
+        article#image-wrapper{
+            max-width: inherit;
+            // for larger screens, its max width was max-content to take up only image part
+            // for smaller screens, its max width is inherit so that it takes up total available space in the home section grid
+            display: grid;
+            place-items: center;
+        }
+
         article#description{
             font-size: 2.5rem;
             font-weight: bold;

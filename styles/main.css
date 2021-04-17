@@ -149,6 +149,17 @@ nav ul.nav-links {
   gap: 3.5rem;
 }
 
+@media (max-width: 500px), (max-height: 600px) {
+  nav img {
+    width: 38px;
+  }
+  nav ul.nav-sections li {
+    font-size: 2.4rem;
+  }
+  nav ul.nav-links {
+    gap: 3.1rem;
+  }
+}
 section#home {
   display: grid;
   grid-template-rows: -webkit-max-content;
@@ -256,6 +267,11 @@ section#home article#image-wrapper img {
   section#home article#title {
     font-size: 4.5rem;
   }
+  section#home article#image-wrapper {
+    max-width: inherit;
+    display: grid;
+    place-items: center;
+  }
   section#home article#description {
     font-size: 2.5rem;
     font-weight: bold;
@@ -304,7 +320,7 @@ section#projects #project-title {
 section#projects #project-description {
   grid-area: description;
   width: clamp(30ch, auto, 90ch);
-  color: #575656;
+  color: #363535;
 }
 section#projects #project-links {
   grid-area: links;
@@ -313,7 +329,6 @@ section#projects #project-links {
 }
 section#projects #project-links a {
   --project-link-border-radius: 30px;
-  position: relative;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-weight: 600;
   background: none;
@@ -322,6 +337,7 @@ section#projects #project-links a {
   border-bottom: 5px solid #333;
   border-radius: var(--project-link-border-radius);
   text-align: center;
+  vertical-align: middle;
   position: relative;
 }
 section#projects #project-links a::after {
@@ -333,13 +349,13 @@ section#projects #project-links a::after {
   height: 0;
   background: linear-gradient(to bottom, #591a3c, #d36ca4);
   transform-origin: top;
-  transition: height 0.25s ease;
+  transition: height 0.3s ease;
   z-index: -1;
 }
-section#projects #project-links a:hover::after {
+section#projects #project-links a:hover::after, section#projects #project-links a:focus::after {
   height: 100%;
 }
-section#projects #project-links a:hover {
+section#projects #project-links a:hover, section#projects #project-links a:focus {
   color: white;
 }
 section#projects #project-links a::after {
@@ -357,6 +373,9 @@ section#projects #more-projects-wrapper {
 section#projects a#more-projects-link {
   margin-top: 15px;
   font-size: 2.5rem;
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  letter-spacing: 1.5px;
   padding: 20px;
   color: black;
   border: 5px solid #b9627f;
@@ -374,14 +393,20 @@ section#projects a#more-projects-link::after {
   height: 100%;
   background: linear-gradient(to right, #fbca7b, #ffa7e5);
   transform-origin: left;
-  transition: width 0.25s ease;
+  transition: width 0.3s ease;
   z-index: -1;
 }
-section#projects a#more-projects-link:hover::after {
+section#projects a#more-projects-link:hover::after, section#projects a#more-projects-link:focus::after {
   width: 100%;
 }
 
 @media (max-width: 700px) {
+  section#projects article#project-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
   section#projects #project-links {
     gap: 15px;
   }
@@ -390,8 +415,8 @@ section#projects a#more-projects-link:hover::after {
   }
 
   #project-img-wrapper img {
-    width: 200px;
-    height: 133px;
+    width: 100%;
+    height: auto;
   }
 }
 @-webkit-keyframes headerAppear {
@@ -464,7 +489,7 @@ section#projects a#more-projects-link:hover::after {
 
   main {
     left: 0;
-    --main-section-width: calc(95vw - 25px);
+    --main-section-width: 100vw;
   }
 }
 @media (max-width: 400px), (max-height: 500px) {

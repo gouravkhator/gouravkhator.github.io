@@ -40,7 +40,7 @@ section#projects{
 
         width: clamp(30ch, auto, 90ch);
         // minimum 30 characters and max: 90 characters and preferred width is auto
-        color: rgb(87, 86, 86);
+        color: rgb(54, 53, 53);
     }
 
     #project-links{
@@ -53,7 +53,6 @@ section#projects{
         // css variables are used here as css variables are reference oriented, so if I change it for smaller screens, it would affect the usage also
         --project-link-border-radius: 30px;
 
-        position: relative;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-weight: 600;
         background: none;
@@ -62,11 +61,12 @@ section#projects{
         border-bottom: 5px solid #333;
         border-radius: var(--project-link-border-radius);
         text-align: center;
+        vertical-align: middle;
 
         // mixin used here
         @include buttonTransparentTTB(linear-gradient(to bottom, $project-link-bg1-color, $project-link-bg2-color));
 
-        &:hover{
+        &:hover, &:focus{
             color: white;
         }
 
@@ -89,6 +89,9 @@ section#projects{
     a#more-projects-link{
         margin-top: 15px;
         font-size: 2.5rem;
+        font-weight: bold;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        letter-spacing: 1.5px;
         padding: 20px;
         color: $more-projects-btn-color;
         border: 5px solid $secondary-bg2-color;
@@ -104,6 +107,13 @@ section#projects{
 
 @media(max-width: 700px){
     section#projects{
+        article#project-section{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
         #project-links{
             gap: 15px;
         }
@@ -114,8 +124,7 @@ section#projects{
     }
 
     #project-img-wrapper img{
-        width: 200px;
-        height: 133px;
+        width: 100%;
+        height: auto;
     }
 }
-

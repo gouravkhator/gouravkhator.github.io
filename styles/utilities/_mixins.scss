@@ -1,4 +1,4 @@
-@mixin buttonTransparentLTR($background-fill: white){
+@mixin buttonTransparentLTR($background-fill: white, $transition-time: 0.3s){
     position: relative;
 
     &::after{
@@ -10,16 +10,16 @@
         height: 100%;
         background: $background-fill;
         transform-origin: left;
-        transition: width 0.25s ease;
+        transition: width $transition-time ease;
         z-index: -1;
     }
 
-    &:hover::after{
+    &:hover::after, &:focus::after{
         width: 100%;
     }
 }
 
-@mixin buttonTransparentTTB($background-fill: white){
+@mixin buttonTransparentTTB($background-fill: white, $transition-time: 0.3s){
     position: relative;
 
     &::after{
@@ -31,11 +31,11 @@
         height: 0;
         background: $background-fill;
         transform-origin: top;
-        transition: height 0.25s ease;
+        transition: height $transition-time ease;
         z-index: -1;
     }
 
-    &:hover::after{
+    &:hover::after, &:focus::after{
         height: 100%;
     }
 }
