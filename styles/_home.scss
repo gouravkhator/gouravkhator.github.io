@@ -76,7 +76,7 @@ section#home{
             transform: rotateY(0deg) scale(1, 1);
         }
         to{
-            transform: rotateY(45deg) scale(1.2, 1.1);
+            transform: rotateX(-5deg) rotateY(45deg) scale(1.2, 1.1);
         }        
     }
 }

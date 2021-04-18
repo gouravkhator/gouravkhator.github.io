@@ -35,6 +35,12 @@
                 <li>
                     <a href="#projects">Projects</a>
                 </li>
+                <li>
+                    <a target="_blank"
+                        href="https://drive.google.com/file/d/1DKl-ZflOqUu1bHSkyJ5piHuiyWTWQTgU/view?usp=sharing">
+                        Resume
+                    </a>
+                </li>
             </ul>
             <ul class="nav-links">
                 <li>
@@ -109,16 +115,18 @@
             <h2 id="projects-heading" class="sub-heading">Projects</h2>
             <div id="projects-section-wrapper">
                 <article id="project-section">
+                    <h3 class="project-number">01</h3>
                     <h2 id="project-title">
                         Guddu Collection PWA
                     </h2>
 
                     <div id="project-img-wrapper">
-                        <img src="https://dummyimage.com/300x200/000/fff" alt="">
+                        <img src="images/guddu_collection_project_ss.png" alt="Guddu Collection Project Image">
                     </div>
 
                     <p id="project-description">
-                        A Progressive WebApp built with ReactJS and Firebase with a mindset to showcase fashion at the
+                        A Progressive WebApp built with ReactJS and Firebase with a mindset to showcase fashion at
+                        the
                         doorsteps. <br>
                         This webapp works offline too.
                     </p>
@@ -126,11 +134,13 @@
                     <div id="project-links">
                         <a href="https://github.com/gouravkhator/guddu-collection" target="_blank" id="code-link">View
                             Source Code</a>
-                        <a href="https://guddu-collection.netlify.app/" target="_blank" id="website-link">View Live</a>
+                        <a href="https://guddu-collection.netlify.app/" target="_blank" id="website-link">View
+                            Live</a>
                     </div>
                 </article>
 
                 <article id="project-section">
+                    <h3 class="project-number">02</h3>
                     <h2 id="project-title">
                         Ebooks Go WebApp
                     </h2>
@@ -157,6 +167,7 @@
                 </article>
 
                 <article id="project-section">
+                    <h3 class="project-number">03</h3>
                     <h2 id="project-title">
                         Booklys WebApp
                     </h2>
@@ -187,6 +198,18 @@
     </main>
 
     <script src="./scripts/nav-script.js"></script>
+    <script src="./scripts/vanilla-tilt.min.js"></script>
+
+    <script>
+        VanillaTilt.init(document.querySelectorAll("article#project-section"), {
+            max: 25, // maximum tilt rotation
+            speed: 400, // speed of enter/exit transition
+            glare: true, // for glare effect on those
+            "max-glare": 0.8, // maximum glare from 0 to 1
+            perspective: 3000, // higher perspective means less extreme the tilt gets
+            reverse: true,
+        });
+    </script>
 </body>
 
 </html>

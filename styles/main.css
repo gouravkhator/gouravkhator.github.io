@@ -235,7 +235,7 @@ section#home article#image-wrapper img {
     transform: rotateY(0deg) scale(1, 1);
   }
   to {
-    transform: rotateY(45deg) scale(1.2, 1.1);
+    transform: rotateX(-5deg) rotateY(45deg) scale(1.2, 1.1);
   }
 }
 @keyframes imageRollup {
@@ -243,7 +243,7 @@ section#home article#image-wrapper img {
     transform: rotateY(0deg) scale(1, 1);
   }
   to {
-    transform: rotateY(45deg) scale(1.2, 1.1);
+    transform: rotateX(-5deg) rotateY(45deg) scale(1.2, 1.1);
   }
 }
 
@@ -300,15 +300,26 @@ section#projects article#project-section {
   grid-template-areas: "title image" "description image" "links image";
   gap: 15px;
   font-size: 2rem;
-  margin-bottom: 30px;
-  border: 2px solid #802657;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 2px 7px 7px #802657, 2px 10px 7px grey;
-  transition: all 0.5s ease-out;
+  position: relative;
+  overflow: hidden;
+  padding: 50px;
+  margin: 0px 30px 30px;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  border-top: 5px solid rgba(255, 255, 255, 0.1);
+  border-left: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  cursor: pointer;
 }
-section#projects article#project-section:hover, section#projects article#project-section:focus {
-  transform: translateY(10px);
+section#projects .project-number {
+  font-size: 10rem;
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  pointer-events: none;
+  color: rgba(0, 0, 0, 0.1);
 }
 section#projects article#project-section:nth-child(2n+1) {
   grid-template-areas: "image title" "image description" "image links";
@@ -326,6 +337,9 @@ section#projects #project-links {
   grid-area: links;
   display: flex;
   gap: 25px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 section#projects #project-links a {
   --project-link-border-radius: 30px;
@@ -363,6 +377,13 @@ section#projects #project-links a::after {
 }
 section#projects #project-img-wrapper {
   grid-area: image;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section#projects #project-img-wrapper img {
+  width: 100%;
+  height: auto;
 }
 section#projects #more-projects-wrapper {
   display: block;
@@ -400,23 +421,25 @@ section#projects a#more-projects-link:hover::after, section#projects a#more-proj
   width: 100%;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 950px) {
+  section#projects article#project-section {
+    padding: 30px;
+  }
+}
+@media (max-width: 830px) {
   section#projects article#project-section {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
   }
+}
+@media (max-width: 700px) {
   section#projects #project-links {
     gap: 15px;
   }
   section#projects #project-links a {
     --project-link-border-radius: 15px;
-  }
-
-  #project-img-wrapper img {
-    width: 100%;
-    height: auto;
   }
 }
 @-webkit-keyframes headerAppear {
