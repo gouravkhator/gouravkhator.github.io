@@ -67,9 +67,10 @@ section#projects{
 
     #project-links{
         grid-area: links;
-        display: flex;
-        gap: 25px;
         height: fit-content;
+        display: flex;
+        align-items: flex-end; // push it towards bottom
+        gap: 25px;
     }
 
     #project-links a{
@@ -108,7 +109,9 @@ section#projects{
 
         img{
             width: 100%; // image takes up full width of the image wrapper
-            height: auto;
+            height: 100%; // take up full height
+            object-fit: cover; // don't stretch just fill
+            object-position: left; // position that to show left part of image, if space is not available much
         }
     }
 
