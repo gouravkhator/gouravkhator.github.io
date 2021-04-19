@@ -1,6 +1,7 @@
 // Scroll Appear animation
-function isElementInViewport(el) {
-    var rect = el.getBoundingClientRect();
+
+function isElementInViewport(element) {
+    var rect = element.getBoundingClientRect();
     return (
         (rect.top <= 0
             && rect.bottom >= 0)
@@ -13,16 +14,22 @@ function isElementInViewport(el) {
     );
 }
 
-function scrollAppear(element) {
-    if (isElementInViewport(element)) {
-        console.log('in viewport');
-    }
+const scrollCaller = window.requestAnimationFrame ||
+    function (callback) { window.setTimeout(callback, 1000 / 60) };
+
+function animateElements(elementsToShow) {
+
+    elementsToShow.forEach(function (element) {
+        if (!isElementInViewport(element)) {
+            element.classList.remove('visible');
+        } else {
+            element.classList.add('visible');
+        }
+    });
+
+    scrollCaller(() => animateElements(elementsToShow));
 }
 
 const projectSections = document.querySelectorAll('article#project-section');
 
-window.addEventListener('scroll', () => {
-    projectSections.forEach((element) => {
-        scrollAppear(element);
-    });
-});
+animateElements(projectSections);

@@ -82,6 +82,7 @@ main{
 @import "./skills";
 @import "./projects";
 
+// header element animate on click of hamburger or outside click
 @keyframes headerAppear{
     from{
         display: none;

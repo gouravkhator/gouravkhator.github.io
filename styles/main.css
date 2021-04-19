@@ -32,7 +32,7 @@ html, body {
 }
 
 body {
-  background: radial-gradient(#d4caca, #c3adad);
+  background: radial-gradient(#d4caca, #e6dbdb);
   color: #000;
   display: grid;
   overflow-x: hidden;
@@ -138,7 +138,7 @@ nav ul.nav-sections li a {
   text-align: center;
 }
 nav ul.nav-sections li:hover, nav ul.nav-sections li:focus {
-  background: linear-gradient(to right, #f3e7b1, #e9e77c);
+  background: linear-gradient(to right, #b8f6dc, #fdca78);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
           background-clip: text;
@@ -309,11 +309,19 @@ section#projects article#project-section {
   border-top: 5px solid rgba(255, 255, 255, 0.1);
   border-left: 5px solid rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-  transition: transform 0.3s ease;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  transform: rotateZ(0deg);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1), opacity 0.3s 0.25s ease-out;
 }
-section#projects article#project-section:hover, section#projects article#project-section:focus {
+section#projects article#project-section.visible {
+  opacity: 1;
+  transform: rotateZ(-1.5deg);
+  pointer-events: all;
+}
+section#projects article#project-section.visible:hover, section#projects article#project-section.visible:focus {
   transform: scale(1.03, 1.04);
 }
 section#projects .project-number {
