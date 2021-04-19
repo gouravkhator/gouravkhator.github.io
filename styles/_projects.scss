@@ -4,10 +4,6 @@ $project-link-bg2-color: lighten($secondary-bg1-color, $amount: 30);
 $more-projects-btn-color: darken($title-font1-color, $amount: 30);
 
 section#projects{
-    // previously I wanted both sections on different pages, so height was 100vh
-    // min-height: 100vh;
-    // height: 100vh;
-    
     // old styles
     // article#project-section{
         // border: 2px solid $secondary-bg1-color;
@@ -36,7 +32,11 @@ section#projects{
 
         border-radius: 15px;
         backdrop-filter: blur(5px);
-        cursor: pointer;
+        transition: transform 0.3s ease;
+
+        &:hover, &:focus{
+            transform: scale(1.03, 1.04);
+        }
     }
 
     .project-number{
@@ -67,9 +67,9 @@ section#projects{
 
     #project-links{
         grid-area: links;
-        height: fit-content;
+        height: 100%; // height to be total available space
         display: flex;
-        align-items: flex-end; // push it towards bottom
+        align-items: flex-end;
         gap: 25px;
     }
 
@@ -86,6 +86,7 @@ section#projects{
         border-radius: var(--project-link-border-radius);
         text-align: center;
         vertical-align: middle;
+        height: fit-content; // height to be its content height
 
         // mixin used here
         @include buttonTransparentTTB(linear-gradient(to bottom, $project-link-bg1-color, $project-link-bg2-color));
@@ -137,7 +138,7 @@ section#projects{
         box-shadow: 2px 7px 10px #333;
 
         // mixin used here
-        @include buttonTransparentLTR(linear-gradient(to right, rgb(251, 202, 123),rgb(255, 167, 229)));
+        @include buttonTransparentLTR(linear-gradient(to right, $secondary-bg1-color,$secondary-bg2-color));
     }
 }
 

@@ -18,26 +18,37 @@ inner padding for the padding used in nav and section elements to give exact sam
 nav width is the width taken by the navbar on left side.
 */
 
-$primary_bg_color: whitesmoke;
+// Purple and Blue Shades:
+
+// bluish gradient bg
+// $primary_bg_color: radial-gradient(rgba(209, 229, 240, 0.781), rgb(129, 179, 233, 0.8));
+
+// clayish color
+// $primary_bg_color: rgb(212, 202, 202);
 
 // purplish backgrounds
-$secondary_bg1_color: #802657;
-$secondary_bg2_color: #b9627f;
+// $secondary_bg1_color: #802657;
+// $secondary_bg2_color: #b9627f;
+
+// purplish titles
+// $title_font1_color: rgb(59, 4, 25);
+// $title_font2_color: rgb(129, 62, 62);
+
+// Brown Shades:
+
+// brownish and clayish gradient 
+$primary_bg_color: radial-gradient(rgb(212, 202, 202), rgb(195, 173, 173));
 
 // minimal brownish
-// $secondary_bg1_color: #7e0a0c;
-// $secondary_bg2_color: rgb(255, 151, 151);
+$secondary_bg1_color: #7e0a0c;
+$secondary_bg2_color: rgb(211, 116, 116);
 
 $primary_font_color: #000;
 $secondary_font_color: #FAFAFA;
 
-// purplish titles
-$title_font1_color: rgb(59, 4, 25);
-$title_font2_color: rgb(129, 62, 62);
-
 // minimal brownish
-// $title_font1_color: rgb(59, 4, 4);
-// $title_font2_color: rgb(129, 62, 62);
+$title_font1_color: rgb(59, 4, 4);
+$title_font2_color: rgb(129, 62, 62);
 
 $font_size: 62.5%;
 

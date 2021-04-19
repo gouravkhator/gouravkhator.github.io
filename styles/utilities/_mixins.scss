@@ -1,5 +1,6 @@
-@mixin buttonTransparentLTR($background-fill: white, $transition-time: 0.3s){
+@mixin buttonTransparentLTR($background-fill: white, $font-color: whitesmoke, $transition-time: 0.3s){
     position: relative;
+    transition: all $transition-time ease;
 
     &::after{
         position: absolute;
@@ -16,6 +17,10 @@
 
     &:hover::after, &:focus::after{
         width: 100%;
+    }
+
+    &:hover, &:focus{
+        color: $font-color;
     }
 }
 

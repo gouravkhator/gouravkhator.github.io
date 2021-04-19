@@ -1,7 +1,4 @@
 section#home{
-    // previously I wanted both sections on different pages, so height was 100vh
-    // max-height: 100vh;
-    // height: 100vh;
     display: grid;
     grid-template-rows: max-content; // so that rows don't expand much
     grid-template-areas: 'title image' 'description description';
@@ -76,7 +73,7 @@ section#home{
             transform: rotateY(0deg) scale(1, 1);
         }
         to{
-            transform: rotateX(-5deg) rotateY(45deg) scale(1.2, 1.1);
+            transform: rotateY(45deg) scale(1.2, 1.1);
         }        
     }
 }
