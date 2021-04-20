@@ -18,39 +18,43 @@ inner padding for the padding used in nav and section elements to give exact sam
 nav width is the width taken by the navbar on left side.
 */
 
-// Purple and Blue Shades:
+:root{
+    // Purple and Blue Shades:
 
-// bluish gradient bg
-// $primary_bg_color: radial-gradient(rgba(209, 229, 240, 0.781), rgb(129, 179, 233, 0.8));
+    // bluish gradient bg
+    // --primary_bg_color: radial-gradient(rgba(209, 229, 240, 0.781), rgb(129, 179, 233, 0.8));
 
-// clayish color
-// $primary_bg_color: rgb(212, 202, 202);
+    // clayish color
+    // --primary_bg_color: rgb(212, 202, 202);
 
-// purplish backgrounds
-// $secondary_bg1_color: #802657;
-// $secondary_bg2_color: #b9627f;
+    // purplish backgrounds
+    // --secondary_bg1_color: #802657;
+    // --secondary_bg2_color: #b9627f;
 
-// purplish titles
-// $title_font1_color: rgb(59, 4, 25);
-// $title_font2_color: rgb(129, 62, 62);
+    // purplish titles
+    // --title_font1_color: rgb(59, 4, 25);
+    // --title_font2_color: rgb(129, 62, 62);
 
-// Brown Shades:
+    // Brown Shades:
 
-// brownish and clayish gradient 
-$primary_bg_color: radial-gradient(rgb(212, 202, 202), rgb(230, 219, 219));
+    // brownish and clayish gradient 
+    --primary_bg_color: radial-gradient(rgb(212, 202, 202), rgb(230, 219, 219));
+    // minimal brownish
+    --secondary_bg1_color: #7e0a0c;
+    --secondary_bg2_color: rgb(211, 116, 116);
+    --primary_font_color: #000;
+    --secondary_font_color: #FAFAFA;
+    
+    // minimal brownish
+    --title_font1_color: rgb(59, 4, 4);
+    --title_font2_color: rgb(129, 62, 62);
 
-// minimal brownish
-$secondary_bg1_color: #7e0a0c;
-$secondary_bg2_color: rgb(211, 116, 116);
+    // project links bg colors on hover
+    --project-link-bg1-color: #6F0F11;
+    --project-link-bg2-color: #DE2D30;
+    --more_projects_btn_color: #180102;
 
-$primary_font_color: #000;
-$secondary_font_color: #FAFAFA;
-
-// minimal brownish
-$title_font1_color: rgb(59, 4, 4);
-$title_font2_color: rgb(129, 62, 62);
-
-$font_size: 62.5%;
-
-$inner_padding: 40px;
-$nav_width: 220px;
+    --font_size: 62.5%;
+    --inner_padding: 40px;
+    --nav_width: 220px;
+}

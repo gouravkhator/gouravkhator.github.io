@@ -15,6 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles/main.css">
+
+    <script type="module" defer="defer" src="https://unpkg.com/dark-mode-toggle"></script>
 </head>
 
 <body>
@@ -202,8 +204,14 @@
     </main>
 
     <script src="./scripts/nav_script.js"></script>
+    <!-- <dark-mode-toggle id="dark-mode-toggle" legend="Switch Theme" appearance="switch" dark="Dark" light="Light">
+    </dark-mode-toggle>
 
-    <script src="./scripts/projects_animation.js"></script>
+    <script>
+        document.addEventListener('colorschemechange', (e) => {
+            console.log(`Color scheme changed to ${e.detail.colorScheme}.`);
+        });
+    </script> -->
 </body>
 
 </html>

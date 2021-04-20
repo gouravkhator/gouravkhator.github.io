@@ -14,15 +14,15 @@ html, body{
     width: 100%;
     height: 100%;
     
-    font-size: $font_size;
+    font-size: var(--font_size);
     // this is set in html element or root element so that we can use rem which works relative to the root element only
     //in em, the font-size works relative to its parent element
 }
 
 body{
     // background: radial-gradient(rgba(209, 229, 240, 0.781), rgb(129, 179, 233, 0.8));
-    background: $primary_bg_color;
-    color: $primary_font_color;
+    background: var(--primary_bg_color);
+    color: var(--primary_font_color);
 
     display: grid;
     overflow-x: hidden;
@@ -45,26 +45,27 @@ header{
     height: inherit; 
     // height 100vh just makes that 100vh but as we scroll, if some part of header scrolls up, then we see white gaps below. So, do height inherit to inherit the parent element
 
-    width: $nav_width; // to make that width perfect
-    max-width: $nav_width; // to not overflow from taking more width
+    width: var(--nav_width); // to make that width perfect
+    max-width: var(--nav_width); // to not overflow from taking more width
 }
 
 main{
     position: absolute;
-    left: $nav_width;
+    left: var(--nav_width);
     top: 0;
     right: 0;
 
     // 95vw so that it leaves space for padding and margin
     // and subtract nav_width as its for header
     // here as $nav_width will not get compiled inside calc function so using literals
-    --main-section-width: #{'calc(95vw - #{$nav_width})'};
+    // --main-section-width: #{'calc(95vw - #{$nav_width})'};
+    --main-section-width: calc(95vw - var(--nav_width));
 
     width: var(--main-section-width);
     max-width: var(--main-section-width);
 
     // padding inside main
-    padding: $inner_padding + 10px;
+    padding: calc(var(--inner_padding) + 10px);
 
     // for each section, width: auto and its not needed to be specified
     section{
@@ -75,6 +76,18 @@ main{
             font-size: 4rem;
         }
     }
+}
+
+#dark-mode-toggle{
+    width: 500px;
+    height: 500px;
+    font-size: 2rem;
+    position: absolute;
+    top: 3%;
+    right: 13%;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-end;
 }
 
 @import "./nav";

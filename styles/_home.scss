@@ -21,7 +21,7 @@ section#home{
         max-width: max-content;
 
         span{
-            background: linear-gradient(to bottom, $title_font1_color, $title_font2_color);
+            background: linear-gradient(to bottom, var(--title_font1_color), var(--title_font2_color));
             -webkit-text-fill-color: transparent;
             background-clip: text; // background clipping helps in text masking
         }
@@ -42,7 +42,7 @@ section#home{
         align-items: flex-start;
         max-width: max-content; // so that the wrapper takes all the content inside it
 
-        filter: drop-shadow(12px -2px 10px $secondary_bg2_color) drop-shadow(-12px 3px 10px $secondary_bg1_color) drop-shadow(0px -3px 3px $secondary_bg2_color);
+        filter: drop-shadow(12px -2px 10px var(--secondary_bg2_color)) drop-shadow(-12px 3px 10px var(--secondary_bg1_color)) drop-shadow(0px -3px 3px var(--secondary_bg2_color));
         // adding drop shadow on image wrapper helps to have shadow on clipped image
 
         &:hover, &:focus {
@@ -55,16 +55,6 @@ section#home{
             width: var(--home-img-width);
             clip-path: circle(at 55% 50%);
             cursor: pointer;
-        }
-    }
-
-    // handled in javascript, to only appear once the page reloads
-    @keyframes imageAppear {
-        from{
-            transform: translateY(-100%);
-        }
-        to{
-            transform: translateY(0%);
         }
     }
 

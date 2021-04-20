@@ -1,14 +1,9 @@
-$project-link-bg1-color: darken($secondary-bg1-color, $amount: 10);
-$project-link-bg2-color: lighten($secondary-bg1-color, $amount: 30);
-
-$more-projects-btn-color: darken($title-font1-color, $amount: 30);
-
 section#projects{
     // old styles
     // article#project-section{
-        // border: 2px solid $secondary-bg1-color;
+        // border: 2px solid var(--secondary_bg1_color);
         // border-radius: 10px;
-        // box-shadow: 2px 7px 7px $secondary-bg1-color, 2px 10px 7px grey;
+        // box-shadow: 2px 7px 7px var(--secondary_bg1_color), 2px 10px 7px grey;
         // transition: all 0.3s ease;
     // }
 
@@ -27,29 +22,17 @@ section#projects{
 
         box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
         background: rgba(255,255,255,0.1);
-        border-top: 5px solid rgba(255,255,255,0.1);
-        border-left: 5px solid rgba(255,255,255,0.1);
+        border-top: 5px solid rgba(255,255,255,0.3);
+        border-left: 5px solid rgba(255,255,255,0.3);
 
         border-radius: 15px;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(5px);
 
-        // to animate, first don't show this section
-        transform: rotateZ(0deg);
-        opacity: 0;
-        pointer-events: none;
-        transition: transform 4s .25s cubic-bezier(0,1,.3,1),
-                  opacity .3s .25s ease-out;
-    }
+        transition: all 1s ease;
+        transform: rotateZ(-1.26deg);
 
-    // on section visible
-    article#project-section.visible{
-        opacity: 1;
-        transform: rotateZ(-1.5deg);
-        pointer-events: all;
-
-        // on visible, if hovered
         &:hover, &:focus{
-            transform: scale(1.03, 1.04);
+            transform: scale(1.03, 1.03);
         }
     }
 
@@ -68,7 +51,7 @@ section#projects{
 
     #project-title{
         grid-area: title;
-        color: $title_font1_color;
+        color: var(--title_font1_color);
     }
 
     #project-description{
@@ -103,7 +86,7 @@ section#projects{
         height: fit-content; // height to be its content height
 
         // mixin used here
-        @include buttonTransparentTTB(linear-gradient(to bottom, $project-link-bg1-color, $project-link-bg2-color));
+        @include buttonTransparentTTB(linear-gradient(to bottom, var(--project-link-bg1-color), var(--project-link-bg2-color)));
 
         &:hover, &:focus{
             color: white;
@@ -144,15 +127,15 @@ section#projects{
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         letter-spacing: 1.5px;
         padding: 20px;
-        color: $more-projects-btn-color;
-        border: 5px solid $secondary-bg2-color;
+        color: var(--more_projects_btn_color);
+        border: 5px solid var(--secondary_bg2_color);
         border-radius: 6px;
 
         background: none;
         box-shadow: 2px 7px 10px #333;
 
         // mixin used here
-        @include buttonTransparentLTR(linear-gradient(to right, $secondary-bg1-color,$secondary-bg2-color));
+        @include buttonTransparentLTR(linear-gradient(to right, var(--secondary_bg1_color),var(--secondary_bg2_color)));
     }
 }
 

@@ -17,7 +17,7 @@ $hamburger-padding: 10px;
     .hamburger-line{
         display: block;
         margin-bottom: 5px;
-        background: radial-gradient( $secondary_bg1_color, $secondary_bg2_color);
+        background: radial-gradient( var(--secondary_bg1_color), var(--secondary_bg2_color));
         width: #{'calc(#{$hamburger-width} - #{2*$hamburger-padding})'}; // hamburger width - 2*hamburger padding
         height: 5.5px;
     }
@@ -28,15 +28,15 @@ nav{
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    background: linear-gradient(to bottom, $secondary_bg1_color, $secondary_bg2_color);
+    background: linear-gradient(to bottom, var(--secondary_bg1_color), var(--secondary_bg2_color));
 
     height: inherit;
     min-width: inherit; // take up what's header element takes
 
-    padding: $inner_padding;
+    padding: var(--inner_padding);
 
     a{
-        color: $secondary_font_color;
+        color: var(--secondary_font_color);
     }
 
     img{

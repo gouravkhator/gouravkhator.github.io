@@ -17,6 +17,22 @@ inner padding for the padding used in nav and section elements to give exact sam
 
 nav width is the width taken by the navbar on left side.
 */
+:root {
+  --primary_bg_color: radial-gradient(rgb(212, 202, 202), rgb(230, 219, 219));
+  --secondary_bg1_color: #7e0a0c;
+  --secondary_bg2_color: rgb(211, 116, 116);
+  --primary_font_color: #000;
+  --secondary_font_color: #FAFAFA;
+  --title_font1_color: rgb(59, 4, 4);
+  --title_font2_color: rgb(129, 62, 62);
+  --project-link-bg1-color: #6F0F11;
+  --project-link-bg2-color: #DE2D30;
+  --more_projects_btn_color: #180102;
+  --font_size: 62.5%;
+  --inner_padding: 40px;
+  --nav_width: 220px;
+}
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -28,12 +44,12 @@ html, body {
   scroll-behavior: smooth;
   width: 100%;
   height: 100%;
-  font-size: 62.5%;
+  font-size: var(--font_size);
 }
 
 body {
-  background: radial-gradient(#d4caca, #e6dbdb);
-  color: #000;
+  background: var(--primary_bg_color);
+  color: var(--primary_font_color);
   display: grid;
   overflow-x: hidden;
 }
@@ -53,25 +69,37 @@ header {
   bottom: 0;
   z-index: 50;
   height: inherit;
-  width: 220px;
-  max-width: 220px;
+  width: var(--nav_width);
+  max-width: var(--nav_width);
 }
 
 main {
   position: absolute;
-  left: 220px;
+  left: var(--nav_width);
   top: 0;
   right: 0;
-  --main-section-width: calc(95vw - 220px);
+  --main-section-width: calc(95vw - var(--nav_width));
   width: var(--main-section-width);
   max-width: var(--main-section-width);
-  padding: 50px;
+  padding: calc(var(--inner_padding) + 10px);
 }
 main section {
   padding: 30px 0;
 }
 main section .sub-heading {
   font-size: 4rem;
+}
+
+#dark-mode-toggle {
+  width: 500px;
+  height: 500px;
+  font-size: 2rem;
+  position: absolute;
+  top: 3%;
+  right: 13%;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .hamburger {
@@ -95,7 +123,7 @@ main section .sub-heading {
 .hamburger .hamburger-line {
   display: block;
   margin-bottom: 5px;
-  background: radial-gradient(#7e0a0c, #d37474);
+  background: radial-gradient(var(--secondary_bg1_color), var(--secondary_bg2_color));
   width: calc(60px - 20px);
   height: 5.5px;
 }
@@ -105,13 +133,13 @@ nav {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  background: linear-gradient(to bottom, #7e0a0c, #d37474);
+  background: linear-gradient(to bottom, var(--secondary_bg1_color), var(--secondary_bg2_color));
   height: inherit;
   min-width: inherit;
-  padding: 40px;
+  padding: var(--inner_padding);
 }
 nav a {
-  color: #FAFAFA;
+  color: var(--secondary_font_color);
 }
 nav img {
   width: 45px;
@@ -181,7 +209,7 @@ section#home article#title {
   max-width: max-content;
 }
 section#home article#title span {
-  background: linear-gradient(to bottom, #3b0404, #813e3e);
+  background: linear-gradient(to bottom, var(--title_font1_color), var(--title_font2_color));
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
           background-clip: text;
@@ -201,7 +229,7 @@ section#home article#image-wrapper {
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
-  filter: drop-shadow(12px -2px 10px #d37474) drop-shadow(-12px 3px 10px #7e0a0c) drop-shadow(0px -3px 3px #d37474);
+  filter: drop-shadow(12px -2px 10px var(--secondary_bg2_color)) drop-shadow(-12px 3px 10px var(--secondary_bg1_color)) drop-shadow(0px -3px 3px var(--secondary_bg2_color));
 }
 section#home article#image-wrapper:hover, section#home article#image-wrapper:focus {
   -webkit-animation: imageRollup 1.2s ease-in-out 0s infinite alternate;
@@ -213,22 +241,6 @@ section#home article#image-wrapper img {
   -webkit-clip-path: circle(at 55% 50%);
           clip-path: circle(at 55% 50%);
   cursor: pointer;
-}
-@-webkit-keyframes imageAppear {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0%);
-  }
-}
-@keyframes imageAppear {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0%);
-  }
 }
 @-webkit-keyframes imageRollup {
   from {
@@ -306,23 +318,16 @@ section#projects article#project-section {
   margin: 0px 30px 30px;
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
   background: rgba(255, 255, 255, 0.1);
-  border-top: 5px solid rgba(255, 255, 255, 0.1);
-  border-left: 5px solid rgba(255, 255, 255, 0.1);
+  border-top: 5px solid rgba(255, 255, 255, 0.3);
+  border-left: 5px solid rgba(255, 255, 255, 0.3);
   border-radius: 15px;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  transform: rotateZ(0deg);
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 4s 0.25s cubic-bezier(0, 1, 0.3, 1), opacity 0.3s 0.25s ease-out;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  transition: all 1s ease;
+  transform: rotateZ(-1.26deg);
 }
-section#projects article#project-section.visible {
-  opacity: 1;
-  transform: rotateZ(-1.5deg);
-  pointer-events: all;
-}
-section#projects article#project-section.visible:hover, section#projects article#project-section.visible:focus {
-  transform: scale(1.03, 1.04);
+section#projects article#project-section:hover, section#projects article#project-section:focus {
+  transform: scale(1.03, 1.03);
 }
 section#projects .project-number {
   font-size: 10rem;
@@ -337,7 +342,7 @@ section#projects article#project-section:nth-child(2n+1) {
 }
 section#projects #project-title {
   grid-area: title;
-  color: #3b0404;
+  color: var(--title_font1_color);
 }
 section#projects #project-description {
   grid-area: description;
@@ -374,7 +379,7 @@ section#projects #project-links a::after {
   left: 0;
   width: 100%;
   height: 0;
-  background: linear-gradient(to bottom, #4f0608, #ef3236);
+  background: linear-gradient(to bottom, var(--project-link-bg1-color), var(--project-link-bg2-color));
   transform-origin: top;
   transition: height 0.3s ease;
   z-index: -1;
@@ -415,8 +420,8 @@ section#projects a#more-projects-link {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   letter-spacing: 1.5px;
   padding: 20px;
-  color: black;
-  border: 5px solid #d37474;
+  color: var(--more_projects_btn_color);
+  border: 5px solid var(--secondary_bg2_color);
   border-radius: 6px;
   background: none;
   box-shadow: 2px 7px 10px #333;
@@ -430,7 +435,7 @@ section#projects a#more-projects-link::after {
   left: 0;
   width: 0;
   height: 100%;
-  background: linear-gradient(to right, #7e0a0c, #d37474);
+  background: linear-gradient(to right, var(--secondary_bg1_color), var(--secondary_bg2_color));
   transform-origin: left;
   transition: width 0.3s ease;
   z-index: -1;
