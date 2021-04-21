@@ -33,7 +33,7 @@ section#home{
         font-size: 3rem;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         font-style: italic;
-        color: rgb(87, 86, 86);
+        color: var(--home_desc_color);
     }
 
     article#image-wrapper{
@@ -104,7 +104,7 @@ section#home{
         article#description{
             font-size: 2.5rem;
             font-weight: bold;
-            color: rgb(116, 116, 116);
+            color: var(--home_desc_sm_color);
         }
     }
 }

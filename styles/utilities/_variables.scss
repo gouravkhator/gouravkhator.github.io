@@ -11,6 +11,20 @@ secondary font color for nav font colors and other areas.
 
 title font1 color and title font2 color is for home page and projects page title and subtitle colors.
 
+home desc color is for home section description font color. home desc sm color is for home section description font color for smaller screens.
+
+project border color is the border color for project links.
+
+project number color is the project number font color.
+
+project desc color is the project description font color.
+
+project link font color is the font color of project links and project link hover color is the font color of project links when hovered.
+
+project link bg1 and bg2 colors are for background gradient of project links when hovered.
+
+more projects btn color is the font color of more projects button. more projects hover color is the font color of more projects button when hovered. 
+
 font size for the root element.
 
 inner padding for the padding used in nav and section elements to give exact same padding.
@@ -49,12 +63,61 @@ nav width is the width taken by the navbar on left side.
     --title_font1_color: rgb(59, 4, 4);
     --title_font2_color: rgb(129, 62, 62);
 
-    // project links bg colors on hover
-    --project-link-bg1-color: #6F0F11;
-    --project-link-bg2-color: #DE2D30;
+    // nav section colors
+    --nav_hover_bg_color: linear-gradient(to right, rgb(184, 246, 220), rgb(253, 202, 120));
+
+    // home section colors
+    --home_desc_color: rgb(87, 86, 86);
+    --home_desc_sm_color: rgb(116, 116, 116);
+    
+    // project section colors
+    --project_border_color: #333;
+    --project_number_color: rgba(0,0,0,0.1);
+    --project_desc_color: rgb(54, 53, 53);
+    --project_link_font_color: darkblue;
+    --project_link_hover_color: white;
+    --project_link_bg1_color: #6F0F11;
+    --project_link_bg2_color: #DE2D30;
     --more_projects_btn_color: #180102;
+    --more_projects_hover_color: whitesmoke;
 
     --font_size: 62.5%;
     --inner_padding: 40px;
     --nav_width: 220px;
+}
+
+@media(prefers-color-scheme: dark){
+
+    :root{
+        --primary_bg_color: radial-gradient(rgb(37, 18, 18), rgb(44, 36, 36));
+        
+        // minimal brownish
+        --secondary_bg1_color: #f6a5a6;
+        --secondary_bg2_color: rgb(253, 192, 192);
+        --primary_font_color: rgb(245, 229, 229);
+        --secondary_font_color: rgb(32, 15, 15);
+        
+        // minimal brownish
+        --title_font1_color: rgb(253, 186, 186);
+        --title_font2_color: rgb(243, 203, 203);
+
+        // nav section colors
+        --nav_hover_bg_color: linear-gradient(to right, rgb(77, 105, 93), rgb(22, 73, 121));
+
+        // home section colors
+        --home_desc_color: rgb(199, 184, 184);
+        --home_desc_sm_color: rgb(211, 188, 188);
+
+        // project section colors
+        --project_border_color: rgb(202, 200, 200);
+        --project_number_color: rgba(223, 223, 223, 0.2);
+        --project_desc_color: rgb(184, 173, 173);
+        --project_link_font_color: whitesmoke;
+        --project_link_hover_color: rgb(46, 43, 43);
+        --project_link_bg1_color: #e07f81;
+        --project_link_bg2_color: #fdabad;
+        --more_projects_btn_color: #c2a0a2;
+        --more_projects_hover_color: rgb(102, 22, 22);
+    }
+
 }

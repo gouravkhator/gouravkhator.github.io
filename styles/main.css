@@ -11,6 +11,20 @@ secondary font color for nav font colors and other areas.
 
 title font1 color and title font2 color is for home page and projects page title and subtitle colors.
 
+home desc color is for home section description font color. home desc sm color is for home section description font color for smaller screens.
+
+project border color is the border color for project links.
+
+project number color is the project number font color.
+
+project desc color is the project description font color.
+
+project link font color is the font color of project links and project link hover color is the font color of project links when hovered.
+
+project link bg1 and bg2 colors are for background gradient of project links when hovered.
+
+more projects btn color is the font color of more projects button. more projects hover color is the font color of more projects button when hovered. 
+
 font size for the root element.
 
 inner padding for the padding used in nav and section elements to give exact same padding.
@@ -25,14 +39,46 @@ nav width is the width taken by the navbar on left side.
   --secondary_font_color: #FAFAFA;
   --title_font1_color: rgb(59, 4, 4);
   --title_font2_color: rgb(129, 62, 62);
-  --project-link-bg1-color: #6F0F11;
-  --project-link-bg2-color: #DE2D30;
+  --nav_hover_bg_color: linear-gradient(to right, rgb(184, 246, 220), rgb(253, 202, 120));
+  --home_desc_color: rgb(87, 86, 86);
+  --home_desc_sm_color: rgb(116, 116, 116);
+  --project_border_color: #333;
+  --project_number_color: rgba(0,0,0,0.1);
+  --project_desc_color: rgb(54, 53, 53);
+  --project_link_font_color: darkblue;
+  --project_link_hover_color: white;
+  --project_link_bg1_color: #6F0F11;
+  --project_link_bg2_color: #DE2D30;
   --more_projects_btn_color: #180102;
+  --more_projects_hover_color: whitesmoke;
   --font_size: 62.5%;
   --inner_padding: 40px;
   --nav_width: 220px;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary_bg_color: radial-gradient(rgb(37, 18, 18), rgb(44, 36, 36));
+    --secondary_bg1_color: #f6a5a6;
+    --secondary_bg2_color: rgb(253, 192, 192);
+    --primary_font_color: rgb(245, 229, 229);
+    --secondary_font_color: rgb(32, 15, 15);
+    --title_font1_color: rgb(253, 186, 186);
+    --title_font2_color: rgb(243, 203, 203);
+    --nav_hover_bg_color: linear-gradient(to right, rgb(77, 105, 93), rgb(22, 73, 121));
+    --home_desc_color: rgb(199, 184, 184);
+    --home_desc_sm_color: rgb(211, 188, 188);
+    --project_border_color: rgb(202, 200, 200);
+    --project_number_color: rgba(223, 223, 223, 0.2);
+    --project_desc_color: rgb(184, 173, 173);
+    --project_link_font_color: whitesmoke;
+    --project_link_hover_color: rgb(46, 43, 43);
+    --project_link_bg1_color: #e07f81;
+    --project_link_bg2_color: #fdabad;
+    --more_projects_btn_color: #c2a0a2;
+    --more_projects_hover_color: rgb(102, 22, 22);
+  }
+}
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -166,7 +212,7 @@ nav ul.nav-sections li a {
   text-align: center;
 }
 nav ul.nav-sections li:hover, nav ul.nav-sections li:focus {
-  background: linear-gradient(to right, #b8f6dc, #fdca78);
+  background: var(--nav_hover_bg_color);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
           background-clip: text;
@@ -220,7 +266,7 @@ section#home article#description {
   font-size: 3rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-style: italic;
-  color: #575656;
+  color: var(--home_desc_color);
 }
 section#home article#image-wrapper {
   grid-area: image;
@@ -287,7 +333,7 @@ section#home article#image-wrapper img {
   section#home article#description {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #747474;
+    color: var(--home_desc_sm_color);
   }
 }
 section#skills ul {
@@ -335,7 +381,7 @@ section#projects .project-number {
   top: -15px;
   right: -10px;
   pointer-events: none;
-  color: rgba(0, 0, 0, 0.1);
+  color: var(--project_number_color);
 }
 section#projects article#project-section:nth-child(2n+1) {
   grid-template-areas: "image title" "image description" "image links";
@@ -347,7 +393,7 @@ section#projects #project-title {
 section#projects #project-description {
   grid-area: description;
   width: clamp(30ch, auto, 90ch);
-  color: #363535;
+  color: var(--project_desc_color);
 }
 section#projects #project-links {
   grid-area: links;
@@ -361,9 +407,9 @@ section#projects #project-links a {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-weight: 600;
   background: none;
-  color: darkblue;
+  color: var(--project_link_font_color);
   padding: 10px 15px;
-  border-bottom: 5px solid #333;
+  border-bottom: 5px solid var(--project_border_color);
   border-radius: var(--project-link-border-radius);
   text-align: center;
   vertical-align: middle;
@@ -379,7 +425,7 @@ section#projects #project-links a::after {
   left: 0;
   width: 100%;
   height: 0;
-  background: linear-gradient(to bottom, var(--project-link-bg1-color), var(--project-link-bg2-color));
+  background: linear-gradient(to bottom, var(--project_link_bg1_color), var(--project_link_bg2_color));
   transform-origin: top;
   transition: height 0.3s ease;
   z-index: -1;
@@ -388,7 +434,7 @@ section#projects #project-links a:hover::after, section#projects #project-links 
   height: 100%;
 }
 section#projects #project-links a:hover, section#projects #project-links a:focus {
-  color: white;
+  color: var(--project_link_hover_color);
 }
 section#projects #project-links a::after {
   border-radius: var(--project-link-border-radius);
@@ -444,7 +490,7 @@ section#projects a#more-projects-link:hover::after, section#projects a#more-proj
   width: 100%;
 }
 section#projects a#more-projects-link:hover, section#projects a#more-projects-link:focus {
-  color: whitesmoke;
+  color: var(--more_projects_hover_color);
 }
 
 @media (max-width: 950px) {

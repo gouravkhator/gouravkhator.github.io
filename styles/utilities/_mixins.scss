@@ -24,7 +24,7 @@
     }
 }
 
-@mixin buttonTransparentTTB($background-fill: white, $transition-time: 0.3s){
+@mixin buttonTransparentTTB($background-fill: white, $font-color: white, $transition-time: 0.3s){
     position: relative;
 
     &::after{
@@ -42,5 +42,9 @@
 
     &:hover::after, &:focus::after{
         height: 100%;
+    }
+
+    &:hover, &:focus{
+        color: $font-color;
     }
 }

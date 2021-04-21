@@ -42,7 +42,7 @@ section#projects{
         top: -15px;
         right: -10px;
         pointer-events: none; // so that it can be selected
-        color: rgba(0,0,0,0.1);
+        color: var(--project_number_color);
     }
 
     article#project-section:nth-child(2n+1){
@@ -59,7 +59,7 @@ section#projects{
 
         width: clamp(30ch, auto, 90ch);
         // minimum 30 characters and max: 90 characters and preferred width is auto
-        color: rgb(54, 53, 53);
+        color: var(--project_desc_color);
     }
 
     #project-links{
@@ -77,20 +77,16 @@ section#projects{
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-weight: 600;
         background: none;
-        color: darkblue;
+        color: var(--project_link_font_color);
         padding: 10px 15px;
-        border-bottom: 5px solid #333;
+        border-bottom: 5px solid var(--project_border_color);
         border-radius: var(--project-link-border-radius);
         text-align: center;
         vertical-align: middle;
         height: fit-content; // height to be its content height
 
         // mixin used here
-        @include buttonTransparentTTB(linear-gradient(to bottom, var(--project-link-bg1-color), var(--project-link-bg2-color)));
-
-        &:hover, &:focus{
-            color: white;
-        }
+        @include buttonTransparentTTB(linear-gradient(to bottom, var(--project_link_bg1_color), var(--project_link_bg2_color)), $font-color: var(--project_link_hover_color));
 
         &::after{
             border-radius: var(--project-link-border-radius);
@@ -135,7 +131,7 @@ section#projects{
         box-shadow: 2px 7px 10px #333;
 
         // mixin used here
-        @include buttonTransparentLTR(linear-gradient(to right, var(--secondary_bg1_color),var(--secondary_bg2_color)));
+        @include buttonTransparentLTR(linear-gradient(to right, var(--secondary_bg1_color),var(--secondary_bg2_color)), $font-color: var(--more_projects_hover_color));
     }
 }
 

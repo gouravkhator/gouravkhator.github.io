@@ -69,7 +69,7 @@ nav{
 
     ul.nav-sections li{
         &:hover, &:focus{
-            background: linear-gradient(to right, rgb(184, 246, 220), rgb(253, 202, 120));
+            background: var(--nav_hover_bg_color);
             -webkit-text-fill-color: transparent;
             background-clip: text; // background clipping helps in text masking
         }
