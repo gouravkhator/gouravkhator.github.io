@@ -11,6 +11,10 @@ secondary font color for nav font colors and other areas.
 
 title font1 color and title font2 color is for home page and projects page title and subtitle colors.
 
+nav hover bg color is for hover bg color for nav links. 
+
+icon filter is for changing the icon color to match the modes (dark or light).
+
 home desc color is for home section description font color. home desc sm color is for home section description font color for smaller screens.
 
 project border color is the border color for project links.
@@ -32,6 +36,7 @@ inner padding for the padding used in nav and section elements to give exact sam
 nav width is the width taken by the navbar on left side.
 */
 
+// normal colors for light mode
 :root{
     // Purple and Blue Shades:
 
@@ -66,9 +71,11 @@ nav width is the width taken by the navbar on left side.
     // nav section colors
     --nav_hover_bg_color: linear-gradient(to right, rgb(184, 246, 220), rgb(253, 202, 120));
 
+    --icon-filter: invert(2%);
+
     // home section colors
     --home_desc_color: rgb(87, 86, 86);
-    --home_desc_sm_color: rgb(116, 116, 116);
+    --home_desc_sm_color: rgb(78, 78, 78);
     
     // project section colors
     --project_border_color: #333;
@@ -88,8 +95,9 @@ nav width is the width taken by the navbar on left side.
 
 @media(prefers-color-scheme: dark){
 
-    :root{
-        --primary_bg_color: radial-gradient(rgb(37, 18, 18), rgb(44, 36, 36));
+    // when user preference is dark mode, then add class dark from the javascript
+    :root.dark{
+        --primary_bg_color: radial-gradient(rgb(39, 35, 35), rgb(44, 36, 36));
         
         // minimal brownish
         --secondary_bg1_color: #f6a5a6;
@@ -104,9 +112,11 @@ nav width is the width taken by the navbar on left side.
         // nav section colors
         --nav_hover_bg_color: linear-gradient(to right, rgb(77, 105, 93), rgb(22, 73, 121));
 
+        --icon-filter: invert(100%);
+
         // home section colors
         --home_desc_color: rgb(199, 184, 184);
-        --home_desc_sm_color: rgb(211, 188, 188);
+        --home_desc_sm_color: rgb(228, 175, 126);
 
         // project section colors
         --project_border_color: rgb(202, 200, 200);
@@ -119,5 +129,4 @@ nav width is the width taken by the navbar on left side.
         --more_projects_btn_color: #c2a0a2;
         --more_projects_hover_color: rgb(102, 22, 22);
     }
-
 }

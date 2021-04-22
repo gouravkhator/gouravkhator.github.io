@@ -19,8 +19,14 @@ html, body{
     //in em, the font-size works relative to its parent element
 }
 
+// transition of color change to be smooth (light to dark or dark to light or other color changes)
+body, a, button, h1, h2, h3, h4, h5, h6, p, span{
+    --mode_transition_duration: 0.8s;
+
+    transition: color var(--mode_transition_duration) ease, background-color var(--mode_transition_duration) ease;
+}
+
 body{
-    // background: radial-gradient(rgba(209, 229, 240, 0.781), rgb(129, 179, 233, 0.8));
     background: var(--primary_bg_color);
     color: var(--primary_font_color);
 
@@ -35,6 +41,11 @@ a{
 ul{
    list-style: none;
 }
+
+// icon image filter to be contrasty with light and dark mode
+img[src*=".svg"] {
+    filter: var(--icon-filter);
+}  
 
 header{
     position: fixed;
@@ -78,9 +89,9 @@ main{
     }
 }
 
-#dark-mode-toggle{
-    width: 500px;
-    height: 500px;
+#dark-mode-toggler{
+    width: fit-content;
+    height: fit-content;
     font-size: 2rem;
     position: absolute;
     top: 3%;
@@ -146,7 +157,14 @@ main{
     }
 }
 
-@media(max-width:400px), (max-height:500px){
+@media(max-width: 600px), (max-height: 500px){
+    #dark-mode-toggler{
+        top: 5%;
+        left: 10%;
+    }
+}
+
+@media(max-width: 400px), (max-height: 500px){
     main{
         // in max width of 400px, decrease padding to 25px
         padding: 25px;
