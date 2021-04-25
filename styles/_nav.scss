@@ -21,6 +21,10 @@ $hamburger-padding: 10px;
         width: #{'calc(#{$hamburger-width} - #{2*$hamburger-padding})'}; // hamburger width - 2*hamburger padding
         height: 5.5px;
     }
+
+    .hamburger-line:last-child{
+        margin-bottom: 0px;
+    }
 }
 
 nav{

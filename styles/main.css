@@ -192,6 +192,9 @@ main section .sub-heading {
   width: calc(60px - 20px);
   height: 5.5px;
 }
+.hamburger .hamburger-line:last-child {
+  margin-bottom: 0px;
+}
 
 nav {
   display: flex;
