@@ -28,12 +28,15 @@ section#projects{
         border-radius: 15px;
         backdrop-filter: blur(5px);
 
-        transition: all 1s ease;
-        transform: rotateZ(-1.26deg);
+        // the rotation takes extra space and makes the page re-render on every frame when the transform changes, so removing this
+        // this is much slow on low end devices
 
-        &:hover, &:focus{
-            transform: scale(1.03, 1.03);
-        }
+        // transition: all 1s ease;
+        // transform: rotateZ(-1.26deg);
+
+        // &:hover, &:focus{
+        //     transform: scale(1.03, 1.03);
+        // }
     }
 
     .project-number{
@@ -41,7 +44,7 @@ section#projects{
         position: absolute;
         top: -15px;
         right: -10px;
-        pointer-events: none; // so that it can be selected
+        pointer-events: none; // so that it cannot be selected/copied
         color: var(--project_number_color);
     }
 

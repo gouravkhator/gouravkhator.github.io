@@ -10,10 +10,33 @@ section#skills{
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-    li img{
-        width: 150px;
-        height: auto;
+        position: relative;
         cursor: pointer;
+
+        &:hover, &:focus{
+            span{
+                display: block;
+            }
+        }
+    }
+
+    li span{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.75rem;
+        color: var(--skill_tooltip_font_color);
+        background: var(--skill_tooltip_bg_color);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 93% 60%, 100% 70%, 100% 100%, 70% 100%, 50% 90%, 45% 100%, 0% 100%);
+
+        padding: 12px;
+        border-radius: 7px;
+        display: none;
+    }
+
+    li img{
+        width: 170px;
+        height: auto;
+        padding: 15px;
     }
 }

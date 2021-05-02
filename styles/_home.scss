@@ -42,12 +42,13 @@ section#home{
         align-items: flex-start;
         max-width: max-content; // so that the wrapper takes all the content inside it
 
-        filter: drop-shadow(12px -2px 10px var(--secondary_bg2_color)) drop-shadow(-12px 3px 10px var(--secondary_bg1_color)) drop-shadow(0px -3px 3px var(--secondary_bg2_color));
+        filter: drop-shadow(7px -2px 7px var(--secondary_bg2_color)) drop-shadow(-7px 3px 7px var(--secondary_bg1_color)) drop-shadow(0px -3px 3px var(--secondary_bg2_color));
         // adding drop shadow on image wrapper helps to have shadow on clipped image
 
-        &:hover, &:focus {
-            animation: imageRollup 1.2s ease-in-out 0s infinite alternate;
-        }
+        // removed hover effect on image, looks informal on this portfolio
+        // &:hover, &:focus {
+        //     animation: imageRollup 1.2s ease-in-out 0s infinite alternate;
+        // }
         
         img{
             --home-img-width: 35rem;
@@ -58,14 +59,14 @@ section#home{
         }
     }
 
-    @keyframes imageRollup {
-        from{
-            transform: rotateY(0deg) scale(1, 1);
-        }
-        to{
-            transform: rotateY(45deg) scale(1.2, 1.1);
-        }        
-    }
+    // @keyframes imageRollup {
+    //     from{
+    //         transform: rotateY(0deg) scale(1, 1);
+    //     }
+    //     to{
+    //         transform: rotateY(45deg) scale(1.2, 1.1);
+    //     }        
+    // }
 }
 
 @media(max-width: 1200px){

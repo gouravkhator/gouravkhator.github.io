@@ -32,6 +32,8 @@ body{
 
     display: grid;
     overflow-x: hidden;
+    
+    // ! Issue: body does not fill full height of main element so, I think it slows rendering and does cumulative layouts shifts for some elements 
 }
 
 a{

@@ -17,6 +17,8 @@ icon filter is for changing the icon color to match the modes (dark or light).
 
 home desc color is for home section description font color. home desc sm color is for home section description font color for smaller screens.
 
+skill tooltip font and bg colors are for tooltip colors. Tooltips are for skill images.
+
 project border color is the border color for project links.
 
 project number color is the project number font color.
@@ -47,6 +49,8 @@ nav width is the width taken by the navbar on left side.
   --icon-filter: invert(2%);
   --home_desc_color: rgb(87, 86, 86);
   --home_desc_sm_color: rgb(78, 78, 78);
+  --skill_tooltip_font_color: whitesmoke;
+  --skill_tooltip_bg_color: rgb(44, 43, 43);
   --project_border_color: #333;
   --project_number_color: rgba(0,0,0,0.1);
   --project_desc_color: rgb(54, 53, 53);
@@ -73,7 +77,9 @@ nav width is the width taken by the navbar on left side.
     --nav_hover_bg_color: linear-gradient(to right, rgb(77, 105, 93), rgb(22, 73, 121));
     --icon-filter: invert(100%);
     --home_desc_color: rgb(199, 184, 184);
-    --home_desc_sm_color: rgb(228, 175, 126);
+    --home_desc_sm_color: rgb(161, 125, 92);
+    --skill_tooltip_font_color: rgb(22, 7, 7);
+    --skill_tooltip_bg_color: rgb(255, 209, 209);
     --project_border_color: rgb(202, 200, 200);
     --project_number_color: rgba(223, 223, 223, 0.2);
     --project_desc_color: rgb(184, 173, 173);
@@ -297,11 +303,7 @@ section#home article#image-wrapper {
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
-  filter: drop-shadow(12px -2px 10px var(--secondary_bg2_color)) drop-shadow(-12px 3px 10px var(--secondary_bg1_color)) drop-shadow(0px -3px 3px var(--secondary_bg2_color));
-}
-section#home article#image-wrapper:hover, section#home article#image-wrapper:focus {
-  -webkit-animation: imageRollup 1.2s ease-in-out 0s infinite alternate;
-          animation: imageRollup 1.2s ease-in-out 0s infinite alternate;
+  filter: drop-shadow(7px -2px 7px var(--secondary_bg2_color)) drop-shadow(-7px 3px 7px var(--secondary_bg1_color)) drop-shadow(0px -3px 3px var(--secondary_bg2_color));
 }
 section#home article#image-wrapper img {
   --home-img-width: 35rem;
@@ -309,22 +311,6 @@ section#home article#image-wrapper img {
   -webkit-clip-path: circle(at 55% 50%);
           clip-path: circle(at 55% 50%);
   cursor: pointer;
-}
-@-webkit-keyframes imageRollup {
-  from {
-    transform: rotateY(0deg) scale(1, 1);
-  }
-  to {
-    transform: rotateY(45deg) scale(1.2, 1.1);
-  }
-}
-@keyframes imageRollup {
-  from {
-    transform: rotateY(0deg) scale(1, 1);
-  }
-  to {
-    transform: rotateY(45deg) scale(1.2, 1.1);
-  }
 }
 
 @media (max-width: 1200px) {
@@ -367,11 +353,29 @@ section#skills li {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+section#skills li:hover span, section#skills li:focus span {
+  display: block;
+}
+section#skills li span {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.75rem;
+  color: var(--skill_tooltip_font_color);
+  background: var(--skill_tooltip_bg_color);
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 93% 60%, 100% 70%, 100% 100%, 70% 100%, 50% 90%, 45% 100%, 0% 100%);
+          clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 93% 60%, 100% 70%, 100% 100%, 70% 100%, 50% 90%, 45% 100%, 0% 100%);
+  padding: 12px;
+  border-radius: 7px;
+  display: none;
 }
 section#skills li img {
-  width: 150px;
+  width: 170px;
   height: auto;
-  cursor: pointer;
+  padding: 15px;
 }
 
 section#projects article#project-section {
@@ -390,11 +394,6 @@ section#projects article#project-section {
   border-radius: 15px;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
-  transition: all 1s ease;
-  transform: rotateZ(-1.26deg);
-}
-section#projects article#project-section:hover, section#projects article#project-section:focus {
-  transform: scale(1.03, 1.03);
 }
 section#projects .project-number {
   font-size: 10rem;

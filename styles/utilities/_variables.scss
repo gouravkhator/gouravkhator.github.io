@@ -17,6 +17,8 @@ icon filter is for changing the icon color to match the modes (dark or light).
 
 home desc color is for home section description font color. home desc sm color is for home section description font color for smaller screens.
 
+skill tooltip font and bg colors are for tooltip colors. Tooltips are for skill images.
+
 project border color is the border color for project links.
 
 project number color is the project number font color.
@@ -76,6 +78,10 @@ nav width is the width taken by the navbar on left side.
     // home section colors
     --home_desc_color: rgb(87, 86, 86);
     --home_desc_sm_color: rgb(78, 78, 78);
+
+    // skill section colors
+    --skill_tooltip_font_color: whitesmoke;
+    --skill_tooltip_bg_color: rgb(44, 43, 43);
     
     // project section colors
     --project_border_color: #333;
@@ -116,7 +122,11 @@ nav width is the width taken by the navbar on left side.
 
         // home section colors
         --home_desc_color: rgb(199, 184, 184);
-        --home_desc_sm_color: rgb(228, 175, 126);
+        --home_desc_sm_color: rgb(161, 125, 92);
+
+        // skill section colors
+        --skill_tooltip_font_color: rgb(22, 7, 7);
+        --skill_tooltip_bg_color: rgb(255, 209, 209);
 
         // project section colors
         --project_border_color: rgb(202, 200, 200);
