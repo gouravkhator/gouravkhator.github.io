@@ -32,11 +32,35 @@ section#skills{
         padding: 12px;
         border-radius: 7px;
         display: none;
+        z-index: 100; // to keep the span element on top of image
     }
 
     li img{
         width: 170px;
         height: auto;
         padding: 15px;
+        
+        // different images require different filters to look good on both dark and light modes
+
+        &#javascript{
+            filter: brightness(0.8) contrast(1.6);
+        }
+
+        &#reactjs{
+            filter: hue-rotate(20deg) brightness(1.3) contrast(1.3); // same filters works on both modes
+        }
+
+        &#nodejs{
+            filter: var(--nodejs-icon-filter); // variables which are modified on dark and light modes
+        }
+
+        &#expressjs{
+            filter: var(--expressjs-icon-filter);
+        }
+
+        &#mongodb{
+            filter: var(--mongodb-icon-filter);
+        }
     }
 }
+

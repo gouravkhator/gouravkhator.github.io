@@ -82,6 +82,9 @@ nav width is the width taken by the navbar on left side.
     // skill section colors
     --skill_tooltip_font_color: whitesmoke;
     --skill_tooltip_bg_color: rgb(44, 43, 43);
+    // skill icon's filters
+    --expressjs-icon-filter: invert(30%);
+    --mongodb-icon-filter: contrast(1.2);
     
     // project section colors
     --project_border_color: #333;
@@ -127,6 +130,10 @@ nav width is the width taken by the navbar on left side.
         // skill section colors
         --skill_tooltip_font_color: rgb(22, 7, 7);
         --skill_tooltip_bg_color: rgb(255, 209, 209);
+        // skill icon's filters
+        --nodejs-icon-filter: invert(90%);
+        --expressjs-icon-filter: invert(100%) brightness(1.1);
+        --mongodb-icon-filter: brightness(1.2) contrast(1.25) hue-rotate(20deg) invert(90%);
 
         // project section colors
         --project_border_color: rgb(202, 200, 200);

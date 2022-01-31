@@ -47,7 +47,7 @@ ul{
 // icon image filter to be contrasty with light and dark mode
 img[src*=".svg"] {
     filter: var(--icon-filter);
-}  
+}
 
 header{
     position: fixed;
