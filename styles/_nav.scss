@@ -75,6 +75,7 @@ nav{
         &:hover, &:focus{
             background: var(--nav_hover_bg_color);
             -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
             background-clip: text; // background clipping helps in text masking
         }
     }

@@ -23,7 +23,9 @@ section#home{
         span{
             background: linear-gradient(to bottom, var(--title_font1_color), var(--title_font2_color));
             -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
             background-clip: text; // background clipping helps in text masking
+            color: transparent;
         }
     }
 

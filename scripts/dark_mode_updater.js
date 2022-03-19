@@ -1,17 +1,11 @@
-function setTheme(themeToSet) {
-    const htmlElement = document.documentElement;
+const htmlElement = document.documentElement;
+const toggle = document.querySelector('dark-mode-toggle');
 
-    if (themeToSet === 'dark') {
-        // switch to theme dark
-        htmlElement.classList.add('dark');
-    } else if (themeToSet === 'light') {
-        // switch to theme light
-        htmlElement.classList.remove('dark');
-    }
-}
+// Set or remove the `dark` class the first time.
+toggle.mode === 'dark' ? htmlElement.classList.add('dark') : htmlElement.classList.remove('dark');
 
-document.addEventListener('colorschemechange', (e) => {
-    // e.detail.colorScheme is the color which is changed when the os preferred mode is changed, or some event is fired for colorschemechange
-    setTheme(e.detail.colorScheme);
-    console.log(`Switched to ${e.detail.colorScheme}.`);
+// Listen for toggle changes (which includes `prefers-color-scheme` changes)
+// and toggle the `dark` class accordingly.
+toggle.addEventListener('colorschemechange', () => {
+    htmlElement.classList.toggle('dark', toggle.mode === 'dark');
 });

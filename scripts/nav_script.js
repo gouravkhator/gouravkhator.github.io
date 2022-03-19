@@ -28,8 +28,12 @@ const hideHeaderOuterClick = (e) => {
 
 window.addEventListener('click', (e) => {
     const bodyWidth = parseInt(window.getComputedStyle(document.body, null).width);
-
-    // if body width is > 1200px then display the header whether clicked outside or inside the header elements, else hide it as the header will not be displayed then by default (only displayed on hamburger click)
+    
+    /**
+     * if body width is > 1200px, then display the header whether clicked outside or inside the header elements,
+     * else hide it as the header will not be displayed then by default
+     * (only displayed on hamburger click)
+     */
     if (bodyWidth <= 1200) {
         hideHeaderOuterClick(e);
     }

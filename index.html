@@ -15,13 +15,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
 
-    <script>
-        // first add os preferred mode before loading any css or other javascript
-        // this is done so that it does not load light mode first, then at a glance switches to dark mode if its user preference
-        const htmlElement = document.documentElement;
-        htmlElement.classList.add(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    </script>
-
     <link rel="stylesheet" href="styles/main.css">
 
     <script type="module" defer="defer" src="https://unpkg.com/dark-mode-toggle"></script>
@@ -245,7 +238,11 @@
         </section>
     </main>
 
-    <dark-mode-toggle id="dark-mode-toggler" legend="Switch Theme" appearance="toggle" dark="Dark" light="Light">
+    <!-- 
+        Show the "Light Theme" text when it is actually in dark mode, 
+        to let users switch to light theme. And vice versa..
+    -->
+    <dark-mode-toggle id="dark-mode-toggler" legend="" appearance="toggle" permanent dark="Light Theme" light="Dark Theme">
     </dark-mode-toggle>
 
     <script src="./scripts/nav_script.js"></script>

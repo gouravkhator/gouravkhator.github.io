@@ -21,7 +21,7 @@ html, body{
 
 // transition of color change to be smooth (light to dark or dark to light or other color changes)
 body, a, button, h1, h2, h3, h4, h5, h6, p, span{
-    --mode_transition_duration: 0.8s;
+    --mode_transition_duration: 0.2s;
 
     transition: color var(--mode_transition_duration) ease, background-color var(--mode_transition_duration) ease;
 }
@@ -94,13 +94,20 @@ main{
 #dark-mode-toggler{
     width: fit-content;
     height: fit-content;
-    font-size: 2rem;
+    font-size: 2.2rem;
     position: absolute;
-    top: 3%;
-    right: 13%;
+    top: 3.5%;
+    right: 10.5%;
     z-index: 10;
     display: flex;
     justify-content: flex-end;
+
+    // custom icons for the toggler
+    --dark-mode-toggle-light-icon: url(/icons/moon.svg);
+    --dark-mode-toggle-dark-icon: url(/icons/sun.svg);
+    --dark-mode-toggle-icon-size: 3rem; // icon size
+    --dark-mode-toggle-icon-filter: invert(80%);
+    --dark-mode-toggle-color: var(--title_font1_color); // toggler text color
 }
 
 @import "./nav";

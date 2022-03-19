@@ -42,10 +42,14 @@ nav width is the width taken by the navbar on left side.
   --secondary_bg1_color: #7e0a0c;
   --secondary_bg2_color: rgb(211, 116, 116);
   --primary_font_color: #000;
-  --secondary_font_color: #FAFAFA;
+  --secondary_font_color: #fafafa;
   --title_font1_color: rgb(59, 4, 4);
   --title_font2_color: rgb(129, 62, 62);
-  --nav_hover_bg_color: linear-gradient(to right, rgb(184, 246, 220), rgb(253, 202, 120));
+  --nav_hover_bg_color: linear-gradient(
+    to right,
+    rgb(184, 246, 220),
+    rgb(253, 202, 120)
+  );
   --icon-filter: invert(2%);
   --home_desc_color: rgb(87, 86, 86);
   --home_desc_sm_color: rgb(78, 78, 78);
@@ -54,12 +58,12 @@ nav width is the width taken by the navbar on left side.
   --expressjs-icon-filter: invert(30%);
   --mongodb-icon-filter: contrast(1.2);
   --project_border_color: #333;
-  --project_number_color: rgba(0,0,0,0.1);
+  --project_number_color: rgba(0, 0, 0, 0.1);
   --project_desc_color: rgb(54, 53, 53);
   --project_link_font_color: darkblue;
   --project_link_hover_color: white;
-  --project_link_bg1_color: #6F0F11;
-  --project_link_bg2_color: #DE2D30;
+  --project_link_bg1_color: #6f0f11;
+  --project_link_bg2_color: #de2d30;
   --more_projects_btn_color: #180102;
   --more_projects_hover_color: whitesmoke;
   --font_size: 62.5%;
@@ -67,34 +71,46 @@ nav width is the width taken by the navbar on left side.
   --nav_width: 220px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root.dark {
-    --primary_bg_color: radial-gradient(rgb(39, 35, 35), rgb(44, 36, 36));
-    --secondary_bg1_color: #f6a5a6;
-    --secondary_bg2_color: rgb(253, 192, 192);
-    --primary_font_color: rgb(245, 229, 229);
-    --secondary_font_color: rgb(32, 15, 15);
-    --title_font1_color: rgb(253, 186, 186);
-    --title_font2_color: rgb(243, 203, 203);
-    --nav_hover_bg_color: linear-gradient(to right, rgb(77, 105, 93), rgb(22, 73, 121));
-    --icon-filter: invert(100%);
-    --home_desc_color: rgb(199, 184, 184);
-    --home_desc_sm_color: rgb(161, 125, 92);
-    --skill_tooltip_font_color: rgb(22, 7, 7);
-    --skill_tooltip_bg_color: rgb(255, 209, 209);
-    --nodejs-icon-filter: invert(90%);
-    --expressjs-icon-filter: invert(100%) brightness(1.1);
-    --mongodb-icon-filter: brightness(1.2) contrast(1.25) hue-rotate(20deg) invert(90%);
-    --project_border_color: rgb(202, 200, 200);
-    --project_number_color: rgba(223, 223, 223, 0.2);
-    --project_desc_color: rgb(184, 173, 173);
-    --project_link_font_color: whitesmoke;
-    --project_link_hover_color: rgb(46, 43, 43);
-    --project_link_bg1_color: #e07f81;
-    --project_link_bg2_color: #fdabad;
-    --more_projects_btn_color: #c2a0a2;
-    --more_projects_hover_color: rgb(102, 22, 22);
-  }
+/*
+Note: Don't use media query for color scheme checking..
+
+It is because, our code somehow was not triggering the color scheme change in css end.
+But it was listening for colorschemechange events..
+And it was causing dark/light mode toggles to not work as expected..
+
+The issue is solved, when I removed the media query and just added simple class based color changes.
+*/
+:root.dark {
+  --primary_bg_color: radial-gradient(rgb(39, 35, 35), rgb(44, 36, 36));
+  --secondary_bg1_color: #f6a5a6;
+  --secondary_bg2_color: rgb(253, 192, 192);
+  --primary_font_color: rgb(245, 229, 229);
+  --secondary_font_color: rgb(32, 15, 15);
+  --title_font1_color: rgb(253, 186, 186);
+  --title_font2_color: rgb(243, 203, 203);
+  --nav_hover_bg_color: linear-gradient(
+    to right,
+    rgb(77, 105, 93),
+    rgb(22, 73, 121)
+  );
+  --icon-filter: invert(100%);
+  --home_desc_color: rgb(199, 184, 184);
+  --home_desc_sm_color: rgb(161, 125, 92);
+  --skill_tooltip_font_color: rgb(22, 7, 7);
+  --skill_tooltip_bg_color: rgb(255, 209, 209);
+  --nodejs-icon-filter: invert(90%);
+  --expressjs-icon-filter: invert(100%) brightness(1.1);
+  --mongodb-icon-filter: brightness(1.2) contrast(1.25) hue-rotate(20deg)
+    invert(90%);
+  --project_border_color: rgb(202, 200, 200);
+  --project_number_color: rgba(223, 223, 223, 0.2);
+  --project_desc_color: rgb(184, 173, 173);
+  --project_link_font_color: whitesmoke;
+  --project_link_hover_color: rgb(46, 43, 43);
+  --project_link_bg1_color: #e07f81;
+  --project_link_bg2_color: #fdabad;
+  --more_projects_btn_color: #c2a0a2;
+  --more_projects_hover_color: rgb(102, 22, 22);
 }
 
 *, *::before, *::after {
@@ -113,7 +129,7 @@ html, body {
 }
 
 body, a, button, h1, h2, h3, h4, h5, h6, p, span {
-  --mode_transition_duration: 0.8s;
+  --mode_transition_duration: 0.2s;
   -webkit-transition: color var(--mode_transition_duration) ease, background-color var(--mode_transition_duration) ease;
   transition: color var(--mode_transition_duration) ease, background-color var(--mode_transition_duration) ease;
 }
@@ -176,10 +192,10 @@ main section .sub-heading {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  font-size: 2rem;
+  font-size: 2.2rem;
   position: absolute;
-  top: 3%;
-  right: 13%;
+  top: 3.5%;
+  right: 10.5%;
   z-index: 10;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -187,6 +203,11 @@ main section .sub-heading {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  --dark-mode-toggle-light-icon: url(/icons/moon.svg);
+  --dark-mode-toggle-dark-icon: url(/icons/sun.svg);
+  --dark-mode-toggle-icon-size: 3rem;
+  --dark-mode-toggle-icon-filter: invert(80%);
+  --dark-mode-toggle-color: var(--title_font1_color);
 }
 
 .hamburger {
@@ -283,6 +304,7 @@ nav ul.nav-sections li a {
 nav ul.nav-sections li:hover, nav ul.nav-sections li:focus {
   background: var(--nav_hover_bg_color);
   -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   background-clip: text;
 }
 
@@ -344,7 +366,9 @@ section#home article#title span {
   background: -webkit-gradient(linear, left top, left bottom, from(var(--title_font1_color)), to(var(--title_font2_color)));
   background: linear-gradient(to bottom, var(--title_font1_color), var(--title_font2_color));
   -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   background-clip: text;
+  color: transparent;
 }
 
 section#home article#description {
