@@ -403,8 +403,8 @@ section#home article#image-wrapper {
 section#home article#image-wrapper img {
   --home-img-width: 35rem;
   width: var(--home-img-width);
-  -webkit-clip-path: circle(at 55% 50%);
-          clip-path: circle(at 55% 50%);
+  -webkit-clip-path: circle(at 51% 45%);
+          clip-path: circle(at 51% 45%);
   cursor: pointer;
 }
 

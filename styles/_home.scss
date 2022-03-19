@@ -56,11 +56,12 @@ section#home{
             --home-img-width: 35rem;
             // $clippedSize: calc(0.4*$width);
             width: var(--home-img-width);
-            clip-path: circle(at 55% 50%);
+            clip-path: circle(at 51% 45%);
             cursor: pointer;
         }
     }
 
+    // commented out the weird rotating animations on the portfolio image.. 
     // @keyframes imageRollup {
     //     from{
     //         transform: rotateY(0deg) scale(1, 1);
