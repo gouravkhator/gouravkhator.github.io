@@ -53,10 +53,10 @@ section#home{
         // }
         
         img{
-            --home-img-width: 35rem;
+            --home-img-width: 50rem;
             // $clippedSize: calc(0.4*$width);
             width: var(--home-img-width);
-            clip-path: circle(at 51% 45%);
+            clip-path: circle(at 50% 52%);
             cursor: pointer;
         }
     }
@@ -84,7 +84,7 @@ section#home{
     section#home{
         gap: 25px;
         article#image-wrapper img{
-            --home-img-width: 30rem;
+            --home-img-width: 40rem;
         }
     }
 }
@@ -103,6 +103,10 @@ section#home{
             // for smaller screens, its max width is inherit so that it takes up total available space in the home section grid
             display: grid;
             place-items: center;
+
+            img{
+                --home-img-width: 32rem;
+            }
         }
 
         article#description{

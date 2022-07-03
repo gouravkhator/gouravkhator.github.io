@@ -60,8 +60,9 @@ section#projects{
     #project-description{
         grid-area: description;
 
-        width: clamp(30ch, auto, 90ch);
-        // minimum 30 characters and max: 90 characters and preferred width is auto
+        // sass threw error for width: clamp(30ch, auto, 90ch);, so modified auto to 100%.
+        // minimum 30 characters and max: 90 characters and preferred width is 100%
+        width: clamp(30ch, 100%, 90ch);
         color: var(--project_desc_color);
     }
 
