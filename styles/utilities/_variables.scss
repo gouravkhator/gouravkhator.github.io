@@ -11,7 +11,11 @@ secondary font color for nav font colors and other areas.
 
 title font1 color and title font2 color is for home page and projects page title and subtitle colors.
 
-nav hover bg color is for hover bg color for nav links. 
+nav pages hover bgcolor is the bgcolor when we hover over navbar page links. 
+
+navbar inner padding is the padding used inside the navbar.
+
+navbar width is the width taken by the navbar on left side.
 
 icon filter is for changing the icon color to match the modes (dark or light).
 
@@ -31,11 +35,9 @@ project link bg1 and bg2 colors are for background gradient of project links whe
 
 more projects btn color is the font color of more projects button. more projects hover color is the font color of more projects button when hovered. 
 
+action buttons bgcolor is the background color of the action buttons.
+
 font size for the root element.
-
-inner padding for the padding used in nav and section elements to give exact same padding.
-
-nav width is the width taken by the navbar on left side.
 */
 
 // normal colors for light mode
@@ -60,6 +62,7 @@ nav width is the width taken by the navbar on left side.
 
   // brownish and clayish gradient
   --primary_bg_color: radial-gradient(rgb(212, 202, 202), rgb(230, 219, 219));
+
   // minimal brownish
   --secondary_bg1_color: #7e0a0c;
   --secondary_bg2_color: rgb(211, 116, 116);
@@ -70,27 +73,31 @@ nav width is the width taken by the navbar on left side.
   --title_font1_color: rgb(59, 4, 4);
   --title_font2_color: rgb(129, 62, 62);
 
-  // nav section colors
-  --nav_hover_bg_color: linear-gradient(
+  // background gradients of the navbar's links hover 
+  --nav_pages_hover_bgcolor: linear-gradient(
     to right,
     rgb(184, 246, 220),
     rgb(253, 202, 120)
   );
+  --navbar_inner_padding: 40px;
+  --navbar_width: 220px;
 
+  // icon filter for the svg images, to have contrasty images, compatible with light and dark modes
   --icon-filter: invert(2%);
 
   // home section colors
   --home_desc_color: rgb(87, 86, 86);
   --home_desc_sm_color: rgb(78, 78, 78);
 
-  // skill section colors
+  // skills section colors
   --skill_tooltip_font_color: whitesmoke;
   --skill_tooltip_bg_color: rgb(44, 43, 43);
-  // skill icon's filters
+
+  // skills' icon filters
   --expressjs-icon-filter: invert(30%);
   --mongodb-icon-filter: contrast(1.2);
 
-  // project section colors
+  // projects' section colors
   --project_border_color: #333;
   --project_number_color: rgba(0, 0, 0, 0.1);
   --project_desc_color: rgb(54, 53, 53);
@@ -101,14 +108,10 @@ nav width is the width taken by the navbar on left side.
   --more_projects_btn_color: #180102;
   --more_projects_hover_color: whitesmoke;
 
-  --font_size: 62.5%;
-  --inner_padding: 40px;
-  --nav_width: 220px;
-
   // action buttons
-  // --action-buttons-spacing: minmax(2.5vw, 2.5vh);
-  --action-buttons-spacing: 2%;
   --action-buttons-bgcolor: rgba(181, 180, 180, 0.4);
+
+  --font_size: 62.5%; // given as 62.5% so that 1rem corresponds to 10px, instead of 16px
 }
 
 /*
@@ -136,8 +139,8 @@ The issue is solved, when I removed the media query and just added simple class 
   --title_font1_color: rgb(253, 186, 186);
   --title_font2_color: rgb(243, 203, 203);
 
-  // nav section colors
-  --nav_hover_bg_color: linear-gradient(
+  // bg color on hover over nav pages links
+  --nav_pages_hover_bgcolor: linear-gradient(
     to right,
     rgb(77, 105, 93),
     rgb(22, 73, 121)

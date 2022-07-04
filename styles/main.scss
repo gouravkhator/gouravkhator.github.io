@@ -17,9 +17,11 @@ body {
   width: 100%;
   height: 100%;
 
+  /*
+    this is set in html element or root element, so that font-size in rem works relative to the root element only
+    font-size in em unit works relative to its parent element..
+  */
   font-size: var(--font_size);
-  // this is set in html element or root element so that we can use rem which works relative to the root element only
-  //in em, the font-size works relative to its parent element
 }
 
 // transition of color change to be smooth (light to dark or dark to light or other color changes)
@@ -62,36 +64,24 @@ img[src*=".svg"] {
   filter: var(--icon-filter);
 }
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 50;
-  height: inherit;
-  // height 100vh just makes that 100vh but as we scroll, if some part of header scrolls up, then we see white gaps below. So, do height inherit to inherit the parent element
-
-  width: var(--nav_width); // to make that width perfect
-  max-width: var(--nav_width); // to not overflow from taking more width
-}
-
 main {
   position: absolute;
-  left: var(--nav_width);
+  left: var(--navbar_width);
   top: 0;
   right: 0;
 
-  // 95vw so that it leaves space for padding and margin
-  // and subtract nav_width as its for header
-  // here as $nav_width will not get compiled inside calc function so using literals
-  // --main-section-width: #{'calc(95vw - #{$nav_width})'};
-  --main-section-width: calc(95vw - var(--nav_width));
+  /*
+  95vw so that it leaves space for padding and margin.
+  and subtract navbar_width as it's for header
+  here as $navbar_width will not get compiled inside calc function so using literals
+  */
+  --main_section_width: calc(95vw - var(--navbar_width));
 
-  width: var(--main-section-width);
-  max-width: var(--main-section-width);
+  width: var(--main_section_width);
+  max-width: var(--main_section_width);
 
-  // padding inside main
-  padding: calc(var(--inner_padding) + 10px);
+  // padding inside main section
+  padding: 45px;
 
   // for each section, width: auto and its not needed to be specified
   section {
@@ -110,60 +100,15 @@ main {
 @import "./projects";
 @import "./action_buttons";
 
-// header element animate on click of hamburger or outside click
-@keyframes headerAppear {
-  from {
-    display: none;
-    transform: translateX(-100%);
-    pointer-events: none;
-    z-index: -1;
-  }
-  to {
-    display: initial;
-    transform: translateX(0%);
-    pointer-events: all;
-    z-index: 50;
-  }
-}
-
-@keyframes headerDisappear {
-  from {
-    display: initial;
-    transform: translateX(0%);
-    pointer-events: all;
-    z-index: 50;
-  }
-  to {
-    transform: translateX(-100%);
-    pointer-events: none;
-    z-index: -1;
-    display: none;
-  }
-}
-
 @media (max-width: 1200px) {
   html {
-    font-size: 56%;
     // this font-size change affects every places where I used rem/em units
-  }
-
-  // initially hide the header and on hamburger click, unhide this header via headerAppear animation and hide via headerDisappear animation
-  header {
-    display: none;
-    transform: translateX(-100%);
-    pointer-events: none;
-    z-index: -1;
+    font-size: 56%;
   }
 
   main {
     left: 0;
-    --main-section-width: 100vw;
-  }
-}
-
-@media (max-width: 500px) {
-  header {
-    --nav_width: 200px;
+    --main_section_width: 100vw;
   }
 }
 

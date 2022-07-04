@@ -1,50 +1,62 @@
-@mixin buttonTransparentLTR($background-fill: white, $font-color: whitesmoke, $transition-time: 0.3s){
-    position: relative;
-    transition: all $transition-time ease;
+@mixin buttonTransparentLTR(
+  $background-fill: white,
+  $font-color: whitesmoke,
+  $transition-time: 0.3s
+) {
+  position: relative;
+  transition: all $transition-time ease;
 
-    &::after{
-        position: absolute;
-        content: '';
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background: $background-fill;
-        transform-origin: left;
-        transition: width $transition-time ease;
-        z-index: -1;
-    }
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: $background-fill;
+    transform-origin: left;
+    transition: width $transition-time ease;
+    z-index: -1;
+  }
 
-    &:hover::after, &:focus::after{
-        width: 100%;
-    }
+  &:hover::after,
+  &:focus::after {
+    width: 100%;
+  }
 
-    &:hover, &:focus{
-        color: $font-color;
-    }
+  &:hover,
+  &:focus {
+    color: $font-color;
+  }
 }
 
-@mixin buttonTransparentTTB($background-fill: white, $font-color: white, $transition-time: 0.3s){
-    position: relative;
+@mixin buttonTransparentTTB(
+  $background-fill: white,
+  $font-color: white,
+  $transition-time: 0.3s
+) {
+  position: relative;
 
-    &::after{
-        position: absolute;
-        content: '';
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 0;
-        background: $background-fill;
-        transform-origin: top;
-        transition: height $transition-time ease;
-        z-index: -1;
-    }
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: $background-fill;
+    transform-origin: top;
+    transition: height $transition-time ease;
+    z-index: -1;
+  }
 
-    &:hover::after, &:focus::after{
-        height: 100%;
-    }
+  &:hover::after,
+  &:focus::after {
+    height: 100%;
+  }
 
-    &:hover, &:focus{
-        color: $font-color;
-    }
+  &:hover,
+  &:focus {
+    color: $font-color;
+  }
 }

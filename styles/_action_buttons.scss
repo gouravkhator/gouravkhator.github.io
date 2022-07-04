@@ -1,6 +1,3 @@
-$hamburger-width: 60px;
-$hamburger-padding: 10px;
-
 .action-buttons {
   position: fixed;
   display: flex;
@@ -25,11 +22,14 @@ $hamburger-padding: 10px;
   --dark-mode-toggle-light-icon: url(/icons/moon.svg);
   --dark-mode-toggle-dark-icon: url(/icons/sun.svg);
   --dark-mode-toggle-icon-size: 3rem; // icon size
-  --dark-mode-toggle-icon-filter: invert(80%);
-  --dark-mode-toggle-color: var(--title_font1_color); // toggler text color
+  --dark-mode-toggle-icon-filter: invert(80%); // icon to change the color on dark mode toggle
+  --dark-mode-toggle-color: var(--title_font1_color); // toggler text font color
 }
 
 .hamburger {
+  $hamburger-width: 60px;
+  $hamburger-padding: 10px;
+
   width: $hamburger-width;
   height: fit-content;
   max-height: fit-content;

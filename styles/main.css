@@ -11,7 +11,11 @@ secondary font color for nav font colors and other areas.
 
 title font1 color and title font2 color is for home page and projects page title and subtitle colors.
 
-nav hover bg color is for hover bg color for nav links. 
+nav pages hover bgcolor is the bgcolor when we hover over navbar page links. 
+
+navbar inner padding is the padding used inside the navbar.
+
+navbar width is the width taken by the navbar on left side.
 
 icon filter is for changing the icon color to match the modes (dark or light).
 
@@ -31,11 +35,9 @@ project link bg1 and bg2 colors are for background gradient of project links whe
 
 more projects btn color is the font color of more projects button. more projects hover color is the font color of more projects button when hovered. 
 
+action buttons bgcolor is the background color of the action buttons.
+
 font size for the root element.
-
-inner padding for the padding used in nav and section elements to give exact same padding.
-
-nav width is the width taken by the navbar on left side.
 */
 :root {
   --primary_bg_color: radial-gradient(rgb(212, 202, 202), rgb(230, 219, 219));
@@ -45,11 +47,13 @@ nav width is the width taken by the navbar on left side.
   --secondary_font_color: #fafafa;
   --title_font1_color: rgb(59, 4, 4);
   --title_font2_color: rgb(129, 62, 62);
-  --nav_hover_bg_color: linear-gradient(
+  --nav_pages_hover_bgcolor: linear-gradient(
     to right,
     rgb(184, 246, 220),
     rgb(253, 202, 120)
   );
+  --navbar_inner_padding: 40px;
+  --navbar_width: 220px;
   --icon-filter: invert(2%);
   --home_desc_color: rgb(87, 86, 86);
   --home_desc_sm_color: rgb(78, 78, 78);
@@ -66,11 +70,8 @@ nav width is the width taken by the navbar on left side.
   --project_link_bg2_color: #de2d30;
   --more_projects_btn_color: #180102;
   --more_projects_hover_color: whitesmoke;
-  --font_size: 62.5%;
-  --inner_padding: 40px;
-  --nav_width: 220px;
-  --action-buttons-spacing: 2%;
   --action-buttons-bgcolor: rgba(181, 180, 180, 0.4);
+  --font_size: 62.5%;
 }
 
 /*
@@ -90,7 +91,7 @@ The issue is solved, when I removed the media query and just added simple class 
   --secondary_font_color: rgb(32, 15, 15);
   --title_font1_color: rgb(253, 186, 186);
   --title_font2_color: rgb(243, 203, 203);
-  --nav_hover_bg_color: linear-gradient(
+  --nav_pages_hover_bgcolor: linear-gradient(
     to right,
     rgb(77, 105, 93),
     rgb(22, 73, 121)
@@ -130,6 +131,10 @@ body {
   scroll-behavior: smooth;
   width: 100%;
   height: 100%;
+  /*
+    this is set in html element or root element, so that font-size in rem works relative to the root element only
+    font-size in em unit works relative to its parent element..
+  */
   font-size: var(--font_size);
 }
 
@@ -166,26 +171,20 @@ img[src*=".svg"] {
   filter: var(--icon-filter);
 }
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 50;
-  height: inherit;
-  width: var(--nav_width);
-  max-width: var(--nav_width);
-}
-
 main {
   position: absolute;
-  left: var(--nav_width);
+  left: var(--navbar_width);
   top: 0;
   right: 0;
-  --main-section-width: calc(95vw - var(--nav_width));
-  width: var(--main-section-width);
-  max-width: var(--main-section-width);
-  padding: calc(var(--inner_padding) + 10px);
+  /*
+  95vw so that it leaves space for padding and margin.
+  and subtract navbar_width as it's for header
+  here as $navbar_width will not get compiled inside calc function so using literals
+  */
+  --main_section_width: calc(95vw - var(--navbar_width));
+  width: var(--main_section_width);
+  max-width: var(--main_section_width);
+  padding: 45px;
 }
 main section {
   padding: 30px 0;
@@ -194,6 +193,74 @@ main section .sub-heading {
   font-size: 4rem;
 }
 
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 50;
+  height: inherit;
+  width: var(--navbar_width);
+  max-width: var(--navbar_width);
+}
+
+@-webkit-keyframes headerAppear {
+  from {
+    display: none;
+    transform: translateX(-100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  to {
+    display: initial;
+    transform: translateX(0%);
+    pointer-events: all;
+    z-index: 50;
+  }
+}
+
+@keyframes headerAppear {
+  from {
+    display: none;
+    transform: translateX(-100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  to {
+    display: initial;
+    transform: translateX(0%);
+    pointer-events: all;
+    z-index: 50;
+  }
+}
+@-webkit-keyframes headerDisappear {
+  from {
+    display: initial;
+    transform: translateX(0%);
+    pointer-events: all;
+    z-index: 50;
+  }
+  to {
+    transform: translateX(-100%);
+    pointer-events: none;
+    z-index: -1;
+    display: none;
+  }
+}
+@keyframes headerDisappear {
+  from {
+    display: initial;
+    transform: translateX(0%);
+    pointer-events: all;
+    z-index: 50;
+  }
+  to {
+    transform: translateX(-100%);
+    pointer-events: none;
+    z-index: -1;
+    display: none;
+  }
+}
 nav {
   display: flex;
   flex-direction: column;
@@ -203,7 +270,7 @@ nav {
   background: linear-gradient(to bottom, var(--secondary_bg1_color), var(--secondary_bg2_color));
   height: inherit;
   min-width: inherit;
-  padding: var(--inner_padding);
+  padding: var(--navbar_inner_padding);
 }
 nav a {
   color: var(--secondary_font_color);
@@ -212,13 +279,13 @@ nav img {
   width: 45px;
   fill: aliceblue;
 }
-nav ul.nav-sections {
+nav ul.nav-pages {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   margin-bottom: 30px;
 }
-nav ul.nav-sections li {
+nav ul.nav-pages li {
   font-size: 2.5rem;
   font-weight: 600;
   margin: 12px 0;
@@ -226,48 +293,61 @@ nav ul.nav-sections li {
   padding: 5px 0;
   letter-spacing: 3px;
 }
-nav ul.nav-sections li a {
+nav ul.nav-pages li a {
   display: inline-block;
   width: 100%;
   height: 100%;
   text-align: center;
 }
-nav ul.nav-sections li:hover, nav ul.nav-sections li:focus {
-  background: var(--nav_hover_bg_color);
+nav ul.nav-pages li:hover, nav ul.nav-pages li:focus {
+  background: var(--nav_pages_hover_bgcolor);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
 }
-nav ul.nav-links {
+nav ul.nav-external-links {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3.2rem;
 }
-nav ul.nav-links li {
+nav ul.nav-external-links li {
   width: 100%;
   height: 100%;
 }
-nav ul.nav-links li a {
+nav ul.nav-external-links li a {
   display: block;
   text-align: center;
   width: 100%;
   height: 100%;
 }
-nav ul.nav-links li img {
+nav ul.nav-external-links li img {
   width: 100%;
   height: 100%;
   max-width: 57px;
   max-height: 57px;
 }
 
+@media (max-width: 1200px) {
+  header {
+    display: none;
+    transform: translateX(-100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+@media (max-width: 500px) {
+  header {
+    --navbar_width: 200px;
+  }
+}
 @media (max-width: 500px), (max-height: 650px) {
   nav {
-    --inner_padding: 50px;
+    --navbar_inner_padding: 50px;
   }
-  nav ul.nav-sections li {
+  nav ul.nav-pages li {
     font-size: 2.4rem;
   }
-  nav ul.nav-links {
+  nav ul.nav-external-links {
     gap: 3rem;
   }
 }
@@ -277,7 +357,8 @@ section#home {
   grid-template-rows: max-content;
   grid-template-areas: "title image" "description description";
 }
-section#home article#title, section#home article#description {
+section#home article#title,
+section#home article#description {
   display: flex;
   flex-direction: column;
 }
@@ -306,7 +387,7 @@ section#home article#description {
   font-style: italic;
   color: var(--home_desc_color);
 }
-section#home article#image-wrapper {
+section#home article#portfolio-pic-wrapper {
   grid-area: image;
   display: flex;
   align-items: flex-start;
@@ -315,7 +396,7 @@ section#home article#image-wrapper {
   max-width: max-content;
   filter: drop-shadow(7px -2px 7px var(--secondary_bg2_color)) drop-shadow(-7px 3px 7px var(--secondary_bg1_color)) drop-shadow(0px -3px 3px var(--secondary_bg2_color));
 }
-section#home article#image-wrapper img {
+section#home article#portfolio-pic-wrapper img {
   --home-img-width: 40rem;
   width: var(--home-img-width);
   -webkit-clip-path: circle(at 50% 52%);
@@ -327,7 +408,7 @@ section#home article#image-wrapper img {
   section#home article#title {
     gap: 1rem;
   }
-  section#home article#image-wrapper img {
+  section#home article#portfolio-pic-wrapper img {
     --home-img-width: 33rem;
   }
 }
@@ -335,7 +416,7 @@ section#home article#image-wrapper img {
   section#home {
     gap: 25px;
   }
-  section#home article#image-wrapper img {
+  section#home article#portfolio-pic-wrapper img {
     --home-img-width: 28rem;
   }
 }
@@ -346,12 +427,12 @@ section#home article#image-wrapper img {
   section#home article#title {
     font-size: 4.5rem;
   }
-  section#home article#image-wrapper {
+  section#home article#portfolio-pic-wrapper {
     max-width: inherit;
     display: grid;
     place-items: center;
   }
-  section#home article#image-wrapper img {
+  section#home article#portfolio-pic-wrapper img {
     --home-img-width: 75%;
   }
   section#home article#description {
@@ -409,7 +490,7 @@ section#skills li img#mongodb {
   filter: var(--mongodb-icon-filter);
 }
 
-section#projects article#project-section {
+section#projects article#project {
   display: grid;
   grid-template-areas: "title image" "description image" "links image";
   gap: 15px;
@@ -434,7 +515,7 @@ section#projects .project-number {
   pointer-events: none;
   color: var(--project_number_color);
 }
-section#projects article#project-section:nth-child(2n+1) {
+section#projects article#project:nth-child(2n+1) {
   grid-template-areas: "image title" "image description" "image links";
 }
 section#projects #project-title {
@@ -504,7 +585,7 @@ section#projects #project-img-wrapper img {
   -o-object-position: left;
      object-position: left;
 }
-section#projects #more-projects-wrapper {
+section#projects #more-projects {
   display: block;
   width: 100%;
   display: grid;
@@ -545,12 +626,12 @@ section#projects a#more-projects-link:hover, section#projects a#more-projects-li
 }
 
 @media (max-width: 950px) {
-  section#projects article#project-section {
+  section#projects article#project {
     padding: 30px;
   }
 }
 @media (max-width: 830px) {
-  section#projects article#project-section {
+  section#projects article#project {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -624,82 +705,14 @@ section#projects a#more-projects-link:hover, section#projects a#more-projects-li
     justify-content: space-between;
   }
 }
-@-webkit-keyframes headerAppear {
-  from {
-    display: none;
-    transform: translateX(-100%);
-    pointer-events: none;
-    z-index: -1;
-  }
-  to {
-    display: initial;
-    transform: translateX(0%);
-    pointer-events: all;
-    z-index: 50;
-  }
-}
-@keyframes headerAppear {
-  from {
-    display: none;
-    transform: translateX(-100%);
-    pointer-events: none;
-    z-index: -1;
-  }
-  to {
-    display: initial;
-    transform: translateX(0%);
-    pointer-events: all;
-    z-index: 50;
-  }
-}
-@-webkit-keyframes headerDisappear {
-  from {
-    display: initial;
-    transform: translateX(0%);
-    pointer-events: all;
-    z-index: 50;
-  }
-  to {
-    transform: translateX(-100%);
-    pointer-events: none;
-    z-index: -1;
-    display: none;
-  }
-}
-@keyframes headerDisappear {
-  from {
-    display: initial;
-    transform: translateX(0%);
-    pointer-events: all;
-    z-index: 50;
-  }
-  to {
-    transform: translateX(-100%);
-    pointer-events: none;
-    z-index: -1;
-    display: none;
-  }
-}
 @media (max-width: 1200px) {
   html {
     font-size: 56%;
   }
 
-  header {
-    display: none;
-    transform: translateX(-100%);
-    pointer-events: none;
-    z-index: -1;
-  }
-
   main {
     left: 0;
-    --main-section-width: 100vw;
-  }
-}
-@media (max-width: 500px) {
-  header {
-    --nav_width: 200px;
+    --main_section_width: 100vw;
   }
 }
 @media (max-width: 400px), (max-height: 500px) {

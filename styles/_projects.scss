@@ -1,171 +1,187 @@
-section#projects{
-    // old styles
-    // article#project-section{
-        // border: 2px solid var(--secondary_bg1_color);
-        // border-radius: 10px;
-        // box-shadow: 2px 7px 7px var(--secondary_bg1_color), 2px 10px 7px grey;
-        // transition: all 0.3s ease;
+section#projects {
+  // old styles
+  // article#project{
+  // border: 2px solid var(--secondary_bg1_color);
+  // border-radius: 10px;
+  // box-shadow: 2px 7px 7px var(--secondary_bg1_color), 2px 10px 7px grey;
+  // transition: all 0.3s ease;
+  // }
+
+  // glassified project section
+  article#project {
+    display: grid;
+    grid-template-areas: "title image" "description image" "links image";
+    gap: 15px;
+
+    font-size: 2rem;
+
+    position: relative;
+    overflow: hidden;
+    padding: 50px;
+    margin: 0px 30px 30px;
+
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 5px solid rgba(255, 255, 255, 0.3);
+    border-left: 5px solid rgba(255, 255, 255, 0.3);
+
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+
+    // the rotation takes extra space and makes the page re-render on every frame when the transform changes, so removing this
+    // this is much slow on low end devices
+
+    // transition: all 1s ease;
+    // transform: rotateZ(-1.26deg);
+
+    // &:hover, &:focus{
+    //     transform: scale(1.03, 1.03);
     // }
+  }
 
-    // glassified project section
-    article#project-section{
-        display: grid;
-        grid-template-areas: 'title image' 'description image' 'links image';
-        gap: 15px;
+  .project-number {
+    font-size: 10rem;
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    pointer-events: none; // so that it cannot be selected/copied
+    color: var(--project_number_color);
+  }
 
-        font-size: 2rem;
-        
-        position: relative;
-        overflow: hidden;
-        padding: 50px;
-        margin: 0px 30px 30px;
+  article#project:nth-child(2n + 1) {
+    grid-template-areas: "image title" "image description" "image links";
+  }
 
-        box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
-        background: rgba(255,255,255,0.1);
-        border-top: 5px solid rgba(255,255,255,0.3);
-        border-left: 5px solid rgba(255,255,255,0.3);
+  #project-title {
+    grid-area: title;
+    color: var(--title_font1_color);
+  }
 
-        border-radius: 15px;
-        backdrop-filter: blur(5px);
+  #project-description {
+    grid-area: description;
 
-        // the rotation takes extra space and makes the page re-render on every frame when the transform changes, so removing this
-        // this is much slow on low end devices
+    // sass threw error for width: clamp(30ch, auto, 90ch);, so modified auto to 100%.
+    // minimum 30 characters and max: 90 characters and preferred width is 100%
+    width: clamp(30ch, 100%, 90ch);
+    color: var(--project_desc_color);
+  }
 
-        // transition: all 1s ease;
-        // transform: rotateZ(-1.26deg);
+  #project-links {
+    grid-area: links;
+    height: 100%; // height to be total available space
+    display: flex;
+    align-items: flex-end;
+    gap: 25px;
+  }
 
-        // &:hover, &:focus{
-        //     transform: scale(1.03, 1.03);
-        // }
+  #project-links a {
+    // css variables are used here as css variables are reference oriented, so if I change it for smaller screens, it would affect the usage also
+    --project-link-border-radius: 30px;
+
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    font-weight: 600;
+    background: none;
+    color: var(--project_link_font_color);
+    padding: 10px 15px;
+    border-bottom: 5px solid var(--project_border_color);
+    border-radius: var(--project-link-border-radius);
+    text-align: center;
+    vertical-align: middle;
+    height: fit-content; // height to be its content height
+
+    // mixin used here
+    @include buttonTransparentTTB(
+      linear-gradient(
+        to bottom,
+        var(--project_link_bg1_color),
+        var(--project_link_bg2_color)
+      ),
+      $font-color: var(--project_link_hover_color)
+    );
+
+    &::after {
+      border-radius: var(--project-link-border-radius);
     }
+  }
 
-    .project-number{
-        font-size: 10rem;
-        position: absolute;
-        top: -15px;
-        right: -10px;
-        pointer-events: none; // so that it cannot be selected/copied
-        color: var(--project_number_color);
+  #project-img-wrapper {
+    grid-area: image;
+
+    // center image inside it
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%; // image takes up full width of the image wrapper
+      height: 100%; // take up full height
+      object-fit: cover; // don't stretch just fill
+      object-position: left; // position that to show left part of image, if space is not available much
     }
+  }
 
-    article#project-section:nth-child(2n+1){
-        grid-template-areas: 'image title' 'image description' 'image links';
-    }
+  #more-projects {
+    display: block;
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
 
-    #project-title{
-        grid-area: title;
-        color: var(--title_font1_color);
-    }
+  a#more-projects-link {
+    margin-top: 15px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    letter-spacing: 1.5px;
+    padding: 20px;
+    color: var(--more_projects_btn_color);
+    border: 5px solid var(--secondary_bg2_color);
+    border-radius: 6px;
 
-    #project-description{
-        grid-area: description;
+    background: none;
+    box-shadow: 2px 7px 10px #333;
 
-        // sass threw error for width: clamp(30ch, auto, 90ch);, so modified auto to 100%.
-        // minimum 30 characters and max: 90 characters and preferred width is 100%
-        width: clamp(30ch, 100%, 90ch);
-        color: var(--project_desc_color);
-    }
-
-    #project-links{
-        grid-area: links;
-        height: 100%; // height to be total available space
-        display: flex;
-        align-items: flex-end;
-        gap: 25px;
-    }
-
-    #project-links a{
-        // css variables are used here as css variables are reference oriented, so if I change it for smaller screens, it would affect the usage also
-        --project-link-border-radius: 30px;
-
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-weight: 600;
-        background: none;
-        color: var(--project_link_font_color);
-        padding: 10px 15px;
-        border-bottom: 5px solid var(--project_border_color);
-        border-radius: var(--project-link-border-radius);
-        text-align: center;
-        vertical-align: middle;
-        height: fit-content; // height to be its content height
-
-        // mixin used here
-        @include buttonTransparentTTB(linear-gradient(to bottom, var(--project_link_bg1_color), var(--project_link_bg2_color)), $font-color: var(--project_link_hover_color));
-
-        &::after{
-            border-radius: var(--project-link-border-radius);
-        }
-    }
-
-    #project-img-wrapper{
-        grid-area: image;
-
-        // center image inside it
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img{
-            width: 100%; // image takes up full width of the image wrapper
-            height: 100%; // take up full height
-            object-fit: cover; // don't stretch just fill
-            object-position: left; // position that to show left part of image, if space is not available much
-        }
-    }
-
-    #more-projects-wrapper{
-        display: block;
-        width: 100%;
-        display: grid;
-        place-items: center;
-    }
-
-    a#more-projects-link{
-        margin-top: 15px;
-        font-size: 2.5rem;
-        font-weight: bold;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        letter-spacing: 1.5px;
-        padding: 20px;
-        color: var(--more_projects_btn_color);
-        border: 5px solid var(--secondary_bg2_color);
-        border-radius: 6px;
-
-        background: none;
-        box-shadow: 2px 7px 10px #333;
-
-        // mixin used here
-        @include buttonTransparentLTR(linear-gradient(to right, var(--secondary_bg1_color),var(--secondary_bg2_color)), $font-color: var(--more_projects_hover_color));
-    }
+    // mixin used here
+    @include buttonTransparentLTR(
+      linear-gradient(
+        to right,
+        var(--secondary_bg1_color),
+        var(--secondary_bg2_color)
+      ),
+      $font-color: var(--more_projects_hover_color)
+    );
+  }
 }
 
-@media(max-width: 950px){
-    section#projects{
-        article#project-section{
-            padding: 30px;
-        }
+@media (max-width: 950px) {
+  section#projects {
+    article#project {
+      padding: 30px;
     }
+  }
 }
 
-@media(max-width: 830px){
-    section#projects{
-        article#project-section{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
-        }
+@media (max-width: 830px) {
+  section#projects {
+    article#project {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
     }
+  }
 }
 
-@media(max-width: 700px){
-    section#projects{
-        #project-links{
-            gap: 15px;
-        }
-
-        #project-links a{
-            --project-link-border-radius: 15px;
-        }
+@media (max-width: 700px) {
+  section#projects {
+    #project-links {
+      gap: 15px;
     }
+
+    #project-links a {
+      --project-link-border-radius: 15px;
+    }
+  }
 }
