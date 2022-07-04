@@ -1,105 +1,101 @@
-$hamburger-width: 60px;
-$hamburger-padding: 10px;
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  z-index: 20;
+  background: linear-gradient(
+    to bottom,
+    var(--secondary_bg1_color),
+    var(--secondary_bg2_color)
+  );
 
-.hamburger{
-    position: fixed;
-    top: 3%;
-    right: 3%;
-    z-index: 10;
-    width: $hamburger-width;
-    height: fit-content;
-    max-height: fit-content;
-    padding: $hamburger-padding;
-    margin: 15px;
-    cursor: pointer;
-    clip-path: circle(20px at 60% 55%);
+  height: inherit;
+  min-width: inherit; // take up what's header element takes
 
-    .hamburger-line{
-        display: block;
-        margin-bottom: 5px;
-        background: radial-gradient( var(--secondary_bg1_color), var(--secondary_bg2_color));
-        width: #{'calc(#{$hamburger-width} - #{2*$hamburger-padding})'}; // hamburger width - 2*hamburger padding
-        height: 5.5px;
-    }
+  padding: var(--inner_padding);
 
-    .hamburger-line:last-child{
-        margin-bottom: 0px;
-    }
-}
+  a {
+    color: var(--secondary_font_color);
+  }
 
-nav{
+  img {
+    width: 45px;
+    fill: aliceblue;
+  }
+
+  ul.nav-sections {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: stretch;
-    background: linear-gradient(to bottom, var(--secondary_bg1_color), var(--secondary_bg2_color));
+    margin-bottom: 30px;
 
-    height: inherit;
-    min-width: inherit; // take up what's header element takes
-
-    padding: var(--inner_padding);
-
-    a{
-        color: var(--secondary_font_color);
+    li {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin: 12px 0;
+      width: 100%;
+      padding: 5px 0;
+      letter-spacing: 3px;
     }
 
-    img{
-        width: 45px;
-        fill: aliceblue;
+    li a {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+    }
+  }
+
+  ul.nav-sections li {
+    &:hover,
+    &:focus {
+      background: var(--nav_hover_bg_color);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text; // background clipping helps in text masking
+    }
+  }
+
+  ul.nav-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.2rem;
+
+    li{
+      width: 100%;
+      height: 100%;
     }
 
-    ul.nav-sections{
-        display: flex;
-        flex-direction: column; 
-        justify-content: flex-start;
-        margin-bottom: 30px;
-
-        li{
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin: 12px 0;
-            width: 100%;
-            padding: 5px 0;
-            letter-spacing: 3px;
-        }
-
-        li a{
-            display: inline-block;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-        }
+    li a {
+      display: block; // as anchor tag is display inline, and to change its width and height, we have to do display: block
+      text-align: center; // to center the images inside this anchro tag
+      width: 100%;
+      height: 100%;
     }
 
-    ul.nav-sections li{
-        &:hover, &:focus{
-            background: var(--nav_hover_bg_color);
-            -webkit-text-fill-color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text; // background clipping helps in text masking
-        }
-    }
+    li img {
+      width: 100%;
+      height: 100%;
 
-    ul.nav-links{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3.5rem;
+      // normally, img takes up the total width and height of its parent, but a max width and height is necessary to stop having extra large images
+      max-width: 57px;
+      max-height: 57px;
     }
+  }
 }
 
-// on max-width: 500px or max-height: 600px
-@media(max-width: 500px), (max-height:600px){
-    nav{
-        img{
-            width: 38px;
-        }
+// on max-width: 500px or on max height of 650px
+@media (max-width: 500px), (max-height: 650px) {
+  nav {
+    --inner_padding: 50px;
 
-        ul.nav-sections li{
-            font-size: 2.4rem;
-        }
-    
-        ul.nav-links{
-            gap: 3.1rem;
-        }
+    ul.nav-sections li {
+      font-size: 2.4rem;
     }
+
+    ul.nav-links {
+      gap: 3rem;
+    }
+  }
 }

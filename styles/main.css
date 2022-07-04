@@ -69,6 +69,8 @@ nav width is the width taken by the navbar on left side.
   --font_size: 62.5%;
   --inner_padding: 40px;
   --nav_width: 220px;
+  --action-buttons-spacing: 2%;
+  --action-buttons-bgcolor: rgba(181, 180, 180, 0.4);
 }
 
 /*
@@ -111,15 +113,19 @@ The issue is solved, when I removed the media query and just added simple class 
   --project_link_bg2_color: #fdabad;
   --more_projects_btn_color: #c2a0a2;
   --more_projects_hover_color: rgb(102, 22, 22);
+  --action-buttons-bgcolor: rgba(0, 0, 0, 0.3);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   font-family: "M PLUS Rounded 1c", sans-serif;
   scroll-behavior: smooth;
   width: 100%;
@@ -127,7 +133,17 @@ html, body {
   font-size: var(--font_size);
 }
 
-body, a, button, h1, h2, h3, h4, h5, h6, p, span {
+body,
+a,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
   --mode_transition_duration: 0.2s;
   transition: color var(--mode_transition_duration) ease, background-color var(--mode_transition_duration) ease;
 }
@@ -135,7 +151,6 @@ body, a, button, h1, h2, h3, h4, h5, h6, p, span {
 body {
   background: var(--primary_bg_color);
   color: var(--primary_font_color);
-  display: grid;
   overflow-x: hidden;
 }
 
@@ -179,61 +194,12 @@ main section .sub-heading {
   font-size: 4rem;
 }
 
-#dark-mode-toggler {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  font-size: 2.2rem;
-  position: absolute;
-  top: 3.5%;
-  right: 10.5%;
-  z-index: 10;
-  display: flex;
-  justify-content: flex-end;
-  --dark-mode-toggle-light-icon: url(/icons/moon.svg);
-  --dark-mode-toggle-dark-icon: url(/icons/sun.svg);
-  --dark-mode-toggle-icon-size: 3rem;
-  --dark-mode-toggle-icon-filter: invert(80%);
-  --dark-mode-toggle-color: var(--title_font1_color);
-}
-
-.hamburger {
-  position: fixed;
-  top: 3%;
-  right: 3%;
-  z-index: 10;
-  width: 60px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  max-height: -webkit-fit-content;
-  max-height: -moz-fit-content;
-  max-height: fit-content;
-  padding: 10px;
-  margin: 15px;
-  cursor: pointer;
-  -webkit-clip-path: circle(20px at 60% 55%);
-          clip-path: circle(20px at 60% 55%);
-}
-.hamburger .hamburger-line {
-  display: block;
-  margin-bottom: 5px;
-  background: radial-gradient(var(--secondary_bg1_color), var(--secondary_bg2_color));
-  width: calc(60px - 20px);
-  height: 5.5px;
-}
-.hamburger .hamburger-line:last-child {
-  margin-bottom: 0px;
-}
-
 nav {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+  z-index: 20;
   background: linear-gradient(to bottom, var(--secondary_bg1_color), var(--secondary_bg2_color));
   height: inherit;
   min-width: inherit;
@@ -275,18 +241,34 @@ nav ul.nav-sections li:hover, nav ul.nav-sections li:focus {
 nav ul.nav-links {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3.5rem;
+  gap: 3.2rem;
+}
+nav ul.nav-links li {
+  width: 100%;
+  height: 100%;
+}
+nav ul.nav-links li a {
+  display: block;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+nav ul.nav-links li img {
+  width: 100%;
+  height: 100%;
+  max-width: 57px;
+  max-height: 57px;
 }
 
-@media (max-width: 500px), (max-height: 600px) {
-  nav img {
-    width: 38px;
+@media (max-width: 500px), (max-height: 650px) {
+  nav {
+    --inner_padding: 50px;
   }
   nav ul.nav-sections li {
     font-size: 2.4rem;
   }
   nav ul.nav-links {
-    gap: 3.1rem;
+    gap: 3rem;
   }
 }
 section#home {
@@ -334,7 +316,7 @@ section#home article#image-wrapper {
   filter: drop-shadow(7px -2px 7px var(--secondary_bg2_color)) drop-shadow(-7px 3px 7px var(--secondary_bg1_color)) drop-shadow(0px -3px 3px var(--secondary_bg2_color));
 }
 section#home article#image-wrapper img {
-  --home-img-width: 50rem;
+  --home-img-width: 40rem;
   width: var(--home-img-width);
   -webkit-clip-path: circle(at 50% 52%);
           clip-path: circle(at 50% 52%);
@@ -345,13 +327,16 @@ section#home article#image-wrapper img {
   section#home article#title {
     gap: 1rem;
   }
+  section#home article#image-wrapper img {
+    --home-img-width: 33rem;
+  }
 }
 @media (max-width: 700px), (max-height: 600px) {
   section#home {
     gap: 25px;
   }
   section#home article#image-wrapper img {
-    --home-img-width: 40rem;
+    --home-img-width: 28rem;
   }
 }
 @media (max-width: 600px) {
@@ -367,11 +352,10 @@ section#home article#image-wrapper img {
     place-items: center;
   }
   section#home article#image-wrapper img {
-    --home-img-width: 32rem;
+    --home-img-width: 75%;
   }
   section#home article#description {
     font-size: 2.5rem;
-    color: var(--home_desc_sm_color);
   }
 }
 section#skills ul {
@@ -581,6 +565,65 @@ section#projects a#more-projects-link:hover, section#projects a#more-projects-li
     --project-link-border-radius: 15px;
   }
 }
+.action-buttons {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+  gap: 1%;
+  padding: 1%;
+  background-color: var(--action-buttons-bgcolor);
+}
+
+#dark-mode-toggler {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: 2.2rem;
+  display: flex;
+  justify-content: flex-end;
+  --dark-mode-toggle-light-icon: url(/icons/moon.svg);
+  --dark-mode-toggle-dark-icon: url(/icons/sun.svg);
+  --dark-mode-toggle-icon-size: 3rem;
+  --dark-mode-toggle-icon-filter: invert(80%);
+  --dark-mode-toggle-color: var(--title_font1_color);
+}
+
+.hamburger {
+  width: 60px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  padding: 10px;
+  cursor: pointer;
+  -webkit-clip-path: circle(20px at 60% 55%);
+          clip-path: circle(20px at 60% 55%);
+}
+.hamburger .hamburger-line {
+  display: block;
+  margin-bottom: 5px;
+  background: radial-gradient(var(--secondary_bg1_color), var(--secondary_bg2_color));
+  width: calc(60px - 20px);
+  height: 5.5px;
+}
+.hamburger .hamburger-line:last-child {
+  margin-bottom: 0px;
+}
+
+@media (max-width: 600px) {
+  .action-buttons {
+    justify-content: space-between;
+  }
+}
 @-webkit-keyframes headerAppear {
   from {
     display: none;
@@ -654,10 +697,9 @@ section#projects a#more-projects-link:hover, section#projects a#more-projects-li
     --main-section-width: 100vw;
   }
 }
-@media (max-width: 600px), (max-height: 500px) {
-  #dark-mode-toggler {
-    top: 5%;
-    left: 10%;
+@media (max-width: 500px) {
+  header {
+    --nav_width: 200px;
   }
 }
 @media (max-width: 400px), (max-height: 500px) {

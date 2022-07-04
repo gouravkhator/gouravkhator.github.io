@@ -104,6 +104,11 @@ nav width is the width taken by the navbar on left side.
   --font_size: 62.5%;
   --inner_padding: 40px;
   --nav_width: 220px;
+
+  // action buttons
+  // --action-buttons-spacing: minmax(2.5vw, 2.5vh);
+  --action-buttons-spacing: 2%;
+  --action-buttons-bgcolor: rgba(181, 180, 180, 0.4);
 }
 
 /*
@@ -163,4 +168,7 @@ The issue is solved, when I removed the media query and just added simple class 
   --project_link_bg2_color: #fdabad;
   --more_projects_btn_color: #c2a0a2;
   --more_projects_hover_color: rgb(102, 22, 22);
+
+  // action buttons
+  --action-buttons-bgcolor: rgba(0, 0, 0, 0.3);
 }

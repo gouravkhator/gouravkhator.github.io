@@ -1,254 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="My name is Gourav Khator, an enthusiast web developer having knowledge in MERN Stack and wants to explore deep dive into the scripty world of JavaScript. That's my intro, let's start going.">
-    <meta name="keywords"
-        content="Gourav Khator, portfolio, resume, CV, web developer, webapp builder, web development, javascript, NodeJS, node, expressjs, express, mongodb, reactjs, React">
-    <link rel="shortcut icon" href="./icons/favicon.jpg" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="My name is Gourav Khator, an enthusiast web developer having knowledge in MERN Stack and wants to explore deep dive into the scripty world of JavaScript. That's my intro, let's start going."
+    />
+    <meta
+      name="keywords"
+      content="Gourav Khator, portfolio, resume, CV, web developer, webapp builder, web development, javascript, NodeJS, node, expressjs, express, mongodb, reactjs, React"
+    />
+    <link rel="shortcut icon" href="./icons/favicon.jpg" type="image/x-icon" />
     <title>Gourav Khator | Name of Pride</title>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.css" />
 
-    <script type="module" defer="defer" src="https://unpkg.com/dark-mode-toggle"></script>
-</head>
+    <script
+      type="module"
+      defer="defer"
+      src="https://unpkg.com/dark-mode-toggle"
+    ></script>
+  </head>
 
-<body>
-    <div class="hamburger">
+  <body>
+    <div class="action-buttons">
+      <!-- 
+        Show the "Light Theme" text when it is actually in dark mode, 
+        to let users switch to light theme. And vice versa..
+      -->
+      <dark-mode-toggle
+        id="dark-mode-toggler"
+        legend=""
+        appearance="toggle"
+        permanent
+        dark="Light Theme"
+        light="Dark Theme"
+      >
+      </dark-mode-toggle>
+      <div class="hamburger">
         <div class="hamburger-line"></div>
         <div class="hamburger-line"></div>
         <div class="hamburger-line"></div>
+      </div>
     </div>
 
     <header>
-        <nav>
-            <ul class="nav-sections">
-                <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a target="_blank" href="https://gouravkhator.medium.com/">Articles</a>
-                </li>
-                <li>
-                    <a href="#skills">Skills</a>
-                </li>
-                <li>
-                    <a href="#projects">Projects</a>
-                </li>
-                <li>
-                    <a target="_blank"
-                        href="https://drive.google.com/file/d/1LheHuKCc8MaftpwWwMSkPOGGJjhoAMa_/view?usp=sharing">
-                        Resume
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank"
-                        href="https://drive.google.com/drive/folders/1OiVN4-0BdPpTyPfdgda1E1jnUOI_lEro?usp=sharing">
-                        Certs
-                    </a>
-                </li>
-            </ul>
-            <ul class="nav-links">
-                <li>
-                    <a target="_blank" href="https://github.com/gouravkhator">
-                        <img src="icons/github.svg" alt="Github Profile">
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank" href="https://linkedin.com/in/gouravkhator">
-                        <img src="icons/linkedin.svg" alt="LinkedIn Profile">
-                    </a>
-                </li>
-                <li>
-                    <a href="mailto:gouravkhator9@gmail.com">
-                        <img src="icons/gmail.svg" alt="Connect via Mail">
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank" href="https://twitter.com/_techgo">
-                        <img src="icons/twitter.svg" alt="Twitter Profile">
-                    </a>
-                </li>
-            </ul>
-        </nav>
+      <nav>
+        <ul class="nav-sections">
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a target="_blank" href="https://gouravkhator.medium.com/"
+              >Articles</a
+            >
+          </li>
+          <li>
+            <a href="#skills">Skills</a>
+          </li>
+          <li>
+            <a href="#projects">Projects</a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              href="https://drive.google.com/file/d/1LheHuKCc8MaftpwWwMSkPOGGJjhoAMa_/view?usp=sharing"
+            >
+              Resume
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              href="https://drive.google.com/drive/folders/1OiVN4-0BdPpTyPfdgda1E1jnUOI_lEro?usp=sharing"
+            >
+              Certs
+            </a>
+          </li>
+        </ul>
+        <ul class="nav-links">
+          <li>
+            <a target="_blank" href="https://github.com/gouravkhator">
+              <img src="icons/github.svg" alt="Github Profile" />
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://linkedin.com/in/gouravkhator">
+              <img src="icons/linkedin.svg" alt="LinkedIn Profile" />
+            </a>
+          </li>
+          <li>
+            <a href="mailto:gouravkhator9@gmail.com">
+              <img src="icons/gmail.svg" alt="Connect via Mail" />
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://twitter.com/_techgo">
+              <img src="icons/twitter.svg" alt="Twitter Profile" />
+            </a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-        <section id="home">
-            <article id="title">
-                <span>Hi,</span>
-                <span>I'm Gourav</span>
-                <span>a Web Developer</span>
-            </article>
-            <article id="description">
-                <span>Passionate about learning web development to its extreme.</span>
-                <span>Wish to work on the web specification.</span>
-            </article>
+      <section id="home">
+        <article id="title">
+          <span>Hi,</span>
+          <span>I'm Gourav</span>
+          <span>a Web Developer</span>
+        </article>
+        <article id="description">
+          <span>Passionate about learning web development to its extreme.</span>
+          <span>Wish to work on the web specification.</span>
+        </article>
 
-            <article id="image-wrapper">
-                <img src="./images/portfolio_dp.jpg" alt="Image of Gourav Khator">
-            </article>
-        </section>
+        <article id="image-wrapper">
+          <img src="./images/portfolio_dp.jpeg" alt="Image of Gourav Khator" />
+        </article>
+      </section>
 
-        <section id="skills">
-            <h2 id="skills-heading" class="sub-heading">
-                Skills
-            </h2>
-            <ul>
-                <li>
-                    <span>JavaScript</span>
-                    <img src="./images/javascript_skill.png" alt="JavaScript Skill" id="javascript">
-                </li>
-                <li>
-                    <span>HTML5 and CSS3</span>
-                    <img src="./images/html_css_skill.png" alt="HTML5 and CSS3 Skill">
-                </li>
-                <li>
-                    <span>NodeJS</span>
-                    <img src="./images/nodejs_skill.png" alt="NodeJS Skill" id="nodejs">
-                </li>
-                <li>
-                    <span>ReactJS</span>
-                    <img src="./images/reactjs_skill.jpeg" alt="ReactJS Skill" id="reactjs">
-                </li>
-                <li>
-                    <span>ExpressJS</span>
-                    <img src="./images/expressjs_skill.png" alt="ExpressJS Framework" id="expressjs">
-                </li>
-                <li>
-                    <span>MongoDB</span>
-                    <img src="./images/mongodb_skill.png" alt="MongoDB Skill" id="mongodb">
-                </li>
+      <section id="skills">
+        <h2 id="skills-heading" class="sub-heading">Skills</h2>
+        <ul>
+          <li>
+            <span>JavaScript</span>
+            <img
+              src="./images/javascript_skill.png"
+              alt="JavaScript Skill"
+              id="javascript"
+            />
+          </li>
+          <li>
+            <span>HTML5 and CSS3</span>
+            <img src="./images/html_css_skill.png" alt="HTML5 and CSS3 Skill" />
+          </li>
+          <li>
+            <span>NodeJS</span>
+            <img
+              src="./images/nodejs_skill.png"
+              alt="NodeJS Skill"
+              id="nodejs"
+            />
+          </li>
+          <li>
+            <span>ReactJS</span>
+            <img
+              src="./images/reactjs_skill.jpeg"
+              alt="ReactJS Skill"
+              id="reactjs"
+            />
+          </li>
+          <li>
+            <span>ExpressJS</span>
+            <img
+              src="./images/expressjs_skill.png"
+              alt="ExpressJS Framework"
+              id="expressjs"
+            />
+          </li>
+          <li>
+            <span>MongoDB</span>
+            <img
+              src="./images/mongodb_skill.png"
+              alt="MongoDB Skill"
+              id="mongodb"
+            />
+          </li>
+        </ul>
+      </section>
 
-            </ul>
-        </section>
+      <section id="projects">
+        <h2 id="projects-heading" class="sub-heading">Projects</h2>
+        <div id="projects-section-wrapper">
+          <article id="project-section">
+            <h3 class="project-number">01</h3>
+            <h2 id="project-title">Guddu Collection PWA</h2>
 
-        <section id="projects">
-            <h2 id="projects-heading" class="sub-heading">Projects</h2>
-            <div id="projects-section-wrapper">
-                <article id="project-section">
-                    <h3 class="project-number">01</h3>
-                    <h2 id="project-title">
-                        Guddu Collection PWA
-                    </h2>
-
-                    <div id="project-img-wrapper">
-                        <img src="images/guddu_collection_project_ss.png" alt="Guddu Collection Project Image">
-                    </div>
-
-                    <p id="project-description">
-                        A Progressive WebApp built with ReactJS and Firebase with a mindset to showcase fashion at
-                        the
-                        doorsteps. <br><br>
-                        This webapp works offline too.
-                    </p>
-
-                    <div id="project-links">
-                        <a href="https://github.com/gouravkhator/guddu-collection" target="_blank" id="code-link">View
-                            Source Code</a>
-                        <a href="https://guddu-collection.netlify.app/" target="_blank" id="website-link">View
-                            Live</a>
-                    </div>
-                </article>
-
-                <article id="project-section">
-                    <h3 class="project-number">02</h3>
-                    <h2 id="project-title">
-                        Ebooks Go WebApp
-                    </h2>
-
-                    <div id="project-img-wrapper">
-                        <img src="./images/ebooks_project_ss.png" alt="Ebooks Go App Project Image">
-                    </div>
-
-                    <p id="project-description">
-                        A webapp to purchase ebooks using Credit cards. Uses Stripe API for payment integration.
-                        <br><br>
-                        NodeJS in
-                        the backend with EJS as the frontend templating engine.
-                    </p>
-
-                    <div id="project-links">
-                        <a href="https://github.com/gouravkhator/Ebooks-go-app" target="_blank" id="code-link">
-                            View Source Code
-                        </a>
-                        <a id="website-link" href="https://ebooks-goapp.herokuapp.com/" target="_blank">
-                            View Live
-                        </a>
-                    </div>
-                </article>
-
-                <article id="project-section">
-                    <h3 class="project-number">03</h3>
-                    <h2 id="project-title">
-                        Booklys WebApp
-                    </h2>
-
-                    <div id="project-img-wrapper">
-                        <img src="./images/booklys_project_ss.png" alt="Booklys Project Image">
-                    </div>
-
-                    <p id="project-description">
-                        An open library for the users by the users. This allows users to create, edit and delete authors
-                        and
-                        their published books.
-                        <br><br> NodeJS in the backend with EJS as the frontend templating engine.
-                    </p>
-
-                    <div id="project-links">
-                        <a href="https://github.com/gouravkhator/Bookly" target="_blank" id="code-link">View Source
-                            Code</a>
-                        <a id="website-link" href="https://booklys.herokuapp.com/" target="_blank">View Live</a>
-                    </div>
-                </article>
-
-                <article id="project-section">
-                    <h3 class="project-number">04</h3>
-                    <h2 id="project-title">
-                        SayRecipes
-                    </h2>
-
-                    <div id="project-img-wrapper">
-                        <img src="./images/sayrecipes_project_ss.png" alt="SayRecipes Project Image">
-                    </div>
-
-                    <p id="project-description">
-                        A webapp to search and get recipes and ingredients for various popular dishes.
-                        <br><br> ReactJS in the frontend, with Edamam API to fetch recipes data.
-                    </p>
-
-                    <div id="project-links">
-                        <a href="https://github.com/gouravkhator/Say-Recipes" target="_blank" id="code-link">View Source
-                            Code</a>
-                        <a id="website-link" href="https://sayrecipe.netlify.app/" target="_blank">View Live</a>
-                    </div>
-                </article>
+            <div id="project-img-wrapper">
+              <img
+                src="images/guddu_collection_project_ss.png"
+                alt="Guddu Collection Project Image"
+              />
             </div>
 
-            <div id="more-projects-wrapper">
-                <a target="_blank" href="https://github.com/gouravkhator/" id="more-projects-link">More Projects</a>
+            <p id="project-description">
+              A Progressive WebApp built with ReactJS and Firebase with a
+              mindset to showcase fashion at the doorsteps. <br /><br />
+              This webapp works offline too.
+            </p>
+
+            <div id="project-links">
+              <a
+                href="https://github.com/gouravkhator/guddu-collection"
+                target="_blank"
+                id="code-link"
+                >View Source Code</a
+              >
+              <a
+                href="https://guddu-collection.netlify.app/"
+                target="_blank"
+                id="website-link"
+                >View Live</a
+              >
             </div>
-        </section>
+          </article>
+
+          <article id="project-section">
+            <h3 class="project-number">02</h3>
+            <h2 id="project-title">Ebooks Go WebApp</h2>
+
+            <div id="project-img-wrapper">
+              <img
+                src="./images/ebooks_project_ss.png"
+                alt="Ebooks Go App Project Image"
+              />
+            </div>
+
+            <p id="project-description">
+              A webapp to purchase ebooks using Credit cards. Uses Stripe API
+              for payment integration.
+              <br /><br />
+              NodeJS in the backend with EJS as the frontend templating engine.
+            </p>
+
+            <div id="project-links">
+              <a
+                href="https://github.com/gouravkhator/Ebooks-go-app"
+                target="_blank"
+                id="code-link"
+              >
+                View Source Code
+              </a>
+              <a
+                id="website-link"
+                href="https://ebooks-goapp.herokuapp.com/"
+                target="_blank"
+              >
+                View Live
+              </a>
+            </div>
+          </article>
+
+          <article id="project-section">
+            <h3 class="project-number">03</h3>
+            <h2 id="project-title">Booklys WebApp</h2>
+
+            <div id="project-img-wrapper">
+              <img
+                src="./images/booklys_project_ss.png"
+                alt="Booklys Project Image"
+              />
+            </div>
+
+            <p id="project-description">
+              An open library for the users by the users. This allows users to
+              create, edit and delete authors and their published books.
+              <br /><br />
+              NodeJS in the backend with EJS as the frontend templating engine.
+            </p>
+
+            <div id="project-links">
+              <a
+                href="https://github.com/gouravkhator/Bookly"
+                target="_blank"
+                id="code-link"
+                >View Source Code</a
+              >
+              <a
+                id="website-link"
+                href="https://booklys.herokuapp.com/"
+                target="_blank"
+                >View Live</a
+              >
+            </div>
+          </article>
+
+          <article id="project-section">
+            <h3 class="project-number">04</h3>
+            <h2 id="project-title">SayRecipes</h2>
+
+            <div id="project-img-wrapper">
+              <img
+                src="./images/sayrecipes_project_ss.png"
+                alt="SayRecipes Project Image"
+              />
+            </div>
+
+            <p id="project-description">
+              A webapp to search and get recipes and ingredients for various
+              popular dishes.
+              <br /><br />
+              ReactJS in the frontend, with Edamam API to fetch recipes data.
+            </p>
+
+            <div id="project-links">
+              <a
+                href="https://github.com/gouravkhator/Say-Recipes"
+                target="_blank"
+                id="code-link"
+                >View Source Code</a
+              >
+              <a
+                id="website-link"
+                href="https://sayrecipe.netlify.app/"
+                target="_blank"
+                >View Live</a
+              >
+            </div>
+          </article>
+        </div>
+
+        <div id="more-projects-wrapper">
+          <a
+            target="_blank"
+            href="https://github.com/gouravkhator/"
+            id="more-projects-link"
+            >More Projects</a
+          >
+        </div>
+      </section>
     </main>
 
-    <!-- 
-        Show the "Light Theme" text when it is actually in dark mode, 
-        to let users switch to light theme. And vice versa..
-    -->
-    <dark-mode-toggle id="dark-mode-toggler" legend="" appearance="toggle" permanent dark="Light Theme" light="Dark Theme">
-    </dark-mode-toggle>
-
-    <script src="./scripts/nav_script.js"></script>
+    <script src="./scripts/navbar_hide_unhide_script.js"></script>
 
     <!-- Dark mode updater js is loaded here, so that if the user clicks on the toggle, this js can listen to that event change and can toggle the dark mode or light mode -->
     <script src="./scripts/dark_mode_updater.js"></script>
-</body>
-
+  </body>
 </html>

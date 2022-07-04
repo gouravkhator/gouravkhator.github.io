@@ -1,181 +1,175 @@
 @import "./utilities/variables";
 @import "./utilities/mixins";
 
-*, *::before, *::after{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html, body{
-    font-family: 'M PLUS Rounded 1c', sans-serif;
+html,
+body {
+  font-family: "M PLUS Rounded 1c", sans-serif;
 
-    scroll-behavior: smooth; // so that on traversing to any section via links, we can get smooth automatic traversal
-    width: 100%;
-    height: 100%;
-    
-    font-size: var(--font_size);
-    // this is set in html element or root element so that we can use rem which works relative to the root element only
-    //in em, the font-size works relative to its parent element
+  scroll-behavior: smooth; // so that on traversing to any section via links, we can get smooth automatic traversal
+  width: 100%;
+  height: 100%;
+
+  font-size: var(--font_size);
+  // this is set in html element or root element so that we can use rem which works relative to the root element only
+  //in em, the font-size works relative to its parent element
 }
 
 // transition of color change to be smooth (light to dark or dark to light or other color changes)
-body, a, button, h1, h2, h3, h4, h5, h6, p, span{
-    --mode_transition_duration: 0.2s;
+body,
+a,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  --mode_transition_duration: 0.2s;
 
-    transition: color var(--mode_transition_duration) ease, background-color var(--mode_transition_duration) ease;
+  transition: color var(--mode_transition_duration) ease,
+    background-color var(--mode_transition_duration) ease;
 }
 
-body{
-    background: var(--primary_bg_color);
-    color: var(--primary_font_color);
+body {
+  background: var(--primary_bg_color);
+  color: var(--primary_font_color);
 
-    display: grid;
-    overflow-x: hidden;
-    
-    // ! Issue: body does not fill full height of main element so, I think it slows rendering and does cumulative layouts shifts for some elements 
+  overflow-x: hidden;
+
+  // ! Issue: body does not fill full height of main element so, I think it slows rendering and does cumulative layouts shifts for some elements
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
-ul{
-   list-style: none;
+ul {
+  list-style: none;
 }
 
 // icon image filter to be contrasty with light and dark mode
 img[src*=".svg"] {
-    filter: var(--icon-filter);
+  filter: var(--icon-filter);
 }
 
-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 50;
-    height: inherit; 
-    // height 100vh just makes that 100vh but as we scroll, if some part of header scrolls up, then we see white gaps below. So, do height inherit to inherit the parent element
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 50;
+  height: inherit;
+  // height 100vh just makes that 100vh but as we scroll, if some part of header scrolls up, then we see white gaps below. So, do height inherit to inherit the parent element
 
-    width: var(--nav_width); // to make that width perfect
-    max-width: var(--nav_width); // to not overflow from taking more width
+  width: var(--nav_width); // to make that width perfect
+  max-width: var(--nav_width); // to not overflow from taking more width
 }
 
-main{
-    position: absolute;
-    left: var(--nav_width);
-    top: 0;
-    right: 0;
+main {
+  position: absolute;
+  left: var(--nav_width);
+  top: 0;
+  right: 0;
 
-    // 95vw so that it leaves space for padding and margin
-    // and subtract nav_width as its for header
-    // here as $nav_width will not get compiled inside calc function so using literals
-    // --main-section-width: #{'calc(95vw - #{$nav_width})'};
-    --main-section-width: calc(95vw - var(--nav_width));
+  // 95vw so that it leaves space for padding and margin
+  // and subtract nav_width as its for header
+  // here as $nav_width will not get compiled inside calc function so using literals
+  // --main-section-width: #{'calc(95vw - #{$nav_width})'};
+  --main-section-width: calc(95vw - var(--nav_width));
 
-    width: var(--main-section-width);
-    max-width: var(--main-section-width);
+  width: var(--main-section-width);
+  max-width: var(--main-section-width);
 
-    // padding inside main
-    padding: calc(var(--inner_padding) + 10px);
+  // padding inside main
+  padding: calc(var(--inner_padding) + 10px);
 
-    // for each section, width: auto and its not needed to be specified
-    section{
-        // padding in each section to avoid sticking with each other
-        padding: 30px 0;
+  // for each section, width: auto and its not needed to be specified
+  section {
+    // padding in each section to avoid sticking with each other
+    padding: 30px 0;
 
-        .sub-heading{
-            font-size: 4rem;
-        }
+    .sub-heading {
+      font-size: 4rem;
     }
-}
-
-#dark-mode-toggler{
-    width: fit-content;
-    height: fit-content;
-    font-size: 2.2rem;
-    position: absolute;
-    top: 3.5%;
-    right: 10.5%;
-    z-index: 10;
-    display: flex;
-    justify-content: flex-end;
-
-    // custom icons for the toggler
-    --dark-mode-toggle-light-icon: url(/icons/moon.svg);
-    --dark-mode-toggle-dark-icon: url(/icons/sun.svg);
-    --dark-mode-toggle-icon-size: 3rem; // icon size
-    --dark-mode-toggle-icon-filter: invert(80%);
-    --dark-mode-toggle-color: var(--title_font1_color); // toggler text color
+  }
 }
 
 @import "./nav";
 @import "./home";
 @import "./skills";
 @import "./projects";
+@import "./action_buttons";
 
 // header element animate on click of hamburger or outside click
-@keyframes headerAppear{
-    from{
-        display: none;
-        transform: translateX(-100%);
-        pointer-events: none;
-        z-index: -1;
-    }
-    to{
-        display: initial;
-        transform: translateX(0%);
-        pointer-events: all;
-        z-index: 50;
-    }
+@keyframes headerAppear {
+  from {
+    display: none;
+    transform: translateX(-100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  to {
+    display: initial;
+    transform: translateX(0%);
+    pointer-events: all;
+    z-index: 50;
+  }
 }
 
-@keyframes headerDisappear{
-    from{
-        display: initial;
-        transform: translateX(0%);
-        pointer-events: all;
-        z-index: 50;
-    }
-    to{
-        transform: translateX(-100%);
-        pointer-events: none;
-        z-index: -1;
-        display: none;
-    }
+@keyframes headerDisappear {
+  from {
+    display: initial;
+    transform: translateX(0%);
+    pointer-events: all;
+    z-index: 50;
+  }
+  to {
+    transform: translateX(-100%);
+    pointer-events: none;
+    z-index: -1;
+    display: none;
+  }
 }
 
-@media(max-width: 1200px){
-    html{
-        font-size: 56%;
-        // this font-size change affects every places where I used rem/em units
-    }
+@media (max-width: 1200px) {
+  html {
+    font-size: 56%;
+    // this font-size change affects every places where I used rem/em units
+  }
 
-    // initially hide the header and on hamburger click, unhide this header via headerAppear animation and hide via headerDisappear animation
-    header{
-        display: none;
-        transform: translateX(-100%);
-        pointer-events: none;
-        z-index: -1;
-    }
+  // initially hide the header and on hamburger click, unhide this header via headerAppear animation and hide via headerDisappear animation
+  header {
+    display: none;
+    transform: translateX(-100%);
+    pointer-events: none;
+    z-index: -1;
+  }
 
-    main{
-        left: 0;
-        --main-section-width: 100vw;
-    }
+  main {
+    left: 0;
+    --main-section-width: 100vw;
+  }
 }
 
-@media(max-width: 600px), (max-height: 500px){
-    #dark-mode-toggler{
-        top: 5%;
-        left: 10%;
-    }
+@media (max-width: 500px) {
+  header {
+    --nav_width: 200px;
+  }
 }
 
-@media(max-width: 400px), (max-height: 500px){
-    main{
-        // in max width of 400px, decrease padding to 25px
-        padding: 25px;
-    }
+@media (max-width: 400px), (max-height: 500px) {
+  main {
+    // in max width of 400px, decrease padding to 25px
+    padding: 25px;
+  }
 }

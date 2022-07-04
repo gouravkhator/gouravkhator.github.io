@@ -1,0 +1,60 @@
+$hamburger-width: 60px;
+$hamburger-padding: 10px;
+
+.action-buttons {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+  gap: 1%;
+  padding: 1%;
+  background-color: var(--action-buttons-bgcolor);
+}
+
+#dark-mode-toggler {
+  width: fit-content;
+  height: fit-content;
+  font-size: 2.2rem;
+  display: flex;
+  justify-content: flex-end;
+
+  // custom icons for the toggler
+  --dark-mode-toggle-light-icon: url(/icons/moon.svg);
+  --dark-mode-toggle-dark-icon: url(/icons/sun.svg);
+  --dark-mode-toggle-icon-size: 3rem; // icon size
+  --dark-mode-toggle-icon-filter: invert(80%);
+  --dark-mode-toggle-color: var(--title_font1_color); // toggler text color
+}
+
+.hamburger {
+  width: $hamburger-width;
+  height: fit-content;
+  max-height: fit-content;
+  padding: $hamburger-padding;
+  cursor: pointer;
+  clip-path: circle(20px at 60% 55%);
+
+  .hamburger-line {
+    display: block;
+    margin-bottom: 5px;
+    background: radial-gradient(
+      var(--secondary_bg1_color),
+      var(--secondary_bg2_color)
+    );
+    width: #{"calc(#{$hamburger-width} - #{2*$hamburger-padding})"}; // hamburger width - 2*hamburger padding
+    height: 5.5px;
+  }
+
+  .hamburger-line:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .action-buttons {
+    justify-content: space-between;
+  }
+}

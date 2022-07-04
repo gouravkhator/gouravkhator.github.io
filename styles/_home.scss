@@ -53,7 +53,7 @@ section#home{
         // }
         
         img{
-            --home-img-width: 50rem;
+            --home-img-width: 40rem;
             // $clippedSize: calc(0.4*$width);
             width: var(--home-img-width);
             clip-path: circle(at 50% 52%);
@@ -77,6 +77,10 @@ section#home{
         article#title{
             gap: 1rem;
         }
+
+        article#image-wrapper img{
+            --home-img-width: 33rem;
+        }
     }
 }
 
@@ -84,7 +88,7 @@ section#home{
     section#home{
         gap: 25px;
         article#image-wrapper img{
-            --home-img-width: 40rem;
+            --home-img-width: 28rem;
         }
     }
 }
@@ -105,13 +109,12 @@ section#home{
             place-items: center;
 
             img{
-                --home-img-width: 32rem;
+                --home-img-width: 75%;
             }
         }
 
         article#description{
             font-size: 2.5rem;
-            color: var(--home_desc_sm_color);
         }
     }
 }
