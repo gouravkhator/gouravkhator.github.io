@@ -578,12 +578,13 @@ section#projects #project-img-wrapper {
   align-items: center;
 }
 section#projects #project-img-wrapper img {
-  width: 100%;
+  width: 95%;
   height: 100%;
+  aspect-ratio: 1.5;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: left;
-     object-position: left;
+  -o-object-position: 5px 5%;
+     object-position: 5px 5%;
 }
 section#projects #more-projects {
   display: block;
@@ -637,6 +638,15 @@ section#projects a#more-projects-link:hover, section#projects a#more-projects-li
     justify-content: space-evenly;
     align-items: center;
   }
+  section#projects #project-img-wrapper img {
+    /*
+    as the main project section is vertically aligned, 
+    so we can decrease its width and height percentage,
+    to not make it seem extra large while viewing it
+    */
+    width: 90%;
+    height: 80%;
+  }
 }
 @media (max-width: 700px) {
   section#projects #project-links {
@@ -644,6 +654,15 @@ section#projects a#more-projects-link:hover, section#projects a#more-projects-li
   }
   section#projects #project-links a {
     --project-link-border-radius: 15px;
+  }
+  section#projects #project-img-wrapper img {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (max-width: 450px) {
+  section#projects #project-description {
+    width: 95%;
   }
 }
 .action-buttons {
@@ -709,7 +728,6 @@ section#projects a#more-projects-link:hover, section#projects a#more-projects-li
   html {
     font-size: 56%;
   }
-
   main {
     left: 0;
     --main_section_width: 100vw;

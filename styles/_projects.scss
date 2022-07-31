@@ -114,10 +114,13 @@ section#projects {
     align-items: center;
 
     img {
-      width: 100%; // image takes up full width of the image wrapper
-      height: 100%; // take up full height
-      object-fit: cover; // don't stretch just fill
-      object-position: left; // position that to show left part of image, if space is not available much
+      // width and height are not fixed, but we fix the aspect-ratio which is calculated as width/height
+      // this is done to keep the image responsive, whilst keeping aspect-ratio intact
+      width: 95%;
+      height: 100%;
+      aspect-ratio: 1.5;
+      object-fit: cover;
+      object-position: 5px 5%;
     }
   }
 
@@ -171,6 +174,16 @@ section#projects {
       justify-content: space-evenly;
       align-items: center;
     }
+
+    #project-img-wrapper img {
+      /*
+      as the main project section is vertically aligned, 
+      so we can decrease its width and height percentage,
+      to not make it seem extra large while viewing it
+      */
+      width: 90%;
+      height: 80%;
+    }
   }
 }
 
@@ -182,6 +195,22 @@ section#projects {
 
     #project-links a {
       --project-link-border-radius: 15px;
+    }
+
+    #project-img-wrapper img {
+      // on smaller screens, we can again make it larger
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  section#projects {
+    #project-description {
+      // so that we don't rely on characters count
+      // rather we have the width of 95% of the total width allowed for this project description..
+      width: 95%;
     }
   }
 }
