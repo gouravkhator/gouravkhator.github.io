@@ -75,13 +75,13 @@ font size for the root element.
 }
 
 /*
-Note: Don't use media query for color scheme checking..
+Note: Don't use media query in css/sass/scss, for color scheme checking and dark/light mode toggling..
 
-It is because, our code somehow was not triggering the color scheme change in css end.
-But it was listening for colorschemechange events..
-And it was causing dark/light mode toggles to not work as expected..
+It is because, our code somehow was not triggering the color-scheme changes at the css end.
+But it was listening for `colorschemechange` events..
+And due to the media query and this weird behaviour, the dark/light mode toggles didn't behave like we expected..
 
-The issue is solved, when I removed the media query and just added simple class based color changes.
+The issue is solved after I removed the media query, and just added a simple class-based color-scheme.
 */
 :root.dark {
   --primary_bg_color: radial-gradient(rgb(39, 35, 35), rgb(44, 36, 36));
@@ -186,11 +186,15 @@ main {
   max-width: var(--main_section_width);
   padding: 45px;
 }
-main section {
-  padding: 30px 0;
-}
 main section .sub-heading {
   font-size: 4rem;
+}
+main section#home,
+main section#skills {
+  margin: 30px 0px 0px 0px;
+}
+main section#projects {
+  margin: 0px;
 }
 
 header {
@@ -490,6 +494,9 @@ section#skills li img#mongodb {
   filter: var(--mongodb-icon-filter);
 }
 
+section#projects #projects-heading {
+  margin-bottom: 10px;
+}
 section#projects article#project {
   display: grid;
   grid-template-areas: "title image" "description image" "links image";
@@ -638,11 +645,13 @@ section#projects a#more-projects-link:hover, section#projects a#more-projects-li
     justify-content: space-evenly;
     align-items: center;
   }
+  section#projects #project-title {
+    text-align: center;
+  }
   section#projects #project-img-wrapper img {
     /*
     as the main project section is vertically aligned, 
-    so we can decrease its width and height percentage,
-    to not make it seem extra large while viewing it
+    so we should decrease its width and height percentage to not make the project image seem extra large
     */
     width: 90%;
     height: 80%;
@@ -656,6 +665,12 @@ section#projects a#more-projects-link:hover, section#projects a#more-projects-li
     --project-link-border-radius: 15px;
   }
   section#projects #project-img-wrapper img {
+    /*
+    as the main project section is vertically aligned 
+    but the screen is now smaller at max width of 700px, 
+    so we can make the image width and height to 100% again, 
+    so that it looks better on smaller screens (at max-width: 700px)
+    */
     width: 100%;
     height: 100%;
   }

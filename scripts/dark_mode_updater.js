@@ -1,7 +1,7 @@
 const htmlElement = document.documentElement;
 const toggle = document.querySelector("dark-mode-toggle");
 
-// Set or remove the `dark` class the first time.
+// Add or remove the `dark` class the first time.
 toggle.mode === "dark"
   ? htmlElement.classList.add("dark")
   : htmlElement.classList.remove("dark");

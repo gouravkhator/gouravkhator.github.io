@@ -11,6 +11,7 @@ A portfolio, centering my past **achievements**, my present **passions**, and my
 - [x] Certifications External Link
 - [x] Resume Link
 - [x] Non-Technical Articles Link
+- [x] Dark/Light Mode toggler
 - [ ] Tags for languages/frameworks used, rather than adding them in project description..
 - [ ] Change the text after "I'm Gourav" dynamically with characters getting deleted and then inserted with other text like "a Passionate Systems Programmer".
 - [ ] Experiences Section

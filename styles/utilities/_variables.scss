@@ -73,7 +73,7 @@ font size for the root element.
   --title_font1_color: rgb(59, 4, 4);
   --title_font2_color: rgb(129, 62, 62);
 
-  // background gradients of the navbar's links hover 
+  // background gradients of the navbar's links hover
   --nav_pages_hover_bgcolor: linear-gradient(
     to right,
     rgb(184, 246, 220),
@@ -115,17 +115,17 @@ font size for the root element.
 }
 
 /*
-Note: Don't use media query for color scheme checking..
+Note: Don't use media query in css/sass/scss, for color scheme checking and dark/light mode toggling..
 
-It is because, our code somehow was not triggering the color scheme change in css end.
-But it was listening for colorschemechange events..
-And it was causing dark/light mode toggles to not work as expected..
+It is because, our code somehow was not triggering the color-scheme changes at the css end.
+But it was listening for `colorschemechange` events..
+And due to the media query and this weird behaviour, the dark/light mode toggles didn't behave like we expected..
 
-The issue is solved, when I removed the media query and just added simple class based color changes.
+The issue is solved after I removed the media query, and just added a simple class-based color-scheme.
 */
 
 // when user preference is dark mode, then add class dark from the javascript
-// this class 'dark' is also added even when automatic color scheme changes
+// this class 'dark' is also added, even on changes of automatic color scheme
 :root.dark {
   --primary_bg_color: radial-gradient(rgb(39, 35, 35), rgb(44, 36, 36));
 

@@ -83,14 +83,21 @@ main {
   // padding inside main section
   padding: 45px;
 
-  // for each section, width: auto and its not needed to be specified
+  // for each section, `width: auto` is not required to be specified
   section {
-    // padding in each section to avoid sticking with each other
-    padding: 30px 0;
-
     .sub-heading {
       font-size: 4rem;
     }
+  }
+
+  // only adding top margin to the sections, which sticks to each other without leaving any gap in between
+  section#home,
+  section#skills {
+    margin: 30px 0px 0px 0px;
+  }
+
+  section#projects {
+    margin: 0px;
   }
 }
 
